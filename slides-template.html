@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>TITLE</title>
+    <script src="lib/slides.js" type="text/javascript"></script>
+    <script src="lib/jslib.js" type="text/javascript"></script>
+    <script src="lib/state.js" type="text/javascript"></script>
+    <script src="lib/state_util.js" type="text/javascript"></script>
+    <link href="lib/slides.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <link href="lib/slides-print.css" rel="stylesheet" type="text/css"
+          media="print"/>
+
+    <script src="lib/prettify.js"></script>
+    <link href="lib/prettify.css" rel="stylesheet" type="text/css"/>    
+
+    <style>
+    </style>
+  </head>
+
+  <body onload="initslides();prettyPrint()">
+
+    <div class="header">
+      <div id="navigator"></div>
+    </div>
+    
+    <div id="slides" class="slides">
+      <div class="slide print title" group="title">
+        <h1>[TITLE]</h1>
+
+        <div class="bottom" style="bottom:20px">
+          <h2 class="venue">[VENUE], [DATE], [LOCATION]</h2>
+        </div>
+      </div>
+      
+
+      <div class="slide print" group="content">
+        <h1>Title</h1>
+        <div>Section:</div>
+        <ul>
+          <li>Bullet point</li>
+        </ul>
+      </div>
+        
+      <div class="slide noprint" group="intermission">
+        <div class="banner">
+          <div class="semiopaque"></div>
+          <div class="content">
+            Intermission
+          </div>
+        </div>
+      </div>
+
+      <div class="slide print" group="content">
+        <h1>Code Snippets</h1>
+        <div class="snippet">
+          <div class="label">state_base.js</div>
+        <pre class="prettyprint">
+function $(id) {
+  return document.getElementById(id);
+}</pre>
+        </div>
+      </div>
+
+      <div class="slide noprint"></div>
+    </div>
+
+    <div class="footer">
+      <div class="author">[TITLE] &#8212; [VENUE], [DATE] &#8212;
+      Steffen Meschkat, Google</div>
+      <div class="title"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Maps API Slides</title>
+
+    <script src="lib/jslib.js"></script>
+
+    <script src="lib/slides.js"></script>
+    <link href="lib/slides-gdd.css" rel="stylesheet" type="text/css"/>
+
+    <script src="lib/load_api.js" language="JavaScript"></script>
+    <script src="lib/state.js" language="JavaScript"></script>
+    <script src="lib/state_util.js" language="JavaScript"></script>
+    
+    <script src="lib/mapsapi.js"></script>
+    <link href="lib/mapsapi.css" rel="stylesheet" type="text/css"/>    
+
+    <script src="lib/prettify.js"></script>
+    <link href="lib/prettify.css" rel="stylesheet" type="text/css"/>    
+  </head>
+
+  <body onload="initmap('paloalto');initslides();prettyPrint()"
+        onunload="GUnload()">
+
+    <div id="bgpage" class="background">
+      <div id="bgmap" class="background"></div>
+    </div>
+
+    <div id="shade" class="shade"></div>
+
+    <div class="header"></div>
+
+    <div id="footer" class="footer">
+      <div id="navigator"></div>
+    </div>
+
+    <img id="logo2" class="logo position-corner-lr"
+         src="lib/google-cubes.png"/>
+
+    <div id="slides" class="slides">
+      <div class="slide title"
+           onshow="d0('navigator','footer','logo','logo2');v0('bgpage')"
+           onhide="d1('navigator','footer','logo','logo2');v1('bgpage')">
+        
+        <!-- div style="
+             position:relative;
+             float:left;
+             top:-1em;
+             background-color:#0078d4;
+             padding:1em;
+             padding-top:4em;
+             padding-right:2em;
+             ">
+          <span style="color:#001d38">Google</span><br/>
+          <span style="color:#ffffff">Developer</span><br/>
+          <span style="color:#ffffff">Day</span>
+          <span style="color:#389aff">2007</span>
+        </div -->
+        
+        <div style="position:relative;clear:both">
+          <div style="font-size:130%;font-weight:bold;white-space:nowrap">
+            Maps API Slides
+          </div>
+        </div>
+        
+        <div style="position:relative;"
+             class="venue">
+          <div style="font-size:100%;color:gray;font-weight:bold">
+            Steffen Meschkat
+          </div>
+        </div>
+
+        <img src="lib/google-cubes-larger.png"
+             style="position:absolute;bottom:0.1em;right:0.1em;"/>
+             
+        <div style="position:absolute;bottom:1em;
+        font-size:70%;color:gray">Copyright 2007 Google, Inc.</div>
+      </div>
+      
+      <!-- div class="slide">
+        <iframe style="width:100%;height:100%;border:1px solid silver"
+                src="about:blank"
+        xsrc="http://maps.google.com/"></iframe>
+      </div -->
+
+      <div class="slide">
+        <h1>Features</h1>
+        <ul>
+          <li>Single HTML file; slides are DIVs</li>
+          <li>Navigation by click on nav indicator and by keyboard cursor keys</li>
+          <li>Browser history and bookmarks work</li>
+          <li>Fully functional maps API application (press 1 any time)</li>
+          <li>Embedded iframes load only on display</li>
+          <li>onshow/onhide event handlers on slides</li>
+          <li>Progressive display</li>
+          <li>Syntax highlighting for code fragments</li>
+        </ul>
+      </div>
+      
+      <div class="slide"></div>
+    </div>
+  </body>
+</html>
