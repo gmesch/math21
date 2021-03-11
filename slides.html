@@ -11,10 +11,8 @@
     <script src="lib/state.js"></script>
     <script src="lib/state_util.js"></script>
     
-    <script src="lib/prettify.js"></script>
-    <link href="lib/prettify.css" rel="stylesheet">    
-    
     <script src="mathjax/tex-mml-chtml.js" async></script>
+    <script src="prettify/run_prettify.js?autorun=false&lang=scm" async></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Oswald&family=Roboto&display=swap"
@@ -23,7 +21,11 @@
     <script>
       function init() {
         initslides();
-        prettyPrint();
+
+        preAdjust();
+        PR.prettyPrint();
+
+        console.log('slides init done');
       }
     </script>
   </head>
@@ -131,6 +133,24 @@
         </div>
       </div>
       
+      <div class="slide print" group="content">
+        <h1>Code Snippets</h1>
+        <div class="snippet">
+          <div class="label">state_base.js</div>
+          <pre class="prettyprint lang-scm">
+            (friends '(of) '(parentheses))
+            function $(id) {
+              return document.getElementById(id);
+            }
+          </pre>
+          <pre class="prettyprint lang-js">
+            (friends '(of) '(parentheses))
+            function $(id) {
+              return document.getElementById(id);
+            }
+          </pre>
+        </div>
+      </div>
       
       <div class="slide">
         <h1>Game Plan</h1>
@@ -150,6 +170,7 @@
           </div>
         </div>
       </div>
+
       
       
       <div class="slide"></div>
