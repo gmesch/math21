@@ -15,8 +15,7 @@
     <script src="prettify/run_prettify.js?autorun=false&lang=scm" async></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Oswald&family=Roboto&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 
     <script>
       function init() {
@@ -54,18 +53,18 @@
         </div>
       </div>
       
-      <div class="slide">
+      <div class="slide" steps="5">
         <h1>Intro: Tensors!</h1>
         <p>The ML library we all use is called Tensorflow, after those things
           from Linear Algebra. But what are tensors really? Important, is what
           they are!
           <ul>
-            <li>In General Relativity, tensors describe Gravitation</li>
-            <li>In Quantum Mechanics, multi-particle states are the tensor
+            <li step="1">In <b>General Relativity</b>, tensors describe Gravitation</li>
+            <li step="2">In <b>Quantum Mechanics</b>, multi-particle states are the tensor
               products of single particle states</li>
-            <li>In Quantum Computing, every qubit is one factor of a tensor
+            <li step="3">In <b>Quantum Computing</b>, every qubit is one factor of a tensor
               product.</li>
-            <li>In Machine Learning ... well, those "tensors" in Tensorflow are
+            <li step="4">In <b>Machine Learning</b> ... well, those "tensors" in Tensorflow are
               just superficially connected with what they are in Mathematics
               -- we'll explain how exactly! -- but tensor products appear in the
               interesting places when optimizing weight matrices in large
