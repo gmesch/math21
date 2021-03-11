@@ -1,100 +1,156 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
   <head>
-    <title>Maps API Slides</title>
-
-    <script src="lib/jslib.js"></script>
-
-    <script src="lib/slides.js"></script>
-    <link href="lib/slides-gdd.css" rel="stylesheet" type="text/css"/>
-
-    <script src="lib/load_api.js" language="JavaScript"></script>
-    <script src="lib/state.js" language="JavaScript"></script>
-    <script src="lib/state_util.js" language="JavaScript"></script>
+    <title>Math for ML</title>
     
-    <script src="lib/mapsapi.js"></script>
-    <link href="lib/mapsapi.css" rel="stylesheet" type="text/css"/>    
-
+    <script src="lib/jslib.js"></script>
+    
+    <script src="lib/slides.js"></script>
+    <link href="lib/slides.css" rel="stylesheet">
+    
+    <script src="lib/state.js"></script>
+    <script src="lib/state_util.js"></script>
+    
     <script src="lib/prettify.js"></script>
-    <link href="lib/prettify.css" rel="stylesheet" type="text/css"/>    
+    <link href="lib/prettify.css" rel="stylesheet">    
+    
+    <script src="mathjax/tex-mml-chtml.js" async></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Oswald&family=Roboto&display=swap"
+          rel="stylesheet">
+
+    <script>
+      function init() {
+        initslides();
+        prettyPrint();
+      }
+    </script>
   </head>
 
-  <body onload="initmap('paloalto');initslides();prettyPrint()"
-        onunload="GUnload()">
-
-    <div id="bgpage" class="background">
-      <div id="bgmap" class="background"></div>
+  <body onload="init()">
+    
+    <div id="bgpage" class="background"></div>
+    
+    <div class="header">
+      <div id="navigator" class="large"></div>
     </div>
-
-    <div id="shade" class="shade"></div>
-
-    <div class="header"></div>
 
     <div id="footer" class="footer">
-      <div id="navigator"></div>
     </div>
-
-    <img id="logo2" class="logo position-corner-lr"
-         src="lib/google-cubes.png"/>
 
     <div id="slides" class="slides">
       <div class="slide title"
-           onshow="d0('navigator','footer','logo','logo2');v0('bgpage')"
-           onhide="d1('navigator','footer','logo','logo2');v1('bgpage')">
-        
-        <!-- div style="
-             position:relative;
-             float:left;
-             top:-1em;
-             background-color:#0078d4;
-             padding:1em;
-             padding-top:4em;
-             padding-right:2em;
-             ">
-          <span style="color:#001d38">Google</span><br/>
-          <span style="color:#ffffff">Developer</span><br/>
-          <span style="color:#ffffff">Day</span>
-          <span style="color:#389aff">2007</span>
-        </div -->
-        
-        <div style="position:relative;clear:both">
-          <div style="font-size:130%;font-weight:bold;white-space:nowrap">
-            Maps API Slides
-          </div>
-        </div>
-        
-        <div style="position:relative;"
-             class="venue">
-          <div style="font-size:100%;color:gray;font-weight:bold">
-            Steffen Meschkat
-          </div>
-        </div>
+           onshow="d0('navigator','footer');v0('bgpage')"
+           onhide="d1('navigator','footer');v1('bgpage')">
 
-        <img src="lib/google-cubes-larger.png"
-             style="position:absolute;bottom:0.1em;right:0.1em;"/>
-             
-        <div style="position:absolute;bottom:1em;
-        font-size:70%;color:gray">Copyright 2007 Google, Inc.</div>
+        <h1>Linear Algebra for Machine Learning</h1>
+        <h2>Tai-Danae, Mesch</h2>
+        
+        <div class="bottom">
+          <h2 class="venue">X/Google, 2021</h2>
+        </div>
       </div>
       
-      <!-- div class="slide">
-        <iframe style="width:100%;height:100%;border:1px solid silver"
-                src="about:blank"
-        xsrc="http://maps.google.com/"></iframe>
-      </div -->
+      <div class="slide">
+        <h1>Intro: Tensors!</h1>
+        <p>The ML library we all use is called Tensorflow, after those things
+          from Linear Algebra. But what are tensors really? Important, is what
+          they are!
+          <ul>
+            <li>In General Relativity, tensors describe Gravitation</li>
+            <li>In Quantum Mechanics, multi-particle states are the tensor
+              products of single particle states</li>
+            <li>In Quantum Computing, every qubit is one factor of a tensor
+              product.</li>
+            <li>In Machine Learning ... well, those "tensors" in Tensorflow are
+              just superficially connected with what they are in Mathematics
+              -- we'll explain how exactly! -- but tensor products appear in the
+              interesting places when optimizing weight matrices in large
+              models.</li>
+          </ul>
+        </p>
+      </div>
 
       <div class="slide">
-        <h1>Features</h1>
-        <ul>
-          <li>Single HTML file; slides are DIVs</li>
-          <li>Navigation by click on nav indicator and by keyboard cursor keys</li>
-          <li>Browser history and bookmarks work</li>
-          <li>Fully functional maps API application (press 1 any time)</li>
-          <li>Embedded iframes load only on display</li>
-          <li>onshow/onhide event handlers on slides</li>
-          <li>Progressive display</li>
-          <li>Syntax highlighting for code fragments</li>
-        </ul>
+        <h1>Game Plan</h1>
+        for the next 3 sessions:
+        <ol>
+          <li>We explain what tensors are, and how they come to be associated
+            with multidimensional array data structures in software
+            engineering, especially in machine learning</li>
+          <li>We contemplate how tensor products of vector spaces have a
+            peculiar scaling behavior in their dimension: Unlike the Cartesian
+            Product, which adds the dimensions of its factors, the Tensor
+            Product multiplies. We also contemplate how confusing it is that
+            \(2+2=2*2=2^2\)</li>
+          <li>We finally look how tensors and their products appear in machine
+            learning models</li>
+        </ol>
       </div>
+
+      <div class="slide noprint" group="intermission">
+        <div class="banner">
+          <div class="content">
+            I - Vectors and Tensors (Why, in software, arrays with multiple
+            integer indices came to be called tensors.)
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide">
+        <h1>Vectors and Coordinates</h1>
+        <p></p>
+      </div>
+
+      <div class="slide">
+        <h1>The Scalar Product as a Tensor</h1>
+        <p></p>
+      </div>
+
+      <div class="slide">
+        <h1>Bases in Tensor Spaces</h1>
+        <p></p>
+      </div>
+
+      <div class="slide">
+        <h1>Tensor Coordinate Transformations</h1>
+        <p></p>
+      </div>
+
+      <div class="slide">
+        <h1>Conclusion</h1>
+        <p></p>
+      </div>
+
+      <div class="slide noprint" group="intermission">
+        <div class="banner">
+          <div class="content">
+            II - The Dimension of Tensor Spaces (Dimensionality of the vector spaces of higher order tensors.)
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="slide">
+        <h1>Game Plan</h1>
+        <p></p>
+      </div>
+
+      
+      <div class="slide">
+        <h1>Game Plan</h1>
+        <p></p>
+      </div>
+
+      <div class="slide noprint" group="intermission">
+        <div class="banner">
+          <div class="content">
+            III - Tensors in Tensorflow
+          </div>
+        </div>
+      </div>
+      
       
       <div class="slide"></div>
     </div>

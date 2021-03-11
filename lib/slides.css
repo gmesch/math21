@@ -7,7 +7,11 @@ html, body {
   color: black;
   background-color: white;
   height: 100%;
-  font-family: 'Lucida Grande', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+H1, H2, H3, H4, H5, H6 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .header { 
@@ -38,6 +42,11 @@ html, body {
   cursor: default;
 }
 
+#navigator div.active { 
+  background-color: #1a75cf;
+  cursor: default;
+}
+
 #navigator div.title, #navigator div.intermission { 
   background-color: white;
   border-color: silver;
@@ -56,7 +65,7 @@ html, body {
   margin-right: 10%;
   margin-top: 5%;
   margin-bottom: 10%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .slides .slide { 
@@ -73,7 +82,8 @@ html, body {
   margin-top: 0px;
   margin-bottom: 0.7em;
   width: 100%;
-  border-bottom: 1px solid silver;
+  #background-color: #f0f0f0;
+  #border-bottom: 1px solid silver;
 }
 
 .slides.bolder .slide H1 { 
@@ -117,18 +127,9 @@ html, body {
   bottom: 0px;
 }
 
-.semiopaque {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: url(white.gif);
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-}
-
 .slide LI { 
-  margin-top: 0.2em;
+    margin-top: 0.2em;
+    line-height: 1.7em;
 }
 
 .slides.bolder .slide LI { 
@@ -300,4 +301,34 @@ div.snippet > div.label {
 
 .slide table td, .slide table th {
  vertical-align: top;
+}
+
+/* Layering follows -- set z-index only in the section below. */
+
+body {
+  z-index: 0;
+}
+
+
+.background { 
+  z-index: 1;
+}
+
+
+.shade { 
+  z-index: 2;
+}
+
+
+.slides, .header, .footer, #navigator { 
+  z-index: 3;
+}
+
+
+.logo { 
+  z-index: 4;
+}
+
+.float, #workshop { 
+  z-index: 5;
 }

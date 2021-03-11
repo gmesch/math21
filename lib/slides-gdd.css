@@ -1,4 +1,4 @@
-html, body {
+html, body {A
   margin: 0;
   padding: 0;
   position: relative;
@@ -6,7 +6,7 @@ html, body {
   color: black;
   background-color: white;
   height: 100%;
-  font-family: 'Lucida Grande', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
@@ -32,7 +32,7 @@ pre {
 
 .footer {
   position: absolute;
-  bottom: 3px;
+  bottom: 30px;
   left: 5px;
   color: gray;
 }
@@ -95,6 +95,10 @@ pre {
 }
 
 /* Slide content. */
+
+H1, H2, H3, H4, H5, H6 {
+    font-family: 'Montserrat', sans-serif;
+}
 
 .slide H1 {
   font-size: 130%;
