@@ -1,0 +1,319 @@
+/* Adapted from
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+ */
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url(Lato/Lato-ThinItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: regular;
+  font-weight: 100;
+  font-display: swap;
+  src: url(Lato/Lato-Thin.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(Lato/Lato-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: regular;
+  font-weight: 300;
+  font-display: swap;
+  src: url(Lato/Lato-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(Lato/Lato-Italic.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: regular;
+  font-weight: 400;
+  font-display: swap;
+  src: url(Lato/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(Lato/Lato-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: regular;
+  font-weight: 700;
+  font-display: swap;
+  src: url(Lato/Lato-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url(Lato/Lato-BlackItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: regular;
+  font-weight: 900;
+  font-display: swap;
+  src: url(Lato/Lato-Black.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-BlackItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 900;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-Black.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 700;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 800;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-ExtraLightItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 200;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-Italic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 300;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 500;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 400;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-Regular.ttf);
+}
+
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-SemiBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 500;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-SemiBold.ttf);
+}
+
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-ThinItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: regular;
+  font-weight: 100;
+  font-display: swap;
+  src: url(Montserrat/Montserrat-Thin.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: regular;
+  font-weight: 700;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: regular;
+  font-weight: 800;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: regular;
+  font-weight: 300;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-Italic.ttf);
+}
+
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: regular;
+  font-weight: 400;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: regular;
+  font-weight: 600;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(OpenSans/OpenSans-SemiBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url(Oswald/Oswald-VariableFont_wght.ttf);
+}

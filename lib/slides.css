@@ -86,6 +86,12 @@ H1, H2, H3, H4, H5, H6 {
   #border-bottom: 1px solid silver;
 }
 
+.slide.fit {
+    text-allign: center;
+    vertical-align: center;
+    font-size: 25.5vw;
+}
+
 .slides.display-notes .slide .notes {
     display: block;
 }
