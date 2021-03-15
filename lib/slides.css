@@ -47,16 +47,6 @@ H1, H2, H3, H4, H5, H6 {
   cursor: default;
 }
 
-#navigator div.title, #navigator div.intermission { 
-  background-color: white;
-  border-color: silver;
-}
-
-#navigator div.content { 
-  background-color: silver;
-  border-color: silver;
-}
-
 .slides {
   position: absolute;
   height: 85%;
