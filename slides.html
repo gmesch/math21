@@ -82,20 +82,26 @@
       </div>
       
       <div class="slide build-focus-visible" group="intro" name="intro">
-        <h1>Intro: Tensors!</h1>  The ML library we all use is called
-        Tensorflow, after those things from Linear Algebra. But
-        what <em>are</em> Tensors really? Important, is what they are!
+        <h1>Intro: Tensors!</h1>
+        <div>The ML library we all use is called
+          Tensorflow, after those things from Linear Algebra. But
+          what <em>are</em> Tensors really?</div>
+        <div>Important, is what they are!</div>
         <ul>
-          <li step="1">In <b>General Relativity</b>, tensors describe Gravitation</li>
-          <li step="2">In <b>Quantum Mechanics</b>, multi-particle states are the tensor
-            products of single particle states</li>
-          <li step="3">In <b>Quantum Computing</b>, every qubit is one factor of a tensor
-            product.</li>
+          <li step="1">In <b>General Relativity</b>, tensors describe
+            Gravitation.
+            
+          <li step="2">In <b>Quantum Mechanics</b>, multi-particle states are
+            the tensor products of single particle states.
+
+          <li step="3">In <b>Quantum Computing</b>, each qubit is one factor of
+            a tensor product.
+
           <li step="4">In <b>Machine Learning</b> ... well, those "tensors" in
             Tensorflow are just superficially connected with what they are in
             Mathematics -- we'll explain how exactly! -- but tensor products
             appear in the interesting places when optimizing weight matrices in
-            large models.</li>
+            large models.
         </ul>
 
         <div class="notes">Remember to look at the notes.</div>
@@ -103,35 +109,42 @@
 
       <div class="slide build-focus-visible" group="intro" name="plan">
         <h1>Game Plan</h1>
-        Throughout the next 3 sessions:
-        <ol>
+        <div>Throughout the next 3 sessions:</div>
+
+        <ul>
           <li step="1" link="theme1">We explain what tensors are, and how they
             come to be associated with multidimensional array data structures in
-            software engineering, especially in machine learning</li>
+            software engineering, especially in machine learning.
+            
           <li step="2" link="theme2">We contemplate how tensor products of
             vector spaces have a peculiar scaling behavior in their dimension:
             Unlike the Cartesian Product, which adds the dimensions of its
             factors, the Tensor Product multiplies. We also contemplate how
-            confusing it is that \(2+2=2*2=2^2\)</li>
+            confusing it is that $2+2=2*2=2^2$.
+
           <li step="3" link="theme3">We finally look how tensors and their
-            products appear in machine learning models</li>
-        </ol>
+            products appear in machine learning models.
+        </ul>
       </div>
 
       <div class="slide build-focus-visible" group="intro">
         <h1>Meta</h1>
 
-        Besides the improved understanding of ML and QC, there are a few
-        tangential motivations that are inspiring in their own right, or for
-        building software:
+        <div>Besides the improved understanding of ML and QC, there are a few
+          tangential motivations that are inspiring in their own right, or for
+          building software:</div>
 
-        <ol>
-          <li step="1">Introduce axiomatic construction.</li>
-          <li step="2">Look at Notation.</li>
+        <ul>
+          <li step="1">Introduce axiomatic construction.
+
+          <li step="2">Look at Notation.
+
           <li step="3">Learn the same thing againi from a different
-            perspective. (Remember the Tensorflow code retreat.)</li>
-          <li step="4">Introduce mathematical concepts; Isomorphism, Duality.</li>
-        </ol>
+            perspective. (Remember the Tensorflow code retreat.)
+
+          <li step="4">Introduce some mathematical concepts, such as
+            Isomorphism and Duality.
+        </ul>
       </div>
 
       <div class="slide noprint" group="theme1" name="theme1">
@@ -145,50 +158,52 @@
       
       <div class="slide build-visible" group="theme1">
         <h1>Vectors and Tensors - Overview</h1>
+        <div>Plan for today.</div>
         <ol>
-          <li step="0">Axioms of Vector Space
+          <li step="0">Recap Axioms of Vector Space
+
           <li step="1">Einstein Notation
-          <li step="2">Linear Dependence gives rise to Basis and Coordinates
+
+          <li step="2">Linear Independence <em>gives rise to Basis and Coordinates</em>
+
           <li step="3">Basis and Coordinate Transformations
+
           <li step="4">The Scalar Product <span step="5">$\leftarrow$ This is
               the first Tensor!</span>
-          <li step="6">Tensor coordinates and transformations
+
+          <li step="6">Tensor Coordinates and Basis Transformations
         </ol>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-vs">
         <h1>Axioms of Vector Space</h1>
+        <div>Recap what Vectors are, and Vector Spaces.</div>
 
-        <div style="float:right;width:50%">
-          <ol>
-            <li step="2">$(\vec{a} + \vec{b}) + \vec{c} = \vec{a} + (\vec{b} + \vec{c})$</li>
-            <li step="3">$\vec{a} + \vec{b} = \vec{b} + \vec{a}$</li>
-            <li step="4">$\exists \vec{0} \; \forall \vec{a} : \vec{a} + \vec{0} = \vec{a}$</li>
-            <li step="5">$\forall \vec{a} \; \exists -\!\vec{a} : \vec{a} + (-\vec{a}) = \vec{0}$</li>
-            <li step="6">$a \cdot (b \cdot \vec{a}) = (a \cdot b) \cdot \vec{a}$</li>
-            <li step="7">$1 \cdot \vec{a} = \vec{a}$</li>
-            <li step="8">$a \cdot \vec{a} + a \cdot \vec{b} = a \cdot (\vec{a} + \vec{b})$</li>
-            <li step="9">$a \cdot \vec{a} + b \cdot \vec{a} = (a + b) \cdot \vec{a}$</li>
-          </ol>
-        </div>
+        <ul>
+          <li step="0"><b>Vectors</b> can be <b>added</b> to each other and
+            <b>multiplied with scalar</b> numbers.
+            
+          <li step="1"><em>Scalar numbers</em> are elements of a <b>Field</b>,
+            usually <b>Rational Numbers</b>, <b>Real Numbers</b>,
+            or <b>Complex Numbers</b>, but also <em>finite fields</em>,
+            notably the <b>Galois Field</b>.
+        </ul>
+      </div>
 
-        <div>
-          <ul>
-            <li step="0"><b>Vectors</b> can be <b>added</b> to each other and
-              <b>multiplied with scalar</b> numbers.
-            <li step="1"><em>Scalar numbers</em> are elements of a <b>Field</b>,
-              usually <b>Rational Numbers</b>, <b>Real Numbers</b>,
-              or <b>Complex Numbers</b>, but also <em>finite fields</em>,
-              notably the <b>Galois Field</b>.
-              
-            <li step="10">Example 1: Arrows over Rational Numbers.
-            <li step="11">Example 2: Tuples of Real Numbers over Real Numbers.
-        </div>
+      <div class="slide build-focus-visible" group="theme1-vs">
+        <h1>Axioms of Vector Space</h1>
+        <div>Everything that follows these axioms, is a vector space:</div>
 
-        <div style="clear:left" step="12"><b>Exercise:</b> Are these vector spaces too:
-          (a) Tuples of Real Numbers over Rational Numbers? (b) Tuples of Rational
-          Numbers over Real Numbers?
-        </div>
+        <ol>
+          <li step="2">Associative: $(\vec{a} + \vec{b}) + \vec{c} = \vec{a} + (\vec{b} + \vec{c})$</li>
+          <li step="3">Commutative: $\vec{a} + \vec{b} = \vec{b} + \vec{a}$</li>
+          <li step="4">Neutral Element: $\exists \vec{0} \; \forall \vec{a} : \vec{a} + \vec{0} = \vec{a}$</li>
+          <li step="5">Inverse Element: $\forall \vec{a} \; \exists -\!\vec{a} : \vec{a} + (-\vec{a}) = \vec{0}$</li>
+          <li step="6">Scalar mult compatible with Field mult: $a \cdot (b \cdot \vec{a}) = (a \cdot b) \cdot \vec{a}$</li>
+          <li step="7">Neutral Element of scalar mult: $1 \cdot \vec{a} = \vec{a}$</li>
+          <li step="8">Distributive over vector add: $a \cdot \vec{a} + a \cdot \vec{b} = a \cdot (\vec{a} + \vec{b})$</li>
+          <li step="9">Distributive over scalar add: $a \cdot \vec{a} + b \cdot \vec{a} = (a + b) \cdot \vec{a}$</li>
+        </ol>
 
         <div class="notes">
           <ul>
@@ -197,8 +212,20 @@
         </div>
       </div>
 
+      <div class="slide build-focus-visible" group="theme1-vs">
+        <h1>Axioms of Vector Space - Examples</h1>
+        <div>Two examples of what vector spaces are.</div>
+        <ul>
+          <li step="1">Example 1: Arrows over Rational Numbers.
+            
+          <li step="2">Example 2: Tuples of Real Numbers over Real Numbers.
+        </ul>
+      </div>
+
       <div class="slide build-focus" group="theme1-vs">
-        <h1>Example 1, Arrows over Rational Numbers</h1>
+        <h1>Axioms of Vector Space - Example: Arrows</h1>
+        <div>Arrows in the 2D plane are vectors, with their operations defined
+          by Euclidean Geometry.</div>
         <div class="img">
           <img class="img" src="img/vectors/vector-plus.png" step="1">
           <img class="img" src="img/vectors/vector-plus-result.png" step="2">
@@ -210,9 +237,22 @@
           <img class="img" src="img/vectors/vector-frac-result.png" step="8">
         </div>
       </div>
+      
+      <div class="slide build-focus-visible" group="theme1-vs">
+        <h1>Axioms of Vector Space</h1>
+        <div><b>Exercise:</b> Are these two examples vector spaces?</div>
 
+        <ul>
+          <li>(a) Tuples of Real Numbers over Rational Numbers?
+
+          <li>(b) Tuples of Rational Numbers over Real Numbers?
+        </ul>
+      </div>
+      
       <div class="slide build-focus-visible" group="theme1-li">
         <h1>Linear Independence</h1>
+        <div step="0">The existence of <b>coordinates</b> follows directly from the
+        axioms.</div>
         <div class="notes">
           <ul>
             <li>This derivation leads to the introduction of coordinates.
@@ -223,29 +263,32 @@
         </div>
 
         <ul>
-          <li step="0">Vectors can be <b>linearly combined</b>:
+          <li step="1">Vectors can be <b>linearly combined</b>:
 
             $$\sum_{i} w_i \cdot \vec{v}_i$$
 
-          <li step="1">Can such combinations yield $\vec{0}$ with coefficients
+          <li step="2">Can such combinations yield $\vec{0}$ with coefficients
             that are not all $0$? (It's always possible with all coefficients 0,
             of course.)
             
-          <li step="2">Vectors in the combination are then said to
+          <li step="3">Vectors in the combination are then said to
             be <b>linearly dependent</b>.
 
           <li step="3">Otherwise they are <b>linearly indedendent</b>.
 
-          <li step="4"><b>Exercise:</b> Try to imagine sets of arrows that are
-            (a) linearly dependent, (b) linearly independent.
+          <li step="4"><b>Exercise:</b> Imagine sets of arrows that are
+            <ul>
+              <li>(a) linearly dependent,
+              <li>(b) linearly independent.
+            </ul>
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-li">
-        <h1>Aside: Einstein Notation</h1>
-
+        <h1>Einstein Notation</h1>
+        <div>We introduce a notation for vector algebra that's very neat.</div>
         <ul>
-          <li>This convention is incredibly useful:
+          <li>Convention:
 
             $$w^i \vec{v}_i := \sum_{i} w_i \cdot \vec{v}_i$$
 
@@ -254,7 +297,12 @@
             the range of the index is implied.
 
           <li>Also for multiple indices. (Will see this for tensors.)
+        </ul>
+      </div>
 
+      <div class="slide build-focus-visible" group="theme1-li">
+        <h1>Einstein Notation</h1>
+        <ul>
           <li>No sum for an index on its own:
             
             $$\vec{v}_i$$
@@ -271,7 +319,7 @@
       </div>
 
       <div class="slide build-focus-visible" group="theme1-li">
-        <h1>Linear Independence, continued</h1>
+        <h1>Linear Independence</h1>
         <div class="notes">
           More analysis yields interesting properties of linear independence.
         </div>
@@ -300,28 +348,30 @@
 
 
       <div class="slide build-visible" group="theme1-li">
-        <h1>Linear Independence, continued</h1>
+        <h1>Linear Independence</h1>
         <div class="notes">
           One more property, and it all yields 3 important concepts.
         </div>
 
         <ul>
-          <li step="0">We simplify these coefficients:
+          <li step="0">Write more simply;
             
             $$\vec{v} = v^{i} \vec{e}_{i}$$
 
           <li step="1">Are these coefficients unique?
 
           <li step="2">It turns out yes they are!
+
+          <li step="3">Proof follows, to show how such things work ...
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-li">
-        <h1>Linear Independence, continued</h1>
-        <div step="0"><b>Proof</b> by assuming there are two different sets of
-          coefficients, and concluding they must be equal</div>
+        <h1>Linear Independence</h1>
+        <div step="0"><b>Proof</b> that the coefficients of any vector are unambiguous.</div>
+
         <ul>
-          <li step="1">Assume there are two different sets of coefficients:
+          <li step="1">Assume there are two such sets of coefficients:
 
             $$\vec{v} = v^{i} \vec{e}_{i} = u^{i} \vec{e}_{i}$$
 
@@ -334,65 +384,79 @@
           <li step="3">Now remember that $\vec{e}_i$ are linearly independent and that
             means $\vec{0}$ can be combined <em>only</em> with <b>all</b>
             coefficients $0$.
+        </ul>
+      </div>
 
-          <li step="4">Thus for all $i$:
+      <div class="slide build-focus-visible" group="theme1-li">
+        <h1>Linear Independence</h1>
+
+        <ul>
+          <li step="0">Thus for all $i$:
 
             $$v^{i} - u^{i} = 0$$
 
             (No Einstein sum here, because the index is up both times.)
 
-          <li step="5">Or:
+          <li step="1">Or:
 
             $$v^{i} = u^{i}$$
 
             QED.
             
-          <li step="6">Thus, every vector in the vector space can be represented as a
+          <li step="2">Thus, every vector in the vector space can be represented as a
             combination with unambiguous coefficients from any maximal set of
             lineary independent vectors.</li>
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Dimension, Basis, Coordinates</h1>
+        <h1>Dimension, Basis, and Coordinates</h1>
         <div step="0">From the concept of Linear Indepdendece, we arrive
           at <b>3 Definitions</b>:</div>
-        <ol>
-          <li step="1"><b>Definition:</b> The number of elements in a maximum
-            set of linearly independent vectors of a vector space is
-            called <b>dimension</b> of that vector space.</li>
-          <li step="2"><b>Definition:</b>: Any such set is called a <b>basis</b>
-          of that vector space.</li>
-          <li step="3"><b>Definition:</b> The coefficients in the linear
-            combination of the basis vectors that yields any vector are called
-            the <b>coordinates</b> of the vector in that basis.</li>
-        </ol>
+
+        <ul>
+          <li step="1">The number of elements in a maximal set of linearly
+            independent vectors of a vector space is called <b>Dimension</b> of
+            that vector space.
+            
+          <li step="2">Any such set itself is called a <b>Basis</b> of that
+            vector space.
+            
+          <li step="3">The coefficients in the linear combination of the basis
+            vectors that yields a vector are called the <b>Coordinates</b> of
+            the vector in that basis.
+        </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Coordinate tuples vs $F^n$ vectors</h1>
+        <h1>Coordinate Tuples vs $F^n$ Vectors</h1>
         <ul>      
-          <li step="0,6">Once a basis is picked, every vector is represented by
-            a tuple of coordinates.</li>
-          <li step="1,6">The tuples are elements of $F^n$, the cartesian product space of
+          <li step="0">Once a basis is picked, every vector is represented by
+            a tuple of coordinates.
+
+          <li step="1">The tuples are elements of $F^n$, the cartesian product space of
             the scalar field.
-          <li step="2,6">The field $F$ by its own axioms has addition and multiplication
+
+          <li step="2">The field $F$ by its own axioms has addition and multiplication
             defined. The cartesian product naturally has addition and scalar
-            multiplication &mdash; $F^n$ is a vector space too!</li>
-          <li step="3,6">This vector space is <b>isomorphic</b> to the original
+            multiplication &mdash; $F^n$ is a vector space too!
+
+          <li step="3">This vector space is <b>isomorphic</b> to the original
             vector space, which often misleads us to think that
-            <em>all</em> vectors <em>are</em> tuples of numbers.</li>
-          <li step="4,6">The mapping of the vectors to its coordinate tuples is called
+            vectors just <em>are</em> tuples of numbers.
+
+          <li step="4">The mapping of the vectors to its coordinate tuples is called
             an <b>Isomorphism</b>. There are many such mappings, one for each
-            basis of the vector space.</li>
-          <li step="5,6"><b>Exercise:</b> Define two different bases in $R^2$, and compute
-            the coordinates of one vector in both bases.
-        </ol>
+            basis of the vector space.
+
+          <li step="5"><b>Exercise:</b> Define two different bases in $R^2$, and
+            compute the coordinates of one vector in both bases.
+        </ul>
       </div>
       
       <div class="slide build-focus-visible" group="theme1-bt">
         <h1>Basis Transformation</h1>
-        <div step="0">Let's consider <b>two</b> different bases $\{\vec{e}_{i}\}$ and
+        <div step="0">Let's consider <b>two</b> different Bases $\{\vec{e}_{i}\}$ and
           $\{\vec{e}_{i^\prime}\}$.</div>
         <ul>
           <li step="1"><b>Notation:</b> Symbols with differently primed index
@@ -417,7 +481,7 @@
       </div>
 
       <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Basis Transformation, continued</h1>
+        <h1>Basis Transformation</h1>
         <ul>
           <li step="0,1">All vectors of the first basis $\{\vec{e}_{i}\}$ have
             coordinates with regard to the second basis and
@@ -428,32 +492,37 @@
           <li step="1"><b>Notation:</b> the indices on $T_{i}^{i^\prime}$ and
             $T_{i^\prime}^{i}$ are different, so the note from the previous
             slide applies.
+        </ul>
+      </div>
 
-          <li step="2">So the two $T$ are different, but they are related, as we
+      <div class="slide build-focus-visible" group="theme1-bt">
+        <h1>Basis Transformation</h1>
+        <ul>
+          <li step="0">So the two $T$ are different, but they are related, as we
             see from inserting one in the other:
 
             $$\vec{e}_{i} = T_{i}^{i^\prime} \vec{e}_{i^\prime}$$
 
             $$\vec{e}_{i} = T_{i}^{i^\prime} T_{i^\prime}^{j} \vec{e}_{j}$$
 
-          <li step="3">thus:
+          <li step="1,2,3">thus:
 
-            $$T_{i}^{i^\prime} T_{i^\prime}^{j} = \delta_{i}^{j}$$
+            $$T_{i}^{i^\prime} T_{i^\prime}^{j} = \delta_{i}^{j}
 
-            where
+            \;\;\mathrm{where}\;\;
 
-            $$\delta_{i}^{j} = 1 \; (i=j), \; 0 \; (i \neq j)$$
+            \delta_{i}^{j} = 1 \; (i=j), \; 0 \; (i \neq j)$$
 
-          <li step="4,5">The two matrices $T_{i}^{i^\prime}$ and
+          <li step="2">The two matrices $T_{i}^{i^\prime}$ and
             $T_{i^\prime}^{j}$ are each other's inverse.
 
-          <li step="5"><b>Notation:</b> we don't have to care about transpose or
+          <li step="3"><b>Notation:</b> we don't have to care about transpose or
             ordering of factors.
         </ul>
       </div>
       
       <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Basis Transformation, end</h1>
+        <h1>Basis Transformation</h1>
         <ul>
           <li step="0">We can ask for the relationship of the coordinates of a
             vector too:
@@ -462,25 +531,28 @@
 
             $$\vec{v} = v^{i} \vec{e}_{i} = v^{i^\prime} T_{i^\prime}^{i} \vec{e}_{i}$$ 
 
-          <li step="1,2,4">thus:
+          <li step="1,2">thus:
 
-            $$v^{i} = T_{i^\prime}^{i} v^{i^\prime}$$
+            $$v^{i} = T_{i^\prime}^{i} v^{i^\prime}
 
-          <li step="2"><b>Notation:</b> again ordering of factors is not important for
-            meaning, unlike in matrix notation.
-          
-          <li step="3,4">And remember:
+            \;\; \mathrm{and\;remember} \;\;\ \vec{e}_{i} = T_{i}^{i^\prime} \vec{e}_{i^\prime}$$
 
-            $$\vec{e}_{i} = T_{i}^{i^\prime} \vec{e}_{i^\prime}$$
-
-          <li step="4">Basis vector and coordinates transform inverse (and
+          <li step="2">... basis vector and coordinates transform inverse (and
             transposed) to each other.
           
-          <li step="5"><b>Definition:</b> $T$ is called a <b>basis
+          <li step="3"><b>Notation:</b> again ordering of factors is not important for
+            meaning, unlike in matrix notation.
+        </ul>
+      </div>
+          
+      <div class="slide build-focus-visible" group="theme1-bt">
+        <h1>Basis Transformation</h1>
+        <ul>
+          <li step="0"><b>Definition:</b> $T$ is called a <b>basis
             transformation</b>, and correspondingly a <b>coordinate
             transformation</b>.
 
-          <li step="6"><b>Exercise:</b> Write down the basis transformation and
+          <li step="1"><b>Exercise:</b> Write down the basis transformation and
             the coordinate transformation for a rotation of 90 degrees clockwise
             in space of arrows in the 2D plane.
         </ul>
@@ -488,177 +560,186 @@
       
       <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
-        <div class="notes">We are on the way to define the first tensor.</div>
+        <div>Let's look at the scalar product in Vector Spaces.</div>
         <ul>
-          <li step="0">Let's look at the scalar product. It's a map from the
-            vector space to its scalar field:
+          <li step="0">The scalar product is a map from the vector space to its
+            scalar field:
 
             $$\vec{v} \cdot \vec{w} = a \in F$$
 
           <li step="1">linear:
+
             $$(a \vec{v}) \cdot \vec{w} = a (\vec{v} \cdot \vec{w})$$
             
             $$(\vec{v} + \vec{u}) \cdot \vec{w} = \vec{v} \cdot \vec{w} + \vec{u} \cdot \vec{w}$$
             
           <li step="2">commutative:
-            $$\vec{v} \cdot \vec{w} = (\vec{w} \cdot \vec{v})$$
+            $\vec{v} \cdot \vec{w} = (\vec{w} \cdot \vec{v})$
             
           <li step="3">regular:
-            $$\forall \vec{v} \neq \vec{0} \; \exists \vec{w}: \vec{v} \cdot
-            \vec{w} \neq 0$$
+            $\forall \vec{v} \neq \vec{0} \; \exists \vec{w}: \vec{v} \cdot
+            \vec{w} \neq 0$
         </ul>
       </div>
             
       <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
-        <div class="notes">
-          <div step="0">We are on the way to define the first tensor.</div>
-
-          <div step="3">We call them coordinates because they work like coordinates of
-            vectors: The object they describe is not those numbers, it's a map
-            of vectors to scalar numbers, just like the vectors are not their
-            coordinates. But once vectors are described by coordinates relative
-            to a basis, the map is described by coordinates too.</div>
-        </div>
+        <div step="0">We are on the way to define the first tensor.</div>
         <ul>
-          <li step="0">We can represent the vectors in the scalar product using
-            coordinates in a basis:
+          <li step="1">The vectors can be written with coordinates in a basis:
 
             $$\vec{v} \cdot \vec{w} = (v^{i}\vec{e}_{i}) \cdot (w^{j} \vec{e}_{j})$$
 
-          <li step="1">and apply the linearity of the scalar product:
+          <li step="2">... using the linearity of the scalar product yields:
 
             $$\vec{v} \cdot \vec{w} = v^{i} w^{j} (\vec{e}_{i} \cdot \vec{e}_{j})$$
 
-          <li step="2">like the scalar products of every vector, the scalar products of the
-            basis vectors are just numbers. We call them $g$:
+          <li step="3">The scalar products of the basis vectors are just
+            numbers. We call them $g$:
 
             $$g_{ij} := \vec{e}_{i} \cdot \vec{e}_{j}$$
 
-          <li step="3">then:
+          <li step="4">... then:
 
             $$\vec{v} \cdot \vec{w} = v^{i} w^{j} g_{ij}$$
+        </ul>
+      </div>
 
-            For a given basis, these numbers fully define the scalar product in
-            the vector space; they are the <em>coordinates</em> of the bilinear
-            map that is the scalar product.
+      <div class="slide build-focus-visible" group="theme1-sp">
+        <h1>Scalar Product and Metric Tensor</h1>
+        <ul>
+          <li step="0">For a given basis, these numbers $g_{ij}$ fully define the scalar
+            product in the vector space; they are the <em>coordinates</em> of
+            the bilinear map that is the scalar product.
 
-          <li step="4"><b>Exercise:</b> Write down the coordinates of the scalar
+
+          <li step="1">We call them coordinates because they work like coordinates of
+            vectors: The object they describe is not those numbers, it's a map
+            of vectors to scalar numbers, just like the vectors are not their
+            coordinates. But once vectors are described by coordinates relative
+            to a basis, the map is described by coordinates too
+
+          <li step="2"><b>Exercise:</b> Write down the coordinates of the scalar
             product for arrows in 2D space in a basis of your choice.
         </ul>
       </div>
       
       <div class="slide" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
-        <div>Two interesting questions arise:</div>
-        <ol>
-          <li>What are the coordinates of the scalar product in another basis?
+        <div>Two interesting questions arise, both of which lead to the definition of tensors:</div>
+        <ul>
+          <li>(1) What are the coordinates of the scalar product in another
+          basis?
 
-          <li>What are the "basis vectors" of whom the coordinates are the
+          <li>(2) What are the "basis vectors" of whom the coordinates are the
             coefficients?
-        </ol>
-
-        <div>Both leads to the definition of tensors.</div>
+        </ul>
 
         <div><b>Exercise:</b> Discuss the questions above.</div>
       </div>
 
-      <div class="slide" group="theme1-sp">
+      <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
-        <div>What are the coordinates of the scalar product in another
+        <div step="0">What are the coordinates of the scalar product in another
           basis? Lets see ...</div>
-        <ol>
-          <li>$$\vec{v} \cdot \vec{w} = (v^{i}\vec{e}_{i}) \cdot (w^{j} \vec{e}_{j})$$
+        <ul>
+          <li step="1">$\vec{v} \cdot \vec{w} = (v^{i}\vec{e}_{i}) \cdot (w^{j} \vec{e}_{j})$
             
-          <li>$$\vec{v} \cdot \vec{w} = (v^{i^\prime}\vec{e}_{i^\prime}) \cdot (w^{j^\prime} \vec{e}_{j^\prime})$$
+          <li step="2">$\vec{v} \cdot \vec{w} = (v^{i^\prime}\vec{e}_{i^\prime}) \cdot (w^{j^\prime} \vec{e}_{j^\prime})$
 
-          <li>$$\vec{v} \cdot \vec{w} = (v^{i^\prime} T_{i^\prime}^{i} \vec{e}_{i}) \cdot (w^{j^\prime} T_{j^\prime}^{j} \vec{e}_{j})$$
+          <li step="3">$\vec{v} \cdot \vec{w} = (v^{i^\prime} T_{i^\prime}^{i} \vec{e}_{i}) \cdot (w^{j^\prime} T_{j^\prime}^{j} \vec{e}_{j})$
 
-          <li>$$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
-            T_{i^\prime}^{i} T_{j^\prime}^{j} \; (\vec{e}_{i} \cdot \vec{e}_{j})$$
+          <li step="4">$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
+            T_{i^\prime}^{i} T_{j^\prime}^{j} \; (\vec{e}_{i} \cdot \vec{e}_{j})$
 
-          <li>$$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
-            T_{i^\prime}^{i} T_{j^\prime}^{j} \; g_{ij}$$
+          <li step="5">$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
+            T_{i^\prime}^{i} T_{j^\prime}^{j} \; g_{ij}$
 
-          <li>$$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
-            g_{i^{\prime}j^{\prime}}$$
+          <li step="6">$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
+            g_{i^{\prime}j^{\prime}}$
 
-          <li>Thus:
+          <li step="7">thus, $g_{i^{\prime}j^{\prime}} = T_{i^\prime}^{i} T_{j^\prime}^{j} \; g_{ij}$
 
-            $$g_{i^{\prime}j^{\prime}} = T_{i^\prime}^{i} T_{j^\prime}^{j} \; g_{ij}$$
-
-        </ol>
+        </ul>
       </div>
 
-      <div class="slide" group="theme1-sp">
+      <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Tensors</h1>
-        <div>We can now give a definition of a Tensor:</div>
+        <div step="0">We can now give a definition of a Tensor, and of the Tensor
+          Product Space.</div>
         <ul>
-          <li><b>Definition:</b> A tensor is any mathematical object in a vector
-            space with coordinates that transform under basis transformations
-            like a multilinear map.
+          <li step="1">A <b>Tensor</b> is any mathematical object in a vector space with
+            coordinates that transform under basis transformations like a
+            multilinear map.
 
-          <li>The scalar product is just one such map. There are many others.
+          <li step="2">The scalar product is just one such map. There are many others.
 
-          <li>They can even be combined, e.g.:
-
+          <li step="3">They can even be combined, e.g.:
+            
             $$(g + h)(\vec{a}, \vec{b}) := g(\vec{a}, \vec{b}) + h(\vec{a},
             \vec{b})$$
             
             $$(ag)(\vec{a}, \vec{b}) := a \cdot g(\vec{a}, \vec{b})$$
 
-          <li>Looking closely, they form a vector space too!
+          <li step="4">Looking closely, they form a vector space too!
 
-          <li><b>Definition:</b> The <b>tensor product space</b> of $V$ is the
-            vector space comprised of tensors in $V$:
+          <li step="5">The <b>Tensor Product Space</b> of $V$ is the vector space
+            comprised of tensors in $V$:
 
             $$g,h \in V \otimes V$$
+        </ul>
       </div>
 
-      <div class="slide" group="theme1-sp">
+      <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
-        <div>Now that we have defined Tensors, a few more Definitions:</div>
-        <ol>
-          <li>A vector space with a scalar product is a <b>Euclidean Vector
-            Space</b>.
+        <div step="0">Now that we have defined Tensors, a few more Definitions.</div>
+        <ul>
+          <li step="1">A vector space with a scalar product is a <b>Euclidean Vector
+              Space</b>.
+            
+          <li step="2">Two vectors from a Euclidean Vector Space whose scalar product is
+            $0$ are <b>Orthogonal</b>.
 
-          <li>Two vectors from a Euclidean Vector Space whose scalar product is
-            $0$ are <b>orthogonal</b>.
-
-          <li>If the scalar product is positive definite (not always the case),
+          <li step="3">If the scalar product is positive definite (not always the case),
             then he scalar product also gives rise to a <b>Norm</b>:
 
             $$|\vec{x}| = \sqrt{\vec{x} \cdot \vec{x}}$$
 
-          <li>Angle $\phi$ between two vectors $\vec{x}$ and $\vec{y}$ is
-            defined by
+          <li step="4">The <b>Angle</b> $\phi$ between two vectors $\vec{x}$ and
+            $\vec{y}$ is defined by
 
             $$\cos \phi = \frac{\vec{x} \cdot \vec{y}}{\sqrt{\vec{x} \cdot
             \vec{x}} \sqrt{\vec{y} \cdot \vec{y}}}$$
-
-          <li>Because the scalar product defines both distance and direction in
-            a Euclidean Vector Space, i.e. the <em>Metric</em>, and is a tensor,
-            it's called the <b>Metric Tensor</b>.
-
-          <li>In Riemann Geometry, the metric tensor is in every point in space
-            (i.e. it's a tensor field). In General Relativity, the metric tensor
-            is connected to the mass by a partial differential equation.
-        </ol>
+        </ul>
       </div>
 
-      <div class="slide" group="theme1-sp">
+      <div class="slide build-focus-visible" group="theme1-sp">
+        <h1>Scalar Product and Metric Tensor</h1>
+        <ul>
+          <li step="0">Because the scalar product defines both distance and
+            direction in a Euclidean Vector Space, i.e. the <em>Metric</em>, and
+            is a tensor, it's called the <b>Metric Tensor</b>.
+
+          <li step="1">In <b>Riemann Geometry</b>, the metric tensor is in every
+            point in space (i.e. it's a tensor field). In <b>General
+            Relativity</b>, the metric tensor is connected to the mass by a
+            partial differential equation.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Higher Order Tensors</h1>
         <ul>
-          <li><b>Tensor product spaces</b> of $V$ arise from multilinear maps in
+          <li step="0"><b>Tensor Product Spaces</b> of $V$ arise from multilinear maps in
             the same way, e.g.:
             
             $$V \otimes V \otimes V \otimes V$$
 
-          <li>Such tensors have coordinates with as many indices:
+          <li step="1">Such tensors have coordinates with as many indices:
 
             $$g_{ijkl}$$
 
-          <li>that transform under a basis transformation:
+          <li step="2">that transform under a basis transformation:
 
             $$g_{i^{\prime}j^{\prime}k^{\prime}l^{\prime}} =
             T_{i^\prime}^{i}
@@ -667,52 +748,63 @@
             T_{l^\prime}^{l}
             g_{ijkl}$$
 
-          <li>Natural question: What's the dimension of that space, and what
+          <li step="3">Natural question: What's the dimension of that space, and what
             is its basis?
+        </ul>
       </div>
 
-      <div class="slide" group="theme1-sp">
+      <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Tensor Bases</h1>
+        <div step="0">We answer the second of those questions first, and the
+          first in the next session ...</div>
         <ul>
-          <li>Given a basis in $V$, we define a basis in $V \otimes V$ as follows:
+          <li step="1">Given a basis in $V$, we define a basis in $V \otimes V$ as follows:
 
             $${\vec{e}^i \otimes \vec{e}^j}$$
 
-          <li>is the bilinear function of two vectors from $V$ such that
+          <li step="2">is the bilinear function of two vectors from $V$ such that
 
             $$(\vec{e}^i \otimes \vec{e}^j)(\vec{e}_k, \vec{e}_l) = \delta^i_k
             \delta^j_l$$
 
-          <li>then a bilinear form $g$ with coordinates $g_{ij}$ is given by
+          <li step="3">then a bilinear map $g$ with coordinates $g_{ij}$ is given by
 
-            $$g = g_{ij} \vec{e}^i \otimes \vec{e}^j$$
+            $$g = g_{ij} \, \vec{e}^i \otimes \vec{e}^j$$
+        </ul>
+      </div>
 
-          <li>because
+      <div class="slide build-focus-visible" group="theme1-sp">
+        <h1>Tensor Bases</h1>
+        <ul>
+          <li step="0">
+            $g(\vec{x}, \vec{y}) = g_{ij} (\vec{e}^i \otimes \vec{e}^j)(x^k
+            \vec{e}_k, y^l \vec{e}_l)$
 
-            $$g(\vec{x}, \vec{y}) = g_{ij} (\vec{e}^i \otimes \vec{e}^j)(x^k
-            \vec{e}_k, y^l \vec{e}_l)$$
-            
-            $$g(\vec{x}, \vec{y}) = g_{ij} x^k y^l (\vec{e}^i \otimes \vec{e}^j)(\vec{e}_k, \vec{e}_l)$$
-            
-            $$g(\vec{x}, \vec{y}) = g_{ij} x^k y^l \delta^i_k \delta^j_l$$
-            
-            $$g(\vec{x}, \vec{y}) = g_{ij} x^i y^j$$
+          <li step="1">
+            $g(\vec{x}, \vec{y}) = g_{ij} x^k y^l (\vec{e}^i \otimes \vec{e}^j)(\vec{e}_k, \vec{e}_l)$
 
+          <li step="2">
+            $g(\vec{x}, \vec{y}) = g_{ij} x^k y^l \delta^i_k \delta^j_l$
+
+          <li step="3">
+            $g(\vec{x}, \vec{y}) = g_{ij} x^i y^j$
+
+          <li step="4">
             as we said earlier.
             
         </ul>
       </div>
 
-      <div class="slide" group="theme1">
+      <div class="slide build-focus-visible" group="theme1">
         <h1>Conclusion</h1>
         <ul>
-          <li>Vectors can be added and multiplied.
-          <li>From that <b>follows</b> they have coordinates wrt a basis.
-          <li>Tensors are multilinear functions of vectors.
-          <li>They are themselves vectors (can be added and multiplied), and
-            thus have coordinates wrt a basis.
-          <li>The basis and coordinates of the tensors are related to the basis
-            of and coordinates of the vectors they are functions of.
+          <li step="0">Vectors can be added and multiplied.
+          <li step="1">From that <b>follows</b> they have coordinates wrt a basis.
+          <li step="2">Tensors are multilinear functions of vectors.
+          <li step="3">They are themselves vectors (can be added and
+            multiplied), and thus have coordinates wrt a basis.
+          <li step="4">The basis and coordinates of the tensors are related to
+            the basis of and coordinates of the vectors they are functions of.
         </ul>
       </div>
       
