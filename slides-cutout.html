@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Math for ML</title>
+    
+    <script src="lib/jslib.js"></script>
+    
+    <script src="lib/slides.js"></script>
+    <link href="lib/slides.css" rel="stylesheet">
+    
+    <script src="lib/state.js"></script>
+    <script src="lib/state_util.js"></script>
+    
+    <script src="mathjax/tex-mml-chtml.js" async></script>
+    <script src="prettify/run_prettify.js?autorun=false&lang=scm" async></script>
+
+    <link href="fonts/fonts.css" rel="stylesheet">
+
+    <script>
+      MathJax = {
+      tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      processEscapes: true,
+      tags: 'ams'
+      },
+      chtml: {
+      displayAlign: 'left',
+      displayIndent: '1em'
+      }
+      };
+    </script>
+    
+    <script>
+      function init() {
+        initslides();
+
+        preAdjust();
+        PR.prettyPrint();
+
+        console.log('slides init done');
+      }
+    </script>
+
+    <style>
+      div.img { position: relative }
+      img.img { position: absolute }
+
+      #navigator div.intro { background-color: #ffffff; }
+      #navigator div.theme1 { background-color: #e0ffff; }
+      #navigator div.theme2 { background-color: #ffe0ff; }
+      #navigator div.theme3 { background-color: #ffffe0; }
+      
+    </style>
+  </head>
+
+  <body onload="init()">
+    
+    <div id="bgpage" class="background"></div>
+    
+    <div class="header">
+      <div id="navigator" class="large"></div>
+    </div>
+
+    <div id="footer" class="footer">
+      Math Pathways &mdash; 2021
+    </div>
+
+    <div id="slides" class="slides">
+
+      
+
+      <div class="slide" group="theme1">
+        <h1>Scalar Product and Metric Tensor</h1>
+        <div>What are the "basis
+            vectors" of whom the coordinates are the coefficients?</div>
+        <ol>
+          <li>To answer this, we need one more conceptual ingredient.</li>
+          <li>Linear functionals: A linear function from a vector space to its
+            field.
+            $$a = \mathbf{f}(\vec{x}) x \in V a \in \R$$
+            linearity:
+            $$\mathbf{f}(a \vec{x}) = a \mathbf{f}(\vec{x})$$
+            $$\mathbf{f}(\vec{x} + \vec{y}) = \mathbf{f}(\vec{x}) + \mathbf{f}(\vec{y})$$
+          </li>
+          <li>From the coordinate representation of $\vec{x}$ this leads
+            naturally to a coordinate representation of $\mathbf{f}$, like the
+            one we
+            saw for $g$:
+            $$\mathbf{f}(\vec{x}) = \mathbf{f}(x^{i} \vec{e}_{i})$$
+            $$\mathbf{f}(\vec{x}) = x^{i} \mathbf{f}(\vec{e}_{i})$$
+            $$\mathbf{f}(\vec{x}) = x^{i} f_{i}$$
+            where
+            $$f_i := \mathbf{f}(\vec{e}_{i})$$
+            (Einstein notation again.) We define $f_{i}$ to be teh coordinates
+            of the functional. The question is, again, in what basis?
+          </li>
+        </ol>
+      </div>
+      <div class="slide" group="theme1">
+        <h1>Scalar Product and Metric Tensor</h1>
+        <ol>
+          <li>There are many different such functions of course. Now, we define
+            combination/construction rules for any of them:
+            $$(a\mathbf{f})(\vec{x}) := a \mathbf{f}(\vec{x})$$
+            $$(\mathbf{f} + \mathbf{h})(\vec{x}) := \mathbf{f}(\vec{x}) + \mathbf{h}(\vec{x})$$</li>
+          <li>
+            With these rules, the linear functionals of a vector space become a
+            vector space themselves. It's called the <b>Co Vector Space</b> of
+            the underlying vector space. Both share the same scalar field.</li>
+          <li>Like for any vector space, the observations about linear
+            independence apply, and lead to the existence of coordinates and
+            bases.</li>
+        </ol>
+      </div>
+
+      <div class="slide" group="theme1">
+        <h1>Scalar Product and Metric Tensor</h1>
+        <ol>      
+          <li>We have seen another way to construct coordinates for
+            covectors. How do we align the two? What is the basis that
+            corresponds to the coordinates we defined above? Let's try:
+            $$\mathbf{f} := f_{i} \mathbf{f}^{i}$$
+          <li>we apply this to a vector:
+            $$\mathbf{f}(\vec{v}) = (f_{i} \mathbf{f}^{i})(x^j \vec{x}_{j})$$
+          <li>from linearity of the $\mathbf{f}^{i}$ follows:
+            $$\mathbf{f}(\vec{v}) = f_{i} x^j \mathbf{f}^{i}(\vec{x}_{j})$$
+          <li>Now, let's pick the basis $\mathbf{f}^{i}$ such that
+            $$\mathbf{f}^{i}(\vec{x}_{j}) = \delta^i_j$$
+          <li>If we pick these bases, then the application of a functional to a
+            vector becomes the Einstein sum of the products of their
+            coordinates: $$\mathbf{f}(\vec{v}) = f_{i} x^j \delta^i_j = f_{i}
+            x^i$$
+          </li>
+        </ol>
+      </div>
+      
+      <div class="slide" group="theme1">
+        <h1>Scalar Product and Metric Tensor</h1>
+        <div>Finally define the tensor product</div>
+        <ol>      
+          <li>We have seen another way to construct coordinates for
+            covectors. How do we align the two? What is the basis that
+            corresponds to the coordinates we defined above? Let's try:
+            $$\mathbf{f} := f_{i} \mathbf{f}^{i}$$
+          <li>we apply this to a vector:
+            $$\mathbf{f}(\vec{v}) = (f_{i} \mathbf{f}^{i})(x^j \vec{x}_{j})$$
+          <li>from linearity of the $\mathbf{f}^{i}$ follows:
+            $$\mathbf{f}(\vec{v}) = f_{i} x^j \mathbf{f}^{i}(\vec{x}_{j})$$
+          <li>Now, let's pick the basis $\mathbf{f}^{i}$ such that
+            $$\mathbf{f}^{i}(\vec{x}_{j}) = \delta^i_j$$
+          <li>If we pick these bases, then the application of a functional to a
+            vector becomes the Einstein sum of the products of their
+            coordinates: $$\mathbf{f}(\vec{v}) = f_{i} x^j \delta^i_j = f_{i}
+            x^i$$
+          </li>
+        </ol>
+      </div>
+      
+      <div class="slide" group="theme1">
+        <h1>Duality and Isomorphism</h1>
+        TANGENT
+        <ol>
+          <li>Like for any vector space, we can define linear functionals on the
+            co vector space too.
+            $$\xi(f) = a$$
+            How can such a functional be constructed? For example, pick one
+            vector $\vec{x}$ from the vector space, and define a functional:
+            $$\xi(f) := f(\vec{x})$$
+            It turns out <b>every</b> linear functional of the co vector space
+            can be written in this way. There is a 1:1 correspondence between
+            the linear functionals of the co vector space and the vectors of its
+            vector space.</li>
+          <li>Thus, we say that the co vector space of the co vector space
+            <b>is</b> the vector space again.</li>
+          <li>Btw. this introduces two important concepts: <b>Isomorphism</b>
+            and <b>Duality</b>.</li>
+          <li>Isomorphism is also how we got to think of vectors as <b>the
+              same</b> as their coordinate tuples: Every vector space of
+            dimension $n$ is &mdash; not the same as! but: &mdash; <b>isomorphic</b> to
+              $\R^{n}$ with regard to the vector space operations addition and
+            scalar multiplication.</li>
+        </ol>
+      </div>
+
+      <div class="slide noprint" group="theme2" name="theme2">
+        <div class="banner">
+          <div class="content">
+            II - The Dimension of Tensor Spaces (Dimensionality of the vector spaces of higher order tensors.)
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide print" group="theme2">
+        <h1>Code Snippets</h1>
+        <div class="snippet">
+          <div class="label">state_base.js</div>
+          <pre class="prettyprint lang-scm">
+            (friends '(of) '(parentheses))
+            function $(id) {
+              return document.getElementById(id);
+            }
+          </pre>
+          <pre class="prettyprint lang-js">
+            (friends '(of) '(parentheses))
+            function $(id) {
+              return document.getElementById(id);
+            }
+          </pre>
+        </div>
+      </div>
+      
+      <div class="slide" group="theme2">
+        <h1>Game Plan</h1>
+        <p></p>
+      </div>
+
+      
+      <div class="slide" group="theme2">
+        <h1>Conclusion</h1>
+        <p></p>
+      </div>
+
+      <div class="slide noprint" group="theme3" name="theme3">
+        <div class="banner">
+          <div class="content">
+            III - Tensors in Tensorflow
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" group="theme3">
+        <h1>Conclusion</h1>
+        <p></p>
+      </div>
+      
+
+      
+    </div>
+  </body>
+</html>
