@@ -10,51 +10,14 @@
     
     <script src="lib/state.js"></script>
     <script src="lib/state_util.js"></script>
+
+    <script src="slides_mathjax.js"></script>
     
-    <script src="mathjax/tex-mml-chtml.js" async></script>
+    <script src="slides_loader.js"></script>
     <script src="prettify/run_prettify.js?autorun=false&lang=scm" async></script>
 
-    <link href="fonts/fonts.css" rel="stylesheet">
-
-    <script>
-      MathJax = {
-      tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      processEscapes: true,
-      tags: 'ams'
-      },
-      chtml: {
-      displayAlign: 'left',
-      displayIndent: '1em'
-      }
-      };
-    </script>
-    
-    <script>
-      function init() {
-        initslides();
-
-        preAdjust();
-        PR.prettyPrint();
-
-        console.log('slides init done');
-      }
-    </script>
-
-    <style>
-      div.img { position: relative }
-      img.img { position: absolute }
-
-      #navigator div.intro { background-color: #ffffff; }
-      #navigator div.theme1 { background-color: #e0ffff; }
-      #navigator div.theme1-vs { background-color: #e0ffff; }
-      #navigator div.theme1-li { background-color: #e0efef; }
-      #navigator div.theme1-bt { background-color: #e0dfdf; }
-      #navigator div.theme1-sp { background-color: #e0cfcf; }
-      #navigator div.theme2 { background-color: #ffe0ff; }
-      #navigator div.theme3 { background-color: #ffffe0; }
-      
-    </style>
+    <script src="slides_init.js"></script>
+    <link href="slides_style.css" rel="stylesheet">
   </head>
 
   <body onload="init()">
