@@ -2,7 +2,10 @@ MathJax = {
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
     processEscapes: true,
-    tags: 'ams'
+    tags: 'ams',
+    macros: {
+      'xvec': ['{\\bf #1}', 1]
+    }
   },
   chtml: {
     displayAlign: 'left',

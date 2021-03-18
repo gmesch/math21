@@ -155,17 +155,19 @@
 
       <div class="slide build-focus-visible" group="theme1-vs">
         <h1>Axioms of Vector Space</h1>
-        <div>Everything that follows these axioms, is a vector space:</div>
+        <div>Every set, whose elements can be added and multiplied with elements
+          from a field, according to the following axioms, is a vector space:</div>
 
         <ol>
-          <li step="2">Associative: $(\vec{a} + \vec{b}) + \vec{c} = \vec{a} + (\vec{b} + \vec{c})$</li>
-          <li step="3">Commutative: $\vec{a} + \vec{b} = \vec{b} + \vec{a}$</li>
-          <li step="4">Neutral Element: $\exists \vec{0} \; \forall \vec{a} : \vec{a} + \vec{0} = \vec{a}$</li>
-          <li step="5">Inverse Element: $\forall \vec{a} \; \exists -\!\vec{a} : \vec{a} + (-\vec{a}) = \vec{0}$</li>
-          <li step="6">Scalar mult compatible with Field mult: $a \cdot (b \cdot \vec{a}) = (a \cdot b) \cdot \vec{a}$</li>
-          <li step="7">Neutral Element of scalar mult: $1 \cdot \vec{a} = \vec{a}$</li>
-          <li step="8">Distributive over vector add: $a \cdot \vec{a} + a \cdot \vec{b} = a \cdot (\vec{a} + \vec{b})$</li>
-          <li step="9">Distributive over scalar add: $a \cdot \vec{a} + b \cdot \vec{a} = (a + b) \cdot \vec{a}$</li>
+          <li step="1">Associative: $(\xvec{a} + \xvec{b}) + \xvec{c} = \xvec{a} + (\xvec{b}
+            + \xvec{c})$
+          <li step="2">Commutative: $\xvec{a} + \xvec{b} = \xvec{b} + \xvec{a}$</li>
+          <li step="3">Neutral Element: $\exists \xvec{0} \; \forall \xvec{a} \,:\, \xvec{a} + \xvec{0} = \xvec{a}$
+          <li step="4">Inverse Element: $\forall \xvec{a} \; \exists -\!\xvec{a} \,:\, \xvec{a} + (-\xvec{a}) = \xvec{0}$
+          <li step="5">Scalar mult compatible with Field mult: $a (b \xvec{a}) = (a b) \xvec{a}$
+          <li step="6">Neutral Element of scalar mult: $1 \xvec{a} = \xvec{a}$
+          <li step="7">Distributive over vector add: $a \xvec{a} + a \xvec{b} = a (\xvec{a} + \xvec{b})$
+          <li step="8">Distributive over scalar add: $a \xvec{a} + b \xvec{a} = (a + b) \xvec{a}$
         </ol>
 
         <div class="notes">
@@ -214,8 +216,9 @@
       
       <div class="slide build-focus-visible" group="theme1-li">
         <h1>Linear Independence</h1>
-        <div step="0">The existence of <b>coordinates</b> follows directly from the
-        axioms.</div>
+        <div step="0">The existence of <b>coordinates</b> follows from the
+          axioms.</div>
+
         <div class="notes">
           <ul>
             <li>This derivation leads to the introduction of coordinates.
@@ -226,11 +229,12 @@
         </div>
 
         <ul>
-          <li step="1">Vectors can be <b>linearly combined</b>:
+          <li step="1">Vectors can be <b>linearly combined</b>, i.e. added
+            up with weights $w_i$:
 
-            $$\sum_{i} w_i \cdot \vec{v}_i$$
+            $$\sum_{i} w_i \xvec{v}_i$$
 
-          <li step="2">Can such combinations yield $\vec{0}$ with coefficients
+          <li step="2">Can such combinations yield $\xvec{0}$ with coefficients
             that are not all $0$? (It's always possible with all coefficients 0,
             of course.)
             
@@ -239,15 +243,23 @@
 
           <li step="3">Otherwise they are <b>linearly indedendent</b>.
         </ul>
+
+        <div class="notes">
+          <ul>
+            <li>The vectors $\xvec{v}_i$ in the sum are really <b>multiple
+              vectors</b> (one for each index), <b>not</b> the <b>coordinates
+              of one vector</b> &mdash; we get to coordinates later!
+          </ul>
+        </div>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-li">
         <h1>Linear Independence</h1>
-          <li step="0"><b>Exercise:</b> Imagine sets of arrows that are
-            <ul>
-              <li>(a) linearly dependent,
-              <li>(b) linearly independent.
-            </ul>
+        
+        <div><b>Exercise:</b> Imagine sets of arrows that are</div>
+        <ul>
+          <li step="1">(a) linearly dependent,
+          <li step="2">(b) linearly independent.
         </ul>
       </div>
 
@@ -257,10 +269,10 @@
         <ul>
           <li>Convention:
 
-            $$w^i \vec{v}_i := \sum_{i} w_i \cdot \vec{v}_i$$
+            $$w^i \xvec{v}_i := \sum_{i} w_i \xvec{v}_i$$
 
           <li>If an index $i$ appears in a multiplication expression both as
-            upper index $w^i$ and as lower index $\vec{v}_i$, then the sum over
+            upper index $w^i$ and as lower index $\xvec{v}_i$, then the sum over
             the range of the index is implied.
 
           <li>Also for multiple indices. (Will see this for tensors.)
@@ -272,9 +284,13 @@
         <ul>
           <li>No sum for an index on its own:
             
-            $$\vec{v}_i$$
+            $$\xvec{v}_i$$
             
             is simply a tuple of vectors.
+          
+            $$w^i$$
+            
+            is simply a tuple of weights, i.e. numbers.
           
           <li>No sum for a repeated index on top or bottom:
             
@@ -292,19 +308,19 @@
         </div>
 
         <ul>
-          <li step="0">In each vector space, the maximum number of elements $\vec{e}_i$
+          <li step="0">In each vector space, the maximum number of elements $\xvec{e}_i$
             in a set of linearly independent vectors is <b>fixed</b>.
 
-          <li step="1,3">For every other vector $\vec{v}$ added to such a set, there is a
-            linear combination that yields $\vec{0}$:
+          <li step="1,3">For every other vector $\xvec{v}$ added to such a set, there is a
+            linear combination that yields $\xvec{0}$:
 
-            $$v^{i}\vec{e}_{i} + v^{0}\vec{v} = \vec{0}$$</li>
+            $$v^{i}\xvec{e}_{i} + v^{0}\xvec{v} = \xvec{0}$$</li>
 
-          <li step="2,3">Another way of saying this is that $\vec{v}$ can be combined from
-            $\vec{e}_{i}$. With the same coefficients as above, and noticing that
+          <li step="2,3">Another way of saying this is that $\xvec{v}$ can be combined from
+            $\xvec{e}_{i}$. With the same coefficients as above, and noticing that
             $v^{0}$ cannot be $0$:
             
-            $$\vec{v} = - \frac{v^{i}}{v^0} \vec{e}_{i}$$
+            $$\xvec{v} = - \frac{v^{i}}{v^0} \xvec{e}_{i}$$
             
             (Einstein notation applies.)
 
@@ -323,7 +339,7 @@
         <ul>
           <li step="0">Write more simply;
             
-            $$\vec{v} = v^{i} \vec{e}_{i}$$
+            $$\xvec{v} = v^{i} \xvec{e}_{i}$$
 
           <li step="1">Are these coefficients unique?
 
@@ -340,16 +356,16 @@
         <ul>
           <li step="1">Assume there are two such sets of coefficients:
 
-            $$\vec{v} = v^{i} \vec{e}_{i} = u^{i} \vec{e}_{i}$$
+            $$\xvec{v} = v^{i} \xvec{e}_{i} = u^{i} \xvec{e}_{i}$$
 
           <li step="2">subtract one from the other:
 
-            $$\vec{v} - \vec{v} = v^{i} \vec{e}_{i} - u^{i} \vec{e}_{i}$$
+            $$\xvec{v} - \xvec{v} = v^{i} \xvec{e}_{i} - u^{i} \xvec{e}_{i}$$
 
-            $$\vec{0} = (v^{i} - u^{i}) \cdot \vec{e}_{i}$$
+            $$\xvec{0} = (v^{i} - u^{i}) \xvec{e}_{i}$$
 
-          <li step="3">Now remember that $\vec{e}_i$ are linearly independent and that
-            means $\vec{0}$ can be combined <em>only</em> with <b>all</b>
+          <li step="3">Now remember that $\xvec{e}_i$ are linearly independent and that
+            means $\xvec{0}$ can be combined <em>only</em> with <b>all</b>
             coefficients $0$.
         </ul>
       </div>
@@ -382,16 +398,16 @@
           at <b>3 Definitions</b>:</div>
 
         <ul>
-          <li step="1">The number of elements in a maximal set of linearly
-            independent vectors of a vector space is called <b>Dimension</b> of
+          <li step="1">The maximum number of elements in a set of linearly
+            independent vectors of a vector space is the <b>Dimension</b> of
             that vector space.
             
-          <li step="2">Any such set itself is called a <b>Basis</b> of that
-            vector space.
+          <li step="2">Any such set itself is a <b>Basis</b> of that vector
+            space.
             
           <li step="3">The coefficients in the linear combination of the basis
-            vectors that yields a vector are called the <b>Coordinates</b> of
-            the vector in that basis.
+            vectors that yields a vector are the <b>Coordinates</b> of the
+            vector in that basis.
         </ul>
       </div>
 
@@ -416,61 +432,77 @@
             an <b>Isomorphism</b>. There are many such mappings, one for each
             basis of the vector space.
 
-          <li step="5"><b>Exercise:</b> Define two different bases in $R^2$, and
+          <li step="5">Isomorphism is pervasive in Mathematics, and it's the
+            reason we can often afford to be "sloppy" when we speak.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible" group="theme1-bt">
+        <h1>Coordinate Tuples vs $F^n$ Vectors</h1>
+        <div step="0">Exercise:</div>
+        <ul>      
+          <li step="1"><b>Exercise:</b> Define two different bases in $R^2$, and
             compute the coordinates of one vector in both bases.
         </ul>
       </div>
       
       <div class="slide build-focus-visible" group="theme1-bt">
         <h1>Basis Transformation</h1>
-        <div step="0">Let's consider <b>two</b> different Bases $\{\vec{e}_{i}\}$ and
-          $\{\vec{e}_{i^\prime}\}$.</div>
+        <div step="0">Let's consider <b>two</b> different bases
+          $\{\xvec{a}_{i}\}$ and $\{\xvec{b}_{i^\prime}\}$ in the same vector
+          space.</div>
+
         <ul>
-          <li step="1"><b>Notation:</b> Symbols with differently primed index
-            symbols refer to different objects. Thus $\vec{e}_{i}$ is a
-            different vector from $\vec{e}_{i^\prime}$ even for equal values of
-            $i$ and $i^\prime$.
+          <li step="1"><b>Notation:</b> Symbols with differently primed indices
+            refer to different objects. Thus $\xvec{a}_{i}$ is a different
+            vector from $\xvec{a}_{i^\prime}$ even for equal values of $i$ and
+            $i^\prime$.
             
-          <li step="2">All vectors of the vector space have coordinates with
-            regard to the first base as well as with regard to the second base:
+          <li step="2">Every vector $\xvec{v}$ of the vector space has
+            coordinates in the first base $\{\xvec{a}_{i}\}$ as well as in the
+            second base $\{\xvec{b}_{i^\prime}\}$ :
 
-            $$\vec{v} = v^{i} \vec{e}_{i} = v^{i^\prime} \vec{e}_{i^\prime}$$
+            $$\xvec{v} = v^{i} \xvec{a}_{i} = v^{i^\prime} \xvec{b}_{i^\prime}$$
 
-          <li step="3,4">All vectors of the second basis have coordinates with
-            regard to the first base. Let's call $T_{i^\prime}^{i}$ the
-            coordinates of $\vec{e}_{i^\prime}$ in the basis ${\vec{i}_{i}}$:
+          <li step="3,4">The vectors ${\xvec{b}_{i^\prime}}$ of the second basis
+            too have coordinates in the first base ${\xvec{a}_{i}}$. Let's call
+            $T_{i^\prime}^{i}$ the coordinates of $\xvec{b}_{i^\prime}$ in the
+            basis ${\xvec{a}_{i}}$:
 
-            $$\vec{e}_{i^\prime} = T_{i^\prime}^{i} \vec{e}_{i}$$
+            $$\xvec{b}_{i^\prime} = T_{i^\prime}^{i} \xvec{a}_{i}$$
 
           <li step="4"><b>Notation:</b> We could write $T$ as a matrix. But we
-            don't, and stick to Einstein notation instead. We'll see later why.
+            don't, and stick to Einstein notation instead. We'll see later why
+            &mdash; with tensors, will multiply such objects on "more than two
+            sides".
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-bt">
         <h1>Basis Transformation</h1>
         <ul>
-          <li step="0,1">All vectors of the first basis $\{\vec{e}_{i}\}$ have
-            coordinates with regard to the second basis and
-            $\{\vec{e}_{i^\prime}\}$ just like every vector:
+          <li step="0,1">Conversely, the vectors of the first basis
+            $\{\xvec{a}_{i}\}$ also have coordinates in the second basis
+            $\{\xvec{b}_{i^\prime}\}$ just like every vector too:
 
-            $$\vec{e}_{i} = T_{i}^{i^\prime} \vec{e}_{i^\prime}$$
+            $$\xvec{a}_{i} = T_{i}^{i^\prime} \xvec{b}_{i^\prime}$$
 
           <li step="1"><b>Notation:</b> the indices on $T_{i}^{i^\prime}$ and
             $T_{i^\prime}^{i}$ are different, so the note from the previous
-            slide applies.
+            slide applies, and these are different objects.
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-bt">
         <h1>Basis Transformation</h1>
         <ul>
-          <li step="0">So the two $T$ are different, but they are related, as we
-            see from inserting one in the other:
+          <li step="0">So the two sets of coordinates $T_{i}^{i^\prime}$ and
+            $T_{i^\prime}^{i}$ are different, but they are related, as we see
+            from inserting one equation into the other:
 
-            $$\vec{e}_{i} = T_{i}^{i^\prime} \vec{e}_{i^\prime}$$
+            $$\xvec{a}_{i} = T_{i}^{i^\prime} \xvec{b}_{i^\prime}$$
 
-            $$\vec{e}_{i} = T_{i}^{i^\prime} T_{i^\prime}^{j} \vec{e}_{j}$$
+            $$\xvec{a}_{i} = T_{i}^{i^\prime} T_{i^\prime}^{j} \xvec{a}_{j}$$
 
           <li step="1,2,3">thus:
 
@@ -491,24 +523,24 @@
       <div class="slide build-focus-visible" group="theme1-bt">
         <h1>Basis Transformation</h1>
         <ul>
-          <li step="0">We can ask for the relationship of the coordinates of a
+          <li step="0">We can ask about the relationship of the coordinates of a
             vector too:
             
-            $$\vec{v} = v^{i} \vec{e}_{i} = v^{i^\prime} \vec{e}_{i^\prime}$$ 
+            $$\xvec{v} = v^{i} \xvec{a}_{i} = v^{i^\prime} \xvec{b}_{i^\prime}$$ 
 
-            $$\vec{v} = v^{i} \vec{e}_{i} = v^{i^\prime} T_{i^\prime}^{i} \vec{e}_{i}$$ 
+            $$\xvec{v} = v^{i} \xvec{a}_{i} = v^{i^\prime} T_{i^\prime}^{i} \xvec{a}_{i}$$ 
 
           <li step="1,2">thus:
 
             $$v^{i} = T_{i^\prime}^{i} v^{i^\prime}
 
-            \;\; \mathrm{and\;remember} \;\;\ \vec{e}_{i} = T_{i}^{i^\prime} \vec{e}_{i^\prime}$$
+            \;\; \mathrm{and\;remember} \;\;\ \xvec{a}_{i} = T_{i}^{i^\prime} \xvec{b}_{i^\prime}$$
 
-          <li step="2">... basis vector and coordinates transform inverse (and
+          <li step="2">... basis vectors and coordinates transform inverse (and
             transposed) to each other.
           
-          <li step="3"><b>Notation:</b> again ordering of factors is not important for
-            meaning, unlike in matrix notation.
+          <li step="3"><b>Notation:</b> again ordering of factors is not
+            important for meaning, unlike in matrix notation.
         </ul>
       </div>
           
@@ -518,10 +550,15 @@
           <li step="0"><b>Definition:</b> $T$ is called a <b>basis
             transformation</b>, and correspondingly a <b>coordinate
             transformation</b>.
-
+            
           <li step="1"><b>Exercise:</b> Write down the basis transformation and
             the coordinate transformation for a rotation of 90 degrees clockwise
             in space of arrows in the 2D plane.
+          
+          <li step="2"><b>Exercise:</b> Write down the basis transformation and
+            the coordinate transformation for a change of basis from a
+            rectangular to a 45 degrees basis in the space of arrows in the 2D
+            plane.
         </ul>
       </div>
       
@@ -532,43 +569,52 @@
           <li step="0">The scalar product is a map from the vector space to its
             scalar field:
 
-            $$\vec{v} \cdot \vec{w} = a \in F$$
+            $$\xvec{v} \cdot \xvec{w} = a \in F$$
 
           <li step="1">linear:
 
-            $$(a \vec{v}) \cdot \vec{w} = a (\vec{v} \cdot \vec{w})$$
+            $$(a \xvec{v}) \cdot \xvec{w} = a (\xvec{v} \cdot \xvec{w})$$
             
-            $$(\vec{v} + \vec{u}) \cdot \vec{w} = \vec{v} \cdot \vec{w} + \vec{u} \cdot \vec{w}$$
+            $$(\xvec{v} + \xvec{u}) \cdot \xvec{w} = \xvec{v} \cdot \xvec{w} + \xvec{u} \cdot \xvec{w}$$
             
           <li step="2">commutative:
-            $\vec{v} \cdot \vec{w} = (\vec{w} \cdot \vec{v})$
+            $\xvec{v} \cdot \xvec{w} = (\xvec{w} \cdot \xvec{v})$
             
           <li step="3">regular:
-            $\forall \vec{v} \neq \vec{0} \; \exists \vec{w}: \vec{v} \cdot
-            \vec{w} \neq 0$
+            $\forall \xvec{v} \neq \xvec{0} \; \exists \xvec{w}: \xvec{v} \cdot
+            \xvec{w} \neq 0$
         </ul>
+
+        <div class="notes">
+          <ul>
+            <li>For vector spaces over <b>Complex Numbers</b>, the scalar
+              product is hermitean instead of commutative.
+            <li>For "normal" vector spaces, the scalar product is also required
+              to be positive definite.
+          </ul>
+        </div>
       </div>
             
       <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
         <div step="0">We are on the way to define the first tensor.</div>
         <ul>
-          <li step="1">The vectors can be written with coordinates in a basis:
+          <li step="1">The vectors can be written with coordinates in a basis ${\xvec{e}_{i}}$:
 
-            $$\vec{v} \cdot \vec{w} = (v^{i}\vec{e}_{i}) \cdot (w^{j} \vec{e}_{j})$$
+            $$\xvec{v} \cdot \xvec{w} = (v^{i}\xvec{e}_{i}) \cdot (w^{j} \xvec{e}_{j})$$
 
           <li step="2">... using the linearity of the scalar product yields:
 
-            $$\vec{v} \cdot \vec{w} = v^{i} w^{j} (\vec{e}_{i} \cdot \vec{e}_{j})$$
+            $$\xvec{v} \cdot \xvec{w} = v^{i} w^{j} (\xvec{e}_{i} \cdot \xvec{e}_{j})$$
 
           <li step="3">The scalar products of the basis vectors are just
             numbers. We call them $g$:
 
-            $$g_{ij} := \vec{e}_{i} \cdot \vec{e}_{j}$$
+            $$g_{ij} := \xvec{e}_{i} \cdot \xvec{e}_{j}$$
 
           <li step="4">... then:
 
-            $$\vec{v} \cdot \vec{w} = v^{i} w^{j} g_{ij}$$
+            $$\xvec{v} \cdot \xvec{w} = v^{i} w^{j} g_{ij}$$
         </ul>
       </div>
 
@@ -610,19 +656,19 @@
         <div step="0">What are the coordinates of the scalar product in another
           basis? Lets see ...</div>
         <ul>
-          <li step="1">$\vec{v} \cdot \vec{w} = (v^{i}\vec{e}_{i}) \cdot (w^{j} \vec{e}_{j})$
+          <li step="1">$\xvec{v} \cdot \xvec{w} = (v^{i}\xvec{e}_{i}) \cdot (w^{j} \xvec{e}_{j})$
             
-          <li step="2">$\vec{v} \cdot \vec{w} = (v^{i^\prime}\vec{e}_{i^\prime}) \cdot (w^{j^\prime} \vec{e}_{j^\prime})$
+          <li step="2">$\xvec{v} \cdot \xvec{w} = (v^{i^\prime}\xvec{e}_{i^\prime}) \cdot (w^{j^\prime} \xvec{e}_{j^\prime})$
 
-          <li step="3">$\vec{v} \cdot \vec{w} = (v^{i^\prime} T_{i^\prime}^{i} \vec{e}_{i}) \cdot (w^{j^\prime} T_{j^\prime}^{j} \vec{e}_{j})$
+          <li step="3">$\xvec{v} \cdot \xvec{w} = (v^{i^\prime} T_{i^\prime}^{i} \xvec{e}_{i}) \cdot (w^{j^\prime} T_{j^\prime}^{j} \xvec{e}_{j})$
 
-          <li step="4">$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
-            T_{i^\prime}^{i} T_{j^\prime}^{j} \; (\vec{e}_{i} \cdot \vec{e}_{j})$
+          <li step="4">$\xvec{v} \cdot \xvec{w} = v^{i^\prime} w^{j^\prime} \;
+            T_{i^\prime}^{i} T_{j^\prime}^{j} \; (\xvec{e}_{i} \cdot \xvec{e}_{j})$
 
-          <li step="5">$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
+          <li step="5">$\xvec{v} \cdot \xvec{w} = v^{i^\prime} w^{j^\prime} \;
             T_{i^\prime}^{i} T_{j^\prime}^{j} \; g_{ij}$
 
-          <li step="6">$\vec{v} \cdot \vec{w} = v^{i^\prime} w^{j^\prime} \;
+          <li step="6">$\xvec{v} \cdot \xvec{w} = v^{i^\prime} w^{j^\prime} \;
             g_{i^{\prime}j^{\prime}}$
 
           <li step="7">thus, $g_{i^{\prime}j^{\prime}} = T_{i^\prime}^{i} T_{j^\prime}^{j} \; g_{ij}$
@@ -641,12 +687,12 @@
 
           <li step="2">The scalar product is just one such map. There are many others.
 
-          <li step="3">They can even be combined, e.g.:
+          <li step="3">These maps be combined and multiplied with numbers:
             
-            $$(g + h)(\vec{a}, \vec{b}) := g(\vec{a}, \vec{b}) + h(\vec{a},
-            \vec{b})$$
+            $$(g + h)(\xvec{a}, \xvec{b}) := g(\xvec{a}, \xvec{b}) + h(\xvec{a},
+            \xvec{b})$$
             
-            $$(ag)(\vec{a}, \vec{b}) := a \cdot g(\vec{a}, \vec{b})$$
+            $$(ag)(\xvec{a}, \xvec{b}) := a \cdot g(\xvec{a}, \xvec{b})$$
 
           <li step="4">Looking closely, they form a vector space too!
 
@@ -654,6 +700,12 @@
             comprised of tensors in $V$:
 
             $$g,h \in V \otimes V$$
+
+          <li step="6">Linear maps with more than two arguments are from tensor
+            product spaces with more than two factors:
+
+            $$V \otimes V \otimes V \otimes ...$$
+
         </ul>
       </div>
 
@@ -661,8 +713,8 @@
         <h1>Scalar Product and Metric Tensor</h1>
         <div step="0">Now that we have defined Tensors, a few more Definitions.</div>
         <ul>
-          <li step="1">A vector space with a scalar product is a <b>Euclidean Vector
-              Space</b>.
+          <li step="1">A vector space over real numbers with a scalar product is
+              a <b>Euclidean Vector Space</b>.
             
           <li step="2">Two vectors from a Euclidean Vector Space whose scalar product is
             $0$ are <b>Orthogonal</b>.
@@ -670,13 +722,13 @@
           <li step="3">If the scalar product is positive definite (not always the case),
             then he scalar product also gives rise to a <b>Norm</b>:
 
-            $$|\vec{x}| = \sqrt{\vec{x} \cdot \vec{x}}$$
+            $$|\xvec{x}| = \sqrt{\xvec{x} \cdot \xvec{x}}$$
 
-          <li step="4">The <b>Angle</b> $\phi$ between two vectors $\vec{x}$ and
-            $\vec{y}$ is defined by
+          <li step="4">The <b>Angle</b> $\phi$ between two vectors $\xvec{x}$ and
+            $\xvec{y}$ is defined by
 
-            $$\cos \phi = \frac{\vec{x} \cdot \vec{y}}{\sqrt{\vec{x} \cdot
-            \vec{x}} \sqrt{\vec{y} \cdot \vec{y}}}$$
+            $$\cos \phi = \frac{\xvec{x} \cdot \xvec{y}}{\sqrt{\xvec{x} \cdot
+            \xvec{x}} \sqrt{\xvec{y} \cdot \xvec{y}}}$$
         </ul>
       </div>
 
@@ -725,19 +777,19 @@
         <div step="0">We answer the second of those questions first, and the
           first in the next session ...</div>
         <ul>
-          <li step="1">Given a basis ${\vec{e}_i}$ in $V$, we define a basis in
+          <li step="1">Given a basis ${\xvec{e}_i}$ in $V$, we define a basis in
             $V \otimes V$ as follows:
 
-            $${\vec{e}^i \otimes \vec{e}^j}$$
+            $${\xvec{e}^i \otimes \xvec{e}^j}$$
 
           <li step="2">is the bilinear function of two vectors from $V$ such that
 
-            $$(\vec{e}^i \otimes \vec{e}^j)(\vec{e}_k, \vec{e}_l) = \delta^i_k
+            $$(\xvec{e}^i \otimes \xvec{e}^j)(\xvec{e}_k, \xvec{e}_l) = \delta^i_k
             \delta^j_l$$
 
           <li step="3">then a bilinear map $g$ with coordinates $g_{ij}$ is given by
 
-            $$g = g_{ij} \, \vec{e}^i \otimes \vec{e}^j$$
+            $$g = g_{ij} \, \xvec{e}^i \otimes \xvec{e}^j$$
         </ul>
       </div>
 
@@ -745,17 +797,17 @@
         <h1>Tensor Bases</h1>
         <ul>
           <li step="0">
-            $g(\vec{x}, \vec{y}) = g_{ij} (\vec{e}^i \otimes \vec{e}^j)(x^k
-            \vec{e}_k, y^l \vec{e}_l)$
+            $g(\xvec{x}, \xvec{y}) = g_{ij} (\xvec{e}^i \otimes \xvec{e}^j)(x^k
+            \xvec{e}_k, y^l \xvec{e}_l)$
 
           <li step="1">
-            $g(\vec{x}, \vec{y}) = g_{ij} x^k y^l (\vec{e}^i \otimes \vec{e}^j)(\vec{e}_k, \vec{e}_l)$
+            $g(\xvec{x}, \xvec{y}) = g_{ij} x^k y^l (\xvec{e}^i \otimes \xvec{e}^j)(\xvec{e}_k, \xvec{e}_l)$
 
           <li step="2">
-            $g(\vec{x}, \vec{y}) = g_{ij} x^k y^l \delta^i_k \delta^j_l$
+            $g(\xvec{x}, \xvec{y}) = g_{ij} x^k y^l \delta^i_k \delta^j_l$
 
           <li step="3">
-            $g(\vec{x}, \vec{y}) = g_{ij} x^i y^j$
+            $g(\xvec{x}, \xvec{y}) = g_{ij} x^i y^j$
 
           <li step="4">
             as we said earlier.
@@ -764,7 +816,7 @@
       </div>
 
       <div class="slide build-focus-visible" group="theme1">
-        <h1>Conclusion</h1>
+        <h1>Summary</h1>
         <ul>
           <li step="0">Vectors can be added and multiplied.
           <li step="1">From that <b>follows</b> they have coordinates wrt a basis.
@@ -776,6 +828,23 @@
           <li step="5">The coordinates of tensors are indexed by tuples of
             indexes, one from each tensor product factor. Hence the name tensor
             in software engineering for muli-dimensional arrays.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible" group="theme1">
+        <h1>Conclusion</h1>
+        <div step="0">Back to the question we started with: Vector and tensor
+          data structures in software engineering.</div>
+        <ul>
+          <li step="1">Data structures that are collections indexed by integers
+            are known as <b>vectors</b> and in the tensorflow library
+            as <b>tensors</b>.
+          <li step="2">However, if for such collections there is no addition
+            defined and no multiplication by scalars, then they are not vectors
+            in the linear algebra sense.
+          <li step="3">They took their name because of the important property of
+            vectors to be described by tuples of scalar numbers, called
+            coordinates.
         </ul>
       </div>
       
