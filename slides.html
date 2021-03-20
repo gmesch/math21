@@ -16,12 +16,21 @@
     <script src="prettify/run_prettify.js?autorun=false&lang=scm" async></script>
 
     <script src="slides_firebase.js"></script>
+    <script src="lib/canvas.js"></script>
     <script src="slides_init.js"></script>
+
+    <style>
+      #bgpage { top: 0; bottom: 0; left: 0; right: 0; position: absolute;
+      border: 1px solid red; }
+      #canvas { width: 100%; height: 100%; border: 1px solid green; }
+    </style>
   </head>
 
   <body onload="init()">
     
-    <div id="bgpage" class="background"></div>
+    <div id="bgpage" class="background">
+      <canvas id="canvas"></canvas>
+    </div>
     
     <div class="header">
     </div>

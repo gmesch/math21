@@ -9,6 +9,8 @@ function drawCurve(ctx, curve) {
 
 function canvasInit() {
   const canvas = document.getElementById('canvas');
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
   const ctx = canvas.getContext('2d');
   ctx.lineWidth = 3;
   ctx.lineCap = 'round';
@@ -20,7 +22,7 @@ function canvasInit() {
   let curve = null;
 
   draw = function() {
-    ctx.clearRect(0, 0, 500, 500);
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     for (const curve of curves) {
       drawCurve(ctx, curve);
     }
