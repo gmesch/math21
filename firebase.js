@@ -1,3 +1,4 @@
+// Settings > General
 const firebaseConfig = {
     apiKey: "AIzaSyCYsfB6D52S48WMpkBWVTtN6TPbBYPfG9E",
     authDomain: "mesch-slides.firebaseapp.com",
@@ -7,6 +8,7 @@ const firebaseConfig = {
     appId: "1:909049059548:web:7d395ada93ca010c6abc19"
 };
 
+// Settings > Cloud Messaging > Project Credentials > Server Key
 const firebaseServerKey =
       'AAAA06eL2Nw:APA91bES7ArKpjP05KPEEYwx8wsEeZs5vGgYYxz0W3Zf8v5ZHrbEKZ7dCNb7YBC6' +
       'KuDszc8PgR8BkwJVXw6-ubImPFzQB7fI_LlKjDJW1tydhodO7ZNX1cS6pZdpq1ynr9JCkxlyHOGN';

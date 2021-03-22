@@ -18,12 +18,6 @@
     <script src="lib/firebase.js"></script>
     <script src="lib/canvas.js"></script>
     <script src="slides_init.js"></script>
-
-    <style>
-      #bgpage { top: 0; bottom: 0; left: 0; right: 0; position: absolute;
-      border: 1px solid red; }
-      #canvas { width: 100%; height: 100%; border: 1px solid green; }
-    </style>
   </head>
 
   <body onload="init()">
@@ -83,17 +77,21 @@
         <div>Throughout the next 3 sessions:</div>
 
         <ul>
-          <li step="1" link="theme1">We explain what tensors are, and how they
-            come to be associated with multidimensional array data structures in
-            software engineering, especially in machine learning.
+          <li step="1" link="theme1">We explain what tensors are, and how the
+            name became associated with multidimensional array data structures
+            in software engineering, especially in machine learning.
             
           <li step="2" link="theme2">We contemplate how tensor products of
             vector spaces have a peculiar scaling behavior in their dimension:
             Unlike the Cartesian Product, which adds the dimensions of its
             factors, the Tensor Product multiplies. We also contemplate how
-            confusing it is that $2+2=2*2=2^2$.
+            confusing it is that
 
-          <li step="3" link="theme3">We finally look how tensors and their
+            $$ 2 + 2 = 2 \times 2 = 2^2 $$
+
+            and what happens when we go beyond 2.
+
+          <li step="3" link="theme3">We finally look again how tensors and their
             products appear in machine learning models.
         </ul>
       </div>
@@ -106,15 +104,50 @@
           building software:</div>
 
         <ul>
-          <li step="1">Introduce axiomatic construction.
+          <li step="1">Understand better axiomatic construction.
 
-          <li step="2">Look at Notation.
+          <li step="2">Introduce more Notation.
 
-          <li step="3">Learn the same thing againi from a different
-            perspective. (Remember the Tensorflow code retreat.)
+          <li step="3">Revisit learnings from new perspectives. (Remember the
+            Tensorflow code retreat.)
 
-          <li step="4">Introduce some mathematical concepts, such as
+          <li step="4">Introduce important mathematical concepts, such as
             Isomorphism and Duality.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible" group="intro">
+        <h1>How to follow along</h1>
+
+        <div>How to use these slides:</div>
+
+        <ul>
+          <li step="1">Find them
+            at <a href="https://gmesch.github.io/math21/slides.html">gmesch.github.io/math21/slides.html</a>
+
+          <li step="2">To follow the slides as shown by the presented, insert
+            the <em>query parameter</em> <b>?follow=X</b> into the URL (before
+            the <b>#</b>, using the value for <b>X</b> announced by the
+            presenter. This asks to allow notifications; please allow it (a
+            Google Firebase mystery - this is needed even though no
+            notifications will be shown).
+
+          <li step="3">Press <b>N</b> to show speaker notes.
+            
+          <li step="4">May not work in your browser, your machine, or on your
+            network connection. If so, please just follow on the video stream.
+            
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible" group="intro">
+        <h1>How to ask questions</h1>
+
+        <div>How to ask questions on VC:</div>
+
+        <ul>
+          <li step="1">TBD ...
+            
         </ul>
       </div>
 
@@ -151,36 +184,70 @@
         <div>Recap what Vectors are, and Vector Spaces.</div>
 
         <ul>
-          <li step="0"><b>Vectors</b> can be <b>added</b> to each other and
+          <li step="1"><b>Vectors</b> can be <b>added</b> to each other and
             <b>multiplied with scalar</b> numbers.
             
-          <li step="1"><em>Scalar numbers</em> are elements of a <b>Field</b>,
-            usually <b>Rational Numbers</b>, <b>Real Numbers</b>,
-            or <b>Complex Numbers</b>, but also <em>finite fields</em>,
-            notably the <b>Galois Field</b>.
+          <li step="2,3,4,5,6"><em>Scalar numbers</em> are elements of a <b>Field</b>,
+            often
+            <ul>
+              <li step="3"><b>Rational Numbers</b> $Q$,
+              <li step="4"><b>Real Numbers</b> $R$,
+              <li step="5">or <b>Complex Numbers</b> $C$,
+              <li step="6">but also <em>finite fields</em>,
+                notably the <b>Galois Field</b> $GF(2)$.
+            </ul>
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-vs">
         <h1>Axioms of Vector Space</h1>
-        <div>Every set, whose elements can be added and multiplied with elements
-          from a field, according to the following axioms, is a vector space:</div>
+        <div>Every set $V$ whose elements can be <b>added</b> to each other, and
+          <b>multiplied</b> with elements from a field $F$, with the following
+          properties, is a vector space.</div>
 
+        <div step="1,2,3,4,5,6">Vector Addition:</div>
         <ol>
-          <li step="1">Associative: $(\xvec{a} + \xvec{b}) + \xvec{c} = \xvec{a} + (\xvec{b}
-            + \xvec{c})$
-          <li step="2">Commutative: $\xvec{a} + \xvec{b} = \xvec{b} + \xvec{a}$</li>
-          <li step="3">Neutral Element: $\exists \xvec{0} \; \forall \xvec{a} \,:\, \xvec{a} + \xvec{0} = \xvec{a}$
-          <li step="4">Inverse Element: $\forall \xvec{a} \; \exists -\!\xvec{a} \,:\, \xvec{a} + (-\xvec{a}) = \xvec{0}$
-          <li step="5">Scalar mult compatible with Field mult: $a (b \xvec{a}) = (a b) \xvec{a}$
-          <li step="6">Neutral Element of scalar mult: $1 \xvec{a} = \xvec{a}$
-          <li step="7">Distributive over vector add: $a \xvec{a} + a \xvec{b} = a (\xvec{a} + \xvec{b})$
-          <li step="8">Distributive over scalar add: $a \xvec{a} + b \xvec{a} = (a + b) \xvec{a}$
+          <li step="2">is an operation from $V \times V$ on $V$:
+
+            $\xvec{a} + \xvec{b} \in V$
+
+          <li step="3">is associative:
+
+            $(\xvec{a} + \xvec{b}) + \xvec{c} = \xvec{a} + (\xvec{b} +
+            \xvec{c})$
+
+          <li step="4">is commutative:
+
+            $\xvec{a} + \xvec{b} = \xvec{b} + \xvec{a}$</li>
+
+          <li step="5">has a neutral element:
+
+            $\exists \xvec{0} \; \forall \xvec{a} \,:\, \xvec{a} + \xvec{0} =
+            \xvec{a}$
+
+          <li step="6">has an inverse:
+
+            $\forall \xvec{a} \; \exists -\!\xvec{a} \,:\, \xvec{a} +
+            (-\xvec{a}) = \xvec{0}$
+        </ol>
+
+        <div step="7,8,9,10,11,12">Scalar Multiplication:</div>
+        <ol>
+          <li step="8">is an operation from $F \times V$ on $V$:
+
+            $a\xvec{a} \in V$
+            
+          <li step="9">is compatible with Field multiplication: $a (b \xvec{a}) = (a b) \xvec{a}$
+          <li step="10">has a neutral element: $1 \xvec{a} = \xvec{a}$
+          <li step="11">is distributive over vector addition: $a \xvec{a} + a \xvec{b} = a (\xvec{a} + \xvec{b})$
+          <li step="12">is distributive over field addition: $a \xvec{a} + b \xvec{a} = (a + b) \xvec{a}$
         </ol>
 
         <div class="notes">
           <ul>
             <li>$\forall$ is implied where absent in the axioms.
+            <li>technically in some terminolgy systems, scalar multiplication is
+              not an operation but a function
           </ul>
         </div>
       </div>
@@ -199,6 +266,15 @@
         <h1>Axioms of Vector Space - Example: Arrows</h1>
         <div>Arrows in the 2D plane are vectors, with their operations defined
           by Euclidean Geometry.</div>
+        <div style="float:right">
+          <ul>
+            <li step="1,2">Vector Addition
+            <li step="3,4">Scalar Multiplication - negation
+            <li step="5,6">Scalar Multiplication - integers
+            <li step="7,8">Scalar Multiplication - integer fractions
+          </ul>
+        </div>
+              
         <div class="img">
           <img class="img" src="img/vectors/vector-plus.png" step="1">
           <img class="img" src="img/vectors/vector-plus-result.png" step="2">
@@ -209,6 +285,22 @@
           <img class="img" src="img/vectors/vector-frac.png" step="7">
           <img class="img" src="img/vectors/vector-frac-result.png" step="8">
         </div>
+        <div class="notes">
+          <ul>
+            <li>All the operations are defined directly by operations in
+              Euclidean geometry, not by the corresponding operations on
+              coordinates.
+          </ul>
+        </div>
+      </div>
+
+      <div class="slide build-focus" group="theme1-vs">
+        <h1>Axioms of Vector Space - Example: Tuples</h1>
+        <div>Tuples of rational or real numbers are vectors.</div>
+        <ul>
+          <li>$(1, 2) + (1, 2) = (2, 4)$</li>
+          <li>$3 \times (1, 2) = (3, 6)$</li>
+        </ul>
       </div>
       
       <div class="slide build-focus-visible" group="theme1-vs">
@@ -216,9 +308,21 @@
         <div><b>Exercise:</b> Are these two examples vector spaces?</div>
 
         <ul>
-          <li>(a) Tuples of Real Numbers over Rational Numbers?
+          <li step="1">(a) Tuples of Rational Numbers over Real Numbers?
+          <li step="2">(b) Tuples of Real Numbers over Rational Numbers?
+        </ul>
+      </div>
+      
+      <div class="slide build-focus" group="theme1-vs">
+        <h1>Axioms of Vector Space</h1>
+        <div><b>Solution:</b> Are these two examples vector spaces?</div>
 
-          <li>(b) Tuples of Rational Numbers over Real Numbers?
+        <ul>
+          <li step="1">(a) Tuples of Rational Numbers over Real Numbers? &mdash; No,
+            violates first axiom of scalar multiplication.
+          <li step="2">(b) Tuples of Real Numbers over Rational Numbers? &mdash;
+            Tricky! Yes, but it's infinite-dimensional. We'll see how once we
+            understand linear independence ...
         </ul>
       </div>
       
@@ -266,31 +370,47 @@
         
         <div><b>Exercise:</b> Imagine sets of arrows that are</div>
         <ul>
-          <li step="1">(a) linearly dependent,
-          <li step="2">(b) linearly independent.
+          <li step="1">(a) linearly independent,
+          <li step="2">(b) linearly dependent.
         </ul>
+      </div>
+
+      <div class="slide build-focus" group="theme1-li">
+        <h1>Linear Independence</h1>
+        
+        <div><b>Solution:</b> Imagine sets of arrows that are</div>
+
+        <ul style="float:right">
+          <li step="1">(a) linearly independent,
+          <li step="2">(b) linearly dependent.
+        </ul>
+
+        <div class="img">
+          <img class="img" src="img/vectors/vector-independent.png" step="1">
+          <img class="img" src="img/vectors/vector-dependent.png" step="2">
+        </div>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-li">
         <h1>Einstein Notation</h1>
         <div>We introduce a notation for vector algebra that's very neat.</div>
         <ul>
-          <li>Convention:
+          <li step="1">Convention:
 
             $$w^i \xvec{v}_i := \sum_{i} w_i \xvec{v}_i$$
 
-          <li>If an index $i$ appears in a multiplication expression both as
+          <li step="2">If an index $i$ appears in a multiplication expression both as
             upper index $w^i$ and as lower index $\xvec{v}_i$, then the sum over
             the range of the index is implied.
 
-          <li>Also for multiple indices. (Will see this for tensors.)
+          <li step="3">Also for multiple indices. (Will see this for tensors.)
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-li">
         <h1>Einstein Notation</h1>
         <ul>
-          <li>No sum for an index on its own:
+          <li step="0">No sum for an index on its own:
             
             $$\xvec{v}_i$$
             
@@ -300,7 +420,7 @@
             
             is simply a tuple of weights, i.e. numbers.
           
-          <li>No sum for a repeated index on top or bottom:
+          <li step="1">No sum for a repeated index on top or bottom:
             
             $$M_{ii}$$
             
@@ -332,8 +452,11 @@
             
             (Einstein notation applies.)
 
-          <li step="3"><b>Exercise:</b> (a) why must be $v^{0} \neq 0$? (b) Why
-            would it be a problem otherwise?</li>
+          <li step="3"><b>Exercise:</b>
+            <ul>
+              <li>(a) why must be $v^{0} \neq 0$?
+              <li>(b) Why would it be a problem otherwise?
+            </ul>
         </ul>
       </div>
 
@@ -386,7 +509,7 @@
 
             $$v^{i} - u^{i} = 0$$
 
-            (No Einstein sum here, because the index is up both times.)
+            (No Einstein sum here.)
 
           <li step="1">Or:
 
@@ -394,9 +517,9 @@
 
             QED.
             
-          <li step="2">Thus, every vector in the vector space can be represented as a
-            combination with unambiguous coefficients from any maximal set of
-            lineary independent vectors.</li>
+          <li step="2">Thus, every vector in the vector space can be represented
+            as a combination with unambiguous coefficients from any maximal set
+            of lineary independent vectors.</li>
         </ul>
       </div>
 
@@ -447,10 +570,45 @@
 
       <div class="slide build-focus-visible" group="theme1-bt">
         <h1>Coordinate Tuples vs $F^n$ Vectors</h1>
-        <div step="0">Exercise:</div>
+        <div step="0"><b>Exercise:</b></div>
         <ul>      
-          <li step="1"><b>Exercise:</b> Define two different bases in $R^2$, and
-            compute the coordinates of one vector in both bases.
+          <li step="1">Define two different bases in $R^2$, and compute the
+            coordinates of one vector in both bases.
+        </ul>
+      </div>
+      
+      <div class="slide build-focus-visible" group="theme1-bt">
+        <h1>Coordinate Tuples vs $F^n$ Vectors</h1>
+        <div step="0"><b>Solution:</b></div>
+        <ul>      
+          <li step="1">Define two different bases in $R^2$, and compute the
+            coordinates of one vector $\left[ \begin{array}{c} 1 \\ 1
+            \end{array} \right]$ in both bases.
+
+          <li step="2">Basis 1:
+
+            $\{ \left[ \begin{array}{c} 1 \\ 0 \end{array} \right],
+            \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
+            \}$
+
+          <li step="3">Basis 2:
+
+            $\{ \left[ \begin{array}{c} 1 \\ 1 \end{array} \right],
+            \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
+            \}$
+
+          <li step="4">Vector in Basis 1:
+
+            $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
+            1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
+            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
+
+          <li step="5">Vector in Basis 2:
+
+            $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
+            1 \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] + 
+            0 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
+
         </ul>
       </div>
       
@@ -560,13 +718,95 @@
             transformation</b>.
             
           <li step="1"><b>Exercise:</b> Write down the basis transformation and
-            the coordinate transformation for a rotation of 90 degrees clockwise
-            in space of arrows in the 2D plane.
-          
-          <li step="2"><b>Exercise:</b> Write down the basis transformation and
-            the coordinate transformation for a change of basis from a
-            rectangular to a 45 degrees basis in the space of arrows in the 2D
-            plane.
+            the coordinate transformation for the transition between <em>Basis
+            1</em> and <em>Basis 2</em> in the previous exercise.
+        </ul>
+      </div>
+      
+      <div class="slide build-focus-visible" group="theme1-bt">
+        <h1>Basis Transformation</h1>
+        <ul>
+          <li step="0"><b>Solution:</b> Write down the basis transformation and
+            the coordinate transformation for the transition between <em>Basis
+            1</em> and <em>Basis 2</em> in the previous exercise.
+
+          <li step="1">Vector:
+
+            $$\xvec{v} = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]$$
+
+          <li step="2">Basis 1:
+
+            $$\xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]$$
+            $$\xvec{e}_2 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
+
+          <li step="3">Basis 2:
+
+            $$\xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]$$
+            $$\xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible" group="theme1-bt">
+        <h1>Basis Transformation</h1>
+        <ul>
+          <li step="0">Vector in Basis 1:
+
+            $$\xvec{v} = v^i\xvec{e}_i = 
+            1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
+            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
+            $$v^1 = 1, \; v^2 = 1$$
+
+          <li step="1">Vector in Basis 2:
+
+            $$\xvec{v} = v^{i^\prime}\xvec{e}_{i^\prime} = 
+            1 \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] + 
+            0 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
+            $$v^1 = 1, \; v^2 = 0$$
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible" group="theme1-bt">
+        <h1>Basis Transformation</h1>
+        <ul>
+          <li step="0">Basis Transformation:
+
+            $$\xvec{e}_{i^\prime} = T_{i^\prime}^{i} \xvec{e}_{i}$$
+
+            $$\xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 1 \end{array}
+            \right] = 
+            1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
+            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right] =
+            1 \xvec{e}_{1} +
+            1 \xvec{e}_{2}$$
+
+            $$\xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
+            \right] =
+            0 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
+            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right] =
+            0 \xvec{e}_{1} +
+            1 \xvec{e}_{2}$$
+
+            $$ T_{1^\prime}^{1} = 1, \;
+            T_{1^\prime}^{2} = 1, \;
+            T_{2^\prime}^{1} = 0, \;
+            T_{2^\prime}^{2} = 1 \; $$
+        </ul>
+      </div>
+
+
+      <div class="slide build-focus-visible" group="theme1-bt">
+        <h1>Basis Transformation</h1>
+        <ul>
+          <li step="0">Coordinate Transformation:
+
+            $$v^{i^\prime} = T_{i}^{i^\prime} v^{i}$$
+
+            $$T_{i}^{i^\prime} T_{i^\prime}^{j} = \delta_i^j$$
+
+            $$ T_{1}^{1^\prime} = ?, \;
+            T_{1}^{2^\prime} = ?, \;
+            T_{2}^{1^\prime} = ?, \;
+            T_{2}^{2^\prime} = ? \; $$ TODO
         </ul>
       </div>
       
@@ -586,7 +826,7 @@
             $$(\xvec{v} + \xvec{u}) \cdot \xvec{w} = \xvec{v} \cdot \xvec{w} + \xvec{u} \cdot \xvec{w}$$
             
           <li step="2">commutative:
-            $\xvec{v} \cdot \xvec{w} = (\xvec{w} \cdot \xvec{v})$
+            $\xvec{v} \cdot \xvec{w} = \xvec{w} \cdot \xvec{v}$
             
           <li step="3">regular:
             $\forall \xvec{v} \neq \xvec{0} \; \exists \xvec{w}: \xvec{v} \cdot
@@ -607,7 +847,7 @@
         <h1>Scalar Product and Metric Tensor</h1>
         <div step="0">We are on the way to define the first tensor.</div>
         <ul>
-          <li step="1">The vectors can be written with coordinates in a basis ${\xvec{e}_{i}}$:
+          <li step="1">The vectors can be written with coordinates in a basis $\{\xvec{e}_{i}\}$:
 
             $$\xvec{v} \cdot \xvec{w} = (v^{i}\xvec{e}_{i}) \cdot (w^{j} \xvec{e}_{j})$$
 
@@ -641,7 +881,19 @@
             to a basis, the map is described by coordinates too
 
           <li step="2"><b>Exercise:</b> Write down the coordinates of the scalar
-            product for arrows in 2D space in a basis of your choice.
+            product for tuples from $R^2$ in the
+            two bases from the previous exercise.
+        </ul>
+      </div>
+      
+      <div class="slide build-focus-visible" group="theme1-sp">
+        <h1>Scalar Product and Metric Tensor</h1>
+        <ul>
+          <li step="0"><b>Solution:</b> Write down the coordinates of the scalar
+            product for tuples from $R^2$ in the two bases from the previous
+            exercise.
+
+          <li>... TODO
         </ul>
       </div>
       
@@ -655,8 +907,6 @@
           <li>(2) What are the "basis vectors" of whom the coordinates are the
             coefficients?
         </ul>
-
-        <div><b>Exercise:</b> Discuss the questions above.</div>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-sp">
@@ -695,7 +945,7 @@
 
           <li step="2">The scalar product is just one such map. There are many others.
 
-          <li step="3">These maps be combined and multiplied with numbers:
+          <li step="3">These maps can be combined and multiplied with numbers:
             
             $$(g + h)(\xvec{a}, \xvec{b}) := g(\xvec{a}, \xvec{b}) + h(\xvec{a},
             \xvec{b})$$
@@ -719,7 +969,7 @@
 
       <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
-        <div step="0">Now that we have defined Tensors, a few more Definitions.</div>
+        <div step="0">Now that we have defined Tensors, a few more <b>Definitions</b>.</div>
         <ul>
           <li step="1">A vector space over real numbers with a scalar product is
               a <b>Euclidean Vector Space</b>.
@@ -747,11 +997,16 @@
             direction in a Euclidean Vector Space, i.e. the <em>Metric</em>, and
             is a tensor, it's called the <b>Metric Tensor</b>.
 
-          <li step="1">In <b>Riemann Geometry</b>, the metric tensor is in every
-            point in space (i.e. it's a tensor field). In <b>General
-            Relativity</b>, the metric tensor is connected to the mass by a
-            partial differential equation.
+          <li step="1">In <b>Riemann Geometry</b>, the metric tensor is given in
+            every point in space, i.e. it's a <b>tensor field</b>.
+
+          <li step="2">In <b>General Relativity</b>, the metric tensor is
+            connected to the mass by a partial differential equation.
         </ul>
+
+        <div class="notes">
+          Don't confuse a tensor field with a field.
+        </div>                                     
       </div>
 
       <div class="slide build-focus-visible" group="theme1-sp">
