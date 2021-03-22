@@ -151,12 +151,10 @@
         </ul>
       </div>
 
-      <div class="slide noprint" group="theme1" name="theme1">
-        <div class="banner">
-          <div class="content">
-            <b>I - Vectors and Tensors</b><br><em>Why, in software, arrays with multiple
+      <div class="slide noprint banner" group="theme1" name="theme1">
+        <div>
+          <b>I - Vectors and Tensors</b><br><em>Why, in software, arrays with multiple
             integer indices came to be called tensors.</em>
-          </div>
         </div>
       </div>
       
@@ -199,7 +197,7 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-vs">
+      <div class="slide build-focus-visible continued" group="theme1-vs">
         <h1>Axioms of Vector Space</h1>
         <div>Every set $V$ whose elements can be <b>added</b> to each other, and
           <b>multiplied</b> with elements from a field $F$, with the following
@@ -295,7 +293,7 @@
       </div>
 
       <div class="slide build-focus" group="theme1-vs">
-        <h1>Axioms of Vector Space - Example: Tuples</h1>
+        <h1>Axioms of Vector Space &mdash; Example: Tuples</h1>
         <div>Tuples of rational or real numbers are vectors.</div>
         <ul>
           <li>$(1, 2) + (1, 2) = (2, 4)$</li>
@@ -303,19 +301,19 @@
         </ul>
       </div>
       
-      <div class="slide build-focus-visible" group="theme1-vs">
-        <h1>Axioms of Vector Space</h1>
-        <div><b>Exercise:</b> Are these two examples vector spaces?</div>
-
-        <ul>
-          <li step="1">(a) Tuples of Rational Numbers over Real Numbers?
-          <li step="2">(b) Tuples of Real Numbers over Rational Numbers?
-        </ul>
+      <div class="slide build-focus-visible banner" group="theme1-vs">
+        <h1>Axioms of Vector Space &mdash; Exercise</h1>
+        <div>Are these two examples vector spaces?
+          <ul>
+            <li step="1">(a) Tuples of Rational Numbers over Real Numbers?
+            <li step="2">(b) Tuples of Real Numbers over Rational Numbers?
+          </ul>
+        </div>
       </div>
       
       <div class="slide build-focus" group="theme1-vs">
-        <h1>Axioms of Vector Space</h1>
-        <div><b>Solution:</b> Are these two examples vector spaces?</div>
+        <h1>Axioms of Vector Space &mdash; Solution</h1>
+        <div>Are these two examples vector spaces?</div>
 
         <ul>
           <li step="1">(a) Tuples of Rational Numbers over Real Numbers? &mdash; No,
@@ -365,10 +363,10 @@
         </div>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-li">
-        <h1>Linear Independence</h1>
+      <div class="slide build-focus-visible banner" group="theme1-li">
+        <h1>Linear Independence &mdash; Exercise</h1>
         
-        <div><b>Exercise:</b> Imagine sets of arrows that are</div>
+        <div>Imagine sets of arrows that are</div>
         <ul>
           <li step="1">(a) linearly independent,
           <li step="2">(b) linearly dependent.
@@ -376,9 +374,9 @@
       </div>
 
       <div class="slide build-focus" group="theme1-li">
-        <h1>Linear Independence</h1>
+        <h1>Linear Independence &mdash; Solution</h1>
         
-        <div><b>Solution:</b> Imagine sets of arrows that are</div>
+        <div>Imagine sets of arrows that are</div>
 
         <ul style="float:right">
           <li step="1">(a) linearly independent,
@@ -407,7 +405,7 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-li">
+      <div class="slide build-focus-visible continued" group="theme1-li">
         <h1>Einstein Notation</h1>
         <ul>
           <li step="0">No sum for an index on its own:
@@ -461,7 +459,7 @@
       </div>
 
 
-      <div class="slide build-visible" group="theme1-li">
+      <div class="slide build-visible continued" group="theme1-li">
         <h1>Linear Independence</h1>
         <div class="notes">
           One more property, and it all yields 3 important concepts.
@@ -480,7 +478,7 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-li">
+      <div class="slide build-focus-visible continued" group="theme1-li">
         <h1>Linear Independence</h1>
         <div step="0"><b>Proof</b> that the coefficients of any vector are unambiguous.</div>
 
@@ -501,7 +499,7 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-li">
+      <div class="slide build-focus-visible continued" group="theme1-li">
         <h1>Linear Independence</h1>
 
         <ul>
@@ -568,9 +566,8 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Coordinate Tuples vs $F^n$ Vectors</h1>
-        <div step="0"><b>Exercise:</b></div>
+      <div class="slide build-focus-visible banner" group="theme1-bt">
+        <h1>Coordinate Tuples vs $F^n$ Vectors &mdash; Exercise</h1>
         <ul>      
           <li step="1">Define two different bases in $R^2$, and compute the
             coordinates of one vector in both bases.
@@ -578,37 +575,41 @@
       </div>
       
       <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Coordinate Tuples vs $F^n$ Vectors</h1>
-        <div step="0"><b>Solution:</b></div>
+        <h1>Coordinate Tuples vs $F^n$ Vectors &mdash; Solution</h1>
+        <div step="0">Define two different bases in $R^2$, and compute the
+          coordinates of one vector $\left[ \begin{array}{c} 1 \\ 1
+          \end{array} \right]$ in both bases.</div>
+
         <ul>      
-          <li step="1">Define two different bases in $R^2$, and compute the
-            coordinates of one vector $\left[ \begin{array}{c} 1 \\ 1
-            \end{array} \right]$ in both bases.
+          <li style="display:flex">
+            <div step="1,3">Basis 1:
+              
+              $\{ \left[ \begin{array}{c} 1 \\ 0 \end{array} \right],
+              \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
+              \}$
+            </div>
 
-          <li step="2">Basis 1:
+            <div step="2,3">Basis 2:
 
-            $\{ \left[ \begin{array}{c} 1 \\ 0 \end{array} \right],
-            \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
-            \}$
+              $\{ \left[ \begin{array}{c} 1 \\ 1 \end{array} \right],
+              \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
+              \}$
+            </div>
+            
+          <li style="display:flex">
+            <div step="4,6">Vector in Basis 1:
 
-          <li step="3">Basis 2:
+              $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
+              1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
+              1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
+            </div>
+              
+            <div step="5,6">Vector in Basis 2:
 
-            $\{ \left[ \begin{array}{c} 1 \\ 1 \end{array} \right],
-            \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
-            \}$
-
-          <li step="4">Vector in Basis 1:
-
-            $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
-            1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
-            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
-
-          <li step="5">Vector in Basis 2:
-
-            $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
-            1 \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] + 
-            0 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
-
+              $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
+              1 \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] + 
+              0 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
+            </div>
         </ul>
       </div>
       
@@ -644,7 +645,7 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-bt">
+      <div class="slide build-focus-visible continued" group="theme1-bt">
         <h1>Basis Transformation</h1>
         <ul>
           <li step="0,1">Conversely, the vectors of the first basis
@@ -659,7 +660,7 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-bt">
+      <div class="slide build-focus-visible continued" group="theme1-bt">
         <h1>Basis Transformation</h1>
         <ul>
           <li step="0">So the two sets of coordinates $T_{i}^{i^\prime}$ and
@@ -686,7 +687,7 @@
         </ul>
       </div>
       
-      <div class="slide build-focus-visible" group="theme1-bt">
+      <div class="slide build-focus-visible continued" group="theme1-bt">
         <h1>Basis Transformation</h1>
         <ul>
           <li step="0">We can ask about the relationship of the coordinates of a
@@ -712,66 +713,90 @@
           
       <div class="slide build-focus-visible" group="theme1-bt">
         <h1>Basis Transformation</h1>
+        <div>We now can <b>define</b>:</div>
         <ul>
-          <li step="0"><b>Definition:</b> $T$ is called a <b>basis
-            transformation</b>, and correspondingly a <b>coordinate
-            transformation</b>.
-            
-          <li step="1"><b>Exercise:</b> Write down the basis transformation and
+          <li step="0">$T$ is called a <b>basis transformation</b>,
+          <li step="1">and correspondingly a <b>coordinate transformation</b>.
+        </ul>
+      </div>
+      
+      <div class="slide build-focus-visible banner" group="theme1-bt">
+        <h1>Basis Transformation &mdash; Exercise</h1>
+        <ul>
+          <li>Write down the basis transformation and
             the coordinate transformation for the transition between <em>Basis
-            1</em> and <em>Basis 2</em> in the previous exercise.
+              1</em> and <em>Basis 2</em> in the previous exercise.
         </ul>
       </div>
       
       <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Basis Transformation</h1>
-        <ul>
-          <li step="0"><b>Solution:</b> Write down the basis transformation and
-            the coordinate transformation for the transition between <em>Basis
-            1</em> and <em>Basis 2</em> in the previous exercise.
-
-          <li step="1">Vector:
+        <h1>Basis Transformation &mdash; Solution</h1>
+        <div>Write down the basis transformation and the coordinate
+          transformation for the transition between <em>Basis 1</em>
+          and <em>Basis 2</em> in the previous exercise.</div>
+        <div style="display:flex">
+          <div step="1,4">Vector:
 
             $$\xvec{v} = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]$$
 
-          <li step="2">Basis 1:
 
-            $$\xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]$$
-            $$\xvec{e}_2 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
+          </div>
 
-          <li step="3">Basis 2:
+          <div step="2,4">Basis 1:
+            $$\begin{array}
 
-            $$\xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]$$
-            $$\xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
-        </ul>
+            \xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] &&
+
+            \xvec{e}_2 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
+
+            \end{array}$$
+          </div>
+            
+          <div step="3,4">Basis 2:
+            $$\begin{array}
+            
+            \xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 1 \end{array}
+            \right] &&
+
+            \xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
+            \right]
+
+            \end{array}$$
+          </div>
+        </div>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Basis Transformation</h1>
-        <ul>
-          <li step="0">Vector in Basis 1:
+      <div class="slide build-focus-visible continued" group="theme1-bt">
+        <h1>Basis Transformation &mdash; Solution</h1>
+        <div>Vector expressed in both bases:</div>
+        <div style="display:flex">
+          <div step="0,2">Vector in Basis 1:
 
             $$\xvec{v} = v^i\xvec{e}_i = 
             1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
             1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
             $$v^1 = 1, \; v^2 = 1$$
+          </div>
 
-          <li step="1">Vector in Basis 2:
+          <div step="1,2">Vector in Basis 2:
 
             $$\xvec{v} = v^{i^\prime}\xvec{e}_{i^\prime} = 
             1 \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] + 
             0 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
             $$v^1 = 1, \; v^2 = 0$$
-        </ul>
+          </div>
+        </div>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Basis Transformation</h1>
-        <ul>
-          <li step="0">Basis Transformation:
-
+      <div class="slide build-focus-visible continued" group="theme1-bt">
+        <h1>Basis Transformation &mdash; Solution</h1>
+        <div step="0">Basis transformation written down:</div>
+        <div style="display:flex;align-items:center">
+          <div step="1,4">
             $$\xvec{e}_{i^\prime} = T_{i^\prime}^{i} \xvec{e}_{i}$$
+          </div>
 
+          <div step="2,4">
             $$\xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 1 \end{array}
             \right] = 
             1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
@@ -785,17 +810,23 @@
             1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right] =
             0 \xvec{e}_{1} +
             1 \xvec{e}_{2}$$
+          </div>
 
-            $$ T_{1^\prime}^{1} = 1, \;
-            T_{1^\prime}^{2} = 1, \;
-            T_{2^\prime}^{1} = 0, \;
-            T_{2^\prime}^{2} = 1 \; $$
-        </ul>
+          <div step="3,4">
+            $$
+            \begin{array}{c}
+            T_{1^\prime}^{1} = 1 &&
+            T_{1^\prime}^{2} = 1 \\
+            T_{2^\prime}^{1} = 0 &&
+            T_{2^\prime}^{2} = 1
+            \end{array}$$
+          </div>
+        </div>
       </div>
 
 
-      <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Basis Transformation</h1>
+      <div class="slide build-focus-visible continued" group="theme1-bt">
+        <h1>Basis Transformation &mdash; Solution</h1>
         <ul>
           <li step="0">Coordinate Transformation:
 
@@ -843,7 +874,7 @@
         </div>
       </div>
             
-      <div class="slide build-focus-visible" group="theme1-sp">
+      <div class="slide build-focus-visible continued" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
         <div step="0">We are on the way to define the first tensor.</div>
         <ul>
@@ -866,8 +897,11 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-sp">
+      <div class="slide build-focus-visible continued" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
+        <div>
+            $$\xvec{v} \cdot \xvec{w} = v^{i} w^{j} g_{ij}$$
+        </div>
         <ul>
           <li step="0">For a given basis, these numbers $g_{ij}$ fully define the scalar
             product in the vector space; they are the <em>coordinates</em> of
@@ -879,20 +913,20 @@
             of vectors to scalar numbers, just like the vectors are not their
             coordinates. But once vectors are described by coordinates relative
             to a basis, the map is described by coordinates too
-
-          <li step="2"><b>Exercise:</b> Write down the coordinates of the scalar
-            product for tuples from $R^2$ in the
-            two bases from the previous exercise.
         </ul>
       </div>
       
-      <div class="slide build-focus-visible" group="theme1-sp">
-        <h1>Scalar Product and Metric Tensor</h1>
-        <ul>
-          <li step="0"><b>Solution:</b> Write down the coordinates of the scalar
-            product for tuples from $R^2$ in the two bases from the previous
-            exercise.
+      <div class="slide build-focus-visible banner" group="theme1-sp">
+        <h1>Scalar Product and Metric Tensor &mdash; Exercise</h1>
+        <div>Write down the coordinates of the scalar product for tuples from
+          $R^2$ in the two bases from the previous exercise.</div>
+      </div>
 
+      <div class="slide build-focus-visible" group="theme1-sp">
+        <h1>Scalar Product and Metric Tensor &mdash; Solution</h1>
+        <div>Write down the coordinates of the scalar product for tuples from
+          $R^2$ in the two bases from the previous exercise.</div>
+        <ul>
           <li>... TODO
         </ul>
       </div>
@@ -910,7 +944,7 @@
       </div>
 
       <div class="slide build-focus-visible" group="theme1-sp">
-        <h1>Scalar Product and Metric Tensor</h1>
+        <h1>Scalar Product and Metric Tensor &mdash; Coordinate Transformation</h1>
         <div step="0">What are the coordinates of the scalar product in another
           basis? Lets see ...</div>
         <ul>

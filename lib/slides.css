@@ -81,7 +81,7 @@ H1, H2, H3, H4, H5, H6 {
 
 .slide H1 {
     font-size: 150%;
-    font-weight: bold;
+    font-weight: normal;
     
     text-align: left;
 
@@ -96,6 +96,19 @@ H1, H2, H3, H4, H5, H6 {
 
     background-color: #f8f8f8;
     border-bottom:2px solid orange;
+}
+
+.slide.continued H1 {
+    font-weight: lighter;
+}
+
+.slide.continued H1::after {
+    font-size: 80%;
+    color: silver;
+    content: "(continued)";
+    position: absolute;
+    right: 0;
+    padding-right: 0.3em;
 }
 
 .slide DIV {
@@ -288,21 +301,19 @@ H1, H2, H3, H4, H5, H6 {
   left: 10px;
 }
 
-.slide .banner { 
-  position: absolute;
-  /* NOTE(mesch): 100% gives scrollbars on slides. */
-  width: 95%;
-  top: 35%;
-  margin-left: 12px;
-  border: 1px solid silver;
-  overflow: hidden;
+.slide.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.banner DIV.content { 
-  font-size: 130%;
-  text-align: center;
-  padding: 0.5em;
-  margin-top: 0px;
+.slide.banner > DIV, .slide.banner > H1, .slide.banner > UL { 
+    border: 1px solid silver;
+    width: 80%;
+    font-size: 130%;
+    text-align: center;
+    padding: 0.5em;
 }
 
 /* Code snippets. */
@@ -357,23 +368,20 @@ body {
   z-index: 0;
 }
 
+.slides { 
+  z-index: 2;
+}
+
+.header, .footer, #navigator { 
+  z-index: 3;
+}
 
 .background { 
   z-index: 6;
 }
 
 
-.shade { 
-  z-index: 2;
-}
-
-
-.slides, .header, .footer, #navigator { 
-  z-index: 3;
-}
-
-
-.logo { 
+.logo {
   z-index: 4;
 }
 
