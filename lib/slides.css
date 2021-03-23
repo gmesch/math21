@@ -19,6 +19,15 @@ H1, H2, H3, H4, H5, H6 {
   position: fixed;
   top: 3px;
   height: 10px;
+  width: 100%;
+}
+
+.header #follow {
+    position: absolute;
+    top: 0.1em;
+    right: 0.3em;
+    font-size: 1.2vw;
+    cursor: pointer;
 }
 
 #navigator div {
@@ -372,19 +381,18 @@ body {
   z-index: 2;
 }
 
-.header, .footer, #navigator { 
+.background { 
   z-index: 3;
 }
 
-.background { 
-  z-index: 6;
-}
-
-
-.logo {
+.header, .footer, #navigator { 
   z-index: 4;
 }
 
-.float, #workshop { 
+.logo {
   z-index: 5;
+}
+
+.float, #workshop { 
+  z-index: 6;
 }
