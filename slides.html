@@ -109,8 +109,8 @@
 
           <li step="2">Introduce more Notation.
 
-          <li step="3">Revisit learnings from new perspectives. (Remember the
-            Tensorflow code retreat.)
+          <li step="3">Revisit previous lessons from new viewpoints. (Remember
+            the Tensorflow code retreat.)
 
           <li step="4">Introduce important mathematical concepts, such as
             Isomorphism and Duality.
@@ -120,23 +120,32 @@
       <div class="slide build-focus-visible" group="intro">
         <h1>How to follow along</h1>
 
-        <div>How to use these slides:</div>
+        <div>This is an experiment. How to use these slides:</div>
 
         <ul>
           <li step="1">Find them
             at <a href="https://gmesch.github.io/math21/slides.html">gmesch.github.io/math21/slides.html</a>
 
-          <li step="2">To follow the slides as shown by the presented, insert
-            the <em>query parameter</em> <b>?follow=X</b> into the URL (before
-            the <b>#</b>, using the value for <b>X</b> announced by the
-            presenter. This asks to allow notifications; please allow it (a
-            Google Firebase mystery - this is needed even though no
-            notifications will be shown).
+          <li step="2">To follow the slides as shown by the presenter, append
+            <b>&amp;follow=<em>X</em></b> to the URL, using the value
+            for <b><em>X</em></b> announced by the presenter.
 
-          <li step="3">Press <b>N</b> to show speaker notes.
+          <li step="3">The slides will ask to allow notifications; please allow
+            it (this is needed even though no notifications will be shown).
+
+          <li step="4">Press <b>N</b> to show/hide speaker notes.
             
-          <li step="4">May not work in your browser, your machine, or on your
-            network connection. If so, please just follow on the video stream.
+          <li step="5">Press <b>1</b> to enter/leave drawing mode.
+
+          <li step="6">Press <b>left</b> and <b>right</b> to go backwards and
+            forwards in the presentation.
+
+          <li step="7">If you navigate on your own, automatic following
+            pauses. Press <b>P</b> to resume automatic following.
+            
+          <li step="8">All this may not work in your browser, your machine, or
+            on your network connection. If so, please just follow on the video
+            stream.
             
         </ul>
       </div>
@@ -144,18 +153,22 @@
       <div class="slide build-focus-visible" group="intro">
         <h1>How to ask questions</h1>
 
-        <div>How to ask questions on VC:</div>
+        <div>This is also an experiment. How to ask questions on VC:</div>
 
         <ul>
-          <li step="1">TBD ...
-            
+          <li step="1">If you like ask a question, or propose a solution to an
+            exercise, join the GVC and (politely) speak up.
+
+          <li step="2">Once question is asked, please go back to live stream, so
+            we don't exhaust participant numbers.
         </ul>
       </div>
 
       <div class="slide noprint banner" group="theme1" name="theme1">
+        <h1>Vectors and Tensors</h1>
         <div>
-          <b>I - Vectors and Tensors</b><br><em>Why, in software, arrays with multiple
-            integer indices came to be called tensors.</em>
+          <em>Why, in software, arrays with multiple integer indices came to be
+            called tensors.</em>
         </div>
       </div>
       
@@ -163,18 +176,21 @@
         <h1>Vectors and Tensors - Overview</h1>
         <div>Plan for today.</div>
         <ol>
-          <li step="0">Recap Axioms of Vector Space
+          <li step="0">Recap the Axioms of Vector Space
 
           <li step="1">Einstein Notation
-
-          <li step="2">Linear Independence <em>gives rise to Basis and Coordinates</em>
-
+            
+          <li step="2">Linear Independence <em>gives rise to Bases and Coordinates</em>
+            
           <li step="3">Basis and Coordinate Transformations
 
           <li step="4">The Scalar Product <span step="5">$\leftarrow$ This is
               the first Tensor!</span>
 
-          <li step="6">Tensor Coordinates and Basis Transformations
+          <li step="5">Tensor Coordinates and Basis Transformations &mdash;
+            Definition of Tensors
+
+          <li step="6">Wrap up
         </ol>
       </div>
 
@@ -204,42 +220,49 @@
           <b>multiplied</b> with elements from a field $F$, with the following
           properties, is a vector space.</div>
 
-        <div step="1,2,3,4,5,6">Vector Addition:</div>
+        <div step="1,2,3,4,5,6,7">Vector Addition:</div>
         <ol>
-          <li step="2">is an operation from $V \times V$ on $V$:
+          <li step="2,7">is an operation from $V \times V$ on $V$:
 
             $\xvec{a} + \xvec{b} \in V$
 
-          <li step="3">is associative:
+          <li step="3,7">is associative:
 
             $(\xvec{a} + \xvec{b}) + \xvec{c} = \xvec{a} + (\xvec{b} +
             \xvec{c})$
 
-          <li step="4">is commutative:
+          <li step="4,7">is commutative:
 
             $\xvec{a} + \xvec{b} = \xvec{b} + \xvec{a}$</li>
 
-          <li step="5">has a neutral element:
+          <li step="5,7">has a neutral element:
 
             $\exists \xvec{0} \; \forall \xvec{a} \,:\, \xvec{a} + \xvec{0} =
             \xvec{a}$
 
-          <li step="6">has an inverse:
+          <li step="6,7">has an inverse:
 
             $\forall \xvec{a} \; \exists -\!\xvec{a} \,:\, \xvec{a} +
             (-\xvec{a}) = \xvec{0}$
         </ol>
+      </div>
+      
+      <div class="slide build-focus-visible continued" group="theme1-vs">
+        <h1>Axioms of Vector Space</h1>
+        <div>Every set $V$ whose elements can be <b>added</b> to each other, and
+          <b>multiplied</b> with elements from a field $F$, with the following
+          properties, is a vector space.</div>
 
-        <div step="7,8,9,10,11,12">Scalar Multiplication:</div>
+        <div step="1,2,3,4,5,6,7">Scalar Multiplication:</div>
         <ol>
-          <li step="8">is an operation from $F \times V$ on $V$:
+          <li step="2,7">is an operation from $F \times V$ on $V$:
 
             $a\xvec{a} \in V$
             
-          <li step="9">is compatible with Field multiplication: $a (b \xvec{a}) = (a b) \xvec{a}$
-          <li step="10">has a neutral element: $1 \xvec{a} = \xvec{a}$
-          <li step="11">is distributive over vector addition: $a \xvec{a} + a \xvec{b} = a (\xvec{a} + \xvec{b})$
-          <li step="12">is distributive over field addition: $a \xvec{a} + b \xvec{a} = (a + b) \xvec{a}$
+          <li step="3,7">is compatible with Field multiplication: $a (b \xvec{a}) = (a b) \xvec{a}$
+          <li step="4,7">has a neutral element: $1 \xvec{a} = \xvec{a}$
+          <li step="5,7">is distributive over vector addition: $a \xvec{a} + a \xvec{b} = a (\xvec{a} + \xvec{b})$
+          <li step="6,7">is distributive over field addition: $a \xvec{a} + b \xvec{a} = (a + b) \xvec{a}$
         </ol>
 
         <div class="notes">
@@ -267,10 +290,11 @@
           by Euclidean Geometry.</div>
         <div style="float:right">
           <ul>
-            <li step="1,2">Vector Addition
-            <li step="3,4">Scalar Multiplication - negation
-            <li step="5,6">Scalar Multiplication - integers
-            <li step="7,8">Scalar Multiplication - integer fractions
+            <li step="1,2,9">Vector Addition
+            <li step="3,4,9">Scalar Multiplication - negation
+            <li step="5,6,9">Scalar Multiplication - integers
+            <li step="7,8,9">Scalar Multiplication - integer fractions
+            <li step="9">Together: Vector operations over $Q$
           </ul>
         </div>
               
@@ -293,26 +317,27 @@
         </div>
       </div>
 
-      <div class="slide build-focus" group="theme1-vs">
+      <div class="slide build-focus-visible" group="theme1-vs">
         <h1>Axioms of Vector Space &mdash; Example: Tuples</h1>
         <div>Tuples of rational or real numbers are vectors.</div>
         <ul>
-          <li>$(1, 2) + (1, 2) = (2, 4)$</li>
-          <li>$3 \times (1, 2) = (3, 6)$</li>
+          <li step="1,3">$(1, 2) + (1, 2) = (1 + 1, 2 + 2) = (2, 4)$</li>
+          <li step="2,3">$3 \times (1, 2) = (3 \times 3, 3 \times 2) = (3,
+            6)$</li>
+          <li step="3">Vector operations for tuples from $R^2$ over $R$.
         </ul>
       </div>
       
-      <div class="slide build-focus-visible banner" group="theme1-vs">
+      <div class="slide build-focus-visible banner" group="exercise" name="exercise1">
         <h1>Axioms of Vector Space &mdash; Exercise</h1>
         <div>Are these two examples vector spaces?
-          <ul>
-            <li step="1">(a) Tuples of Rational Numbers over Real Numbers?
-            <li step="2">(b) Tuples of Real Numbers over Rational Numbers?
-          </ul>
+          <div step="1">(a) Tuples of Rational Numbers over Real Numbers?</div>
+          <div step="2">(b) Tuples of Real Numbers over Rational Numbers?</div>
+          <div>(<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=bbOvmXSUHBoB&line=3&uniqifier=1">colab</a>)</div>
         </div>
       </div>
       
-      <div class="slide build-focus" group="theme1-vs">
+      <div class="slide build-focus" group="exercise">
         <h1>Axioms of Vector Space &mdash; Solution</h1>
         <div>Are these two examples vector spaces?</div>
 
@@ -330,15 +355,6 @@
         <div step="0">The existence of <b>coordinates</b> follows from the
           axioms.</div>
 
-        <div class="notes">
-          <ul>
-            <li>This derivation leads to the introduction of coordinates.
-
-            <li>It follows directly form the algebraic structure introduced by
-              the axioms.
-          </ul>
-        </div>
-
         <ul>
           <li step="1">Vectors can be <b>linearly combined</b>, i.e. added
             up with weights $w_i$:
@@ -352,29 +368,34 @@
           <li step="3">Vectors in the combination are then said to
             be <b>linearly dependent</b>.
 
-          <li step="3">Otherwise they are <b>linearly indedendent</b>.
+          <li step="4">Otherwise they are <b>linearly indedendent</b>.
         </ul>
 
         <div class="notes">
           <ul>
+            <li>This derivation leads to the introduction of coordinates.
+
+            <li>It follows directly form the algebraic structure introduced by
+              the axioms.
+
             <li>The vectors $\xvec{v}_i$ in the sum are really <b>multiple
-              vectors</b> (one for each index), <b>not</b> the <b>coordinates
-              of one vector</b> &mdash; we get to coordinates later!
+              vectors</b> (one for each index), <b>not</b> the <b>coordinates of
+              one vector</b> &mdash; we get to coordinates later!
           </ul>
         </div>
       </div>
 
-      <div class="slide build-focus-visible banner" group="theme1-li">
+      <div class="slide build-focus-visible banner" group="exercise" name="exercise2">
         <h1>Linear Independence &mdash; Exercise</h1>
         
-        <div>Imagine sets of arrows that are</div>
-        <ul>
-          <li step="1">(a) linearly independent,
-          <li step="2">(b) linearly dependent.
-        </ul>
+        <div>Imagine sets of arrows that are
+          <div step="1">(a) linearly independent,</div>
+          <div step="2">(b) linearly dependent.</div>
+          <div>(<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=xuiUv3HRIcLu&line=5&uniqifier=1">colab</a>)</div>
+        </div>
       </div>
 
-      <div class="slide build-focus" group="theme1-li">
+      <div class="slide build-focus" group="exercise">
         <h1>Linear Independence &mdash; Solution</h1>
         
         <div>Imagine sets of arrows that are</div>
@@ -402,7 +423,16 @@
             upper index $w^i$ and as lower index $\xvec{v}_i$, then the sum over
             the range of the index is implied.
 
-          <li step="3">Also for multiple indices. (Will see this for tensors.)
+          <li step="3">Matrix multiplication can be written with it too:
+
+            $$\xvec{a}^T \xvec{M} \xvec{b} = a^i b^j M_{ij}$$
+
+          <li step="4">but it works with more than two indices as well:
+
+            $$a^i b^j c^k M_{ijk}$$
+
+          <li step="5">The latter is why it's the preferred notation for writing
+            tensors, as we will see.
         </ul>
       </div>
 
@@ -414,12 +444,14 @@
             $$\xvec{v}_i$$
             
             is simply a tuple of vectors.
-          
+
+          <li step="1">And:
+
             $$w^i$$
             
             is simply a tuple of weights, i.e. numbers.
           
-          <li step="1">No sum for a repeated index on top or bottom:
+          <li step="2">No sum for a repeated index on top or bottom:
             
             $$M_{ii}$$
             
@@ -542,57 +574,59 @@
       </div>
 
       <div class="slide build-focus-visible" group="theme1-bt">
-        <h1>Coordinate Tuples vs $F^n$ Vectors</h1>
+        <h1>Isomorphism &mdash; Coordinate Tuples vs $F^n$ Vectors</h1>
+        <div step="0">We clear up the "confusion" of coordinate tuples and vectors from
+          $F^n$ over $F$.</div>
         <ul>      
-          <li step="0">Once a basis is picked, every vector is represented by
+          <li step="1">Once a basis is picked, every vector is represented by
             a tuple of coordinates.
 
-          <li step="1">The tuples are elements of $F^n$, the cartesian product space of
+          <li step="2">The tuples are elements of $F^n$, the cartesian product space of
             the scalar field.
 
-          <li step="2">The field $F$ by its own axioms has addition and multiplication
+          <li step="3">The field $F$ by its own axioms has addition and multiplication
             defined. The cartesian product naturally has addition and scalar
             multiplication &mdash; $F^n$ is a vector space too!
 
-          <li step="3">This vector space is <b>isomorphic</b> to the original
+          <li step="4">This vector space is <b>isomorphic</b> to the original
             vector space, which often misleads us to think that
             vectors just <em>are</em> tuples of numbers.
 
-          <li step="4">The mapping of the vectors to its coordinate tuples is called
+          <li step="5">The mapping of the vectors to its coordinate tuples is called
             an <b>Isomorphism</b>. There are many such mappings, one for each
             basis of the vector space.
 
-          <li step="5">Isomorphism is pervasive in Mathematics, and it's the
+          <li step="6">Isomorphism is pervasive in Mathematics, and it's the
             reason we can often afford to be "sloppy" when we speak.
         </ul>
       </div>
 
-      <div class="slide build-focus-visible banner" group="theme1-bt">
+      <div class="slide build-focus-visible banner" group="exercise" name="exercise3">
         <h1>Coordinate Tuples vs $F^n$ Vectors &mdash; Exercise</h1>
-        <ul>      
-          <li step="1">Define two different bases in $R^2$, and compute the
-            coordinates of one vector in both bases.
-        </ul>
+        <div step="1">Define two different bases in $R^2$, and compute the
+          coordinates of one vector $\xvec{v}$ in both bases.
+         <a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=VZ-yOI8ENddV&line=1&uniqifeier=1">colab</a>
+        </div>
       </div>
       
-      <div class="slide build-focus-visible" group="theme1-bt">
+      <div class="slide build-focus-visible" group="exercise">
         <h1>Coordinate Tuples vs $F^n$ Vectors &mdash; Solution</h1>
         <div step="0">Define two different bases in $R^2$, and compute the
-          coordinates of one vector $\left[ \begin{array}{c} 1 \\ 1
+          coordinates of one vector $\xvec{v} = \left[ \begin{array}{c} 1 \\ 1
           \end{array} \right]$ in both bases.</div>
 
         <ul>      
           <li style="display:flex">
             <div step="1,3">Basis 1:
               
-              $\{ \left[ \begin{array}{c} 1 \\ 0 \end{array} \right],
-              \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
+              $\{ \left[ \begin{array}{c} 1 \\ 3 \end{array} \right],
+              \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]
               \}$
             </div>
 
             <div step="2,3">Basis 2:
 
-              $\{ \left[ \begin{array}{c} 1 \\ 1 \end{array} \right],
+              $\{ \left[ \begin{array}{c} 1 \\ 0 \end{array} \right],
               \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
               \}$
             </div>
@@ -601,15 +635,15 @@
             <div step="4,6">Vector in Basis 1:
 
               $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
-              1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
-              1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
+              \frac{1}{4} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] + 
+              \frac{1}{4} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]$
             </div>
               
             <div step="5,6">Vector in Basis 2:
 
               $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
-              1 \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] + 
-              0 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
+              1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
+              1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
             </div>
         </ul>
       </div>
@@ -712,7 +746,7 @@
         </ul>
       </div>
           
-      <div class="slide build-focus-visible" group="theme1-bt">
+      <div class="slide build-focus-visible continued" group="theme1-bt">
         <h1>Basis Transformation</h1>
         <div>We now can <b>define</b>:</div>
         <ul>
@@ -721,16 +755,15 @@
         </ul>
       </div>
       
-      <div class="slide build-focus-visible banner" group="theme1-bt">
+      <div class="slide build-focus-visible banner" group="exercise" name="exercise4">
         <h1>Basis Transformation &mdash; Exercise</h1>
-        <ul>
-          <li>Write down the basis transformation and
-            the coordinate transformation for the transition between <em>Basis
-              1</em> and <em>Basis 2</em> in the previous exercise.
-        </ul>
+        <div step="1">Write down the basis transformation and the coordinate
+          transformation for the transition from <em>Basis 1</em> to <em>Basis
+          2</em> in the previous exercise. (<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=3kk30hC3Wfok&line=2&uniqifier=1">colab</a>)
+        </div>
       </div>
       
-      <div class="slide build-focus-visible" group="theme1-bt">
+      <div class="slide build-focus-visible" group="exercise">
         <h1>Basis Transformation &mdash; Solution</h1>
         <div>Write down the basis transformation and the coordinate
           transformation for the transition between <em>Basis 1</em>
@@ -744,19 +777,19 @@
           </div>
 
           <div step="2,4">Basis 1:
-            $$\begin{array}
+            $$\begin{array}{c}
 
-            \xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] &&
+            \xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] &&
 
-            \xvec{e}_2 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
+            \xvec{e}_2 = \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]
 
             \end{array}$$
           </div>
             
           <div step="3,4">Basis 2:
-            $$\begin{array}
+            $$\begin{array}{c}
             
-            \xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 1 \end{array}
+            \xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
             \right] &&
 
             \xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
@@ -767,79 +800,104 @@
         </div>
       </div>
 
-      <div class="slide build-focus-visible continued" group="theme1-bt">
+      <div class="slide build-focus-visible continued" group="exercise">
         <h1>Basis Transformation &mdash; Solution</h1>
         <div>Vector expressed in both bases:</div>
         <div style="display:flex">
           <div step="0,2">Vector in Basis 1:
 
             $$\xvec{v} = v^i\xvec{e}_i = 
-            1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
-            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
-            $$v^1 = 1, \; v^2 = 1$$
+            \frac{1}{4} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] + 
+            \frac{1}{4} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]$$
+            $$v^1 = \frac{1}{4}, \; v^2 = \frac{1}{4}$$
           </div>
 
           <div step="1,2">Vector in Basis 2:
 
             $$\xvec{v} = v^{i^\prime}\xvec{e}_{i^\prime} = 
-            1 \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] + 
-            0 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
-            $$v^1 = 1, \; v^2 = 0$$
+            1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
+            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
+            $$v^1 = 1, \; v^2 = 1$$
           </div>
         </div>
       </div>
 
-      <div class="slide build-focus-visible continued" group="theme1-bt">
+      <div class="slide build-focus-visible continued" group="exercise">
         <h1>Basis Transformation &mdash; Solution</h1>
         <div step="0">Basis transformation written down:</div>
+        <div step="1,6">
+          $$\xvec{e}_{i^\prime} = T_{i^\prime}^{i} \xvec{e}_{i}$$
+        </div>
+
         <div style="display:flex;align-items:center">
-          <div step="1,4">
-            $$\xvec{e}_{i^\prime} = T_{i^\prime}^{i} \xvec{e}_{i}$$
-          </div>
-
-          <div step="2,4">
-            $$\xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 1 \end{array}
+          <div step="2,6">
+            $$\xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
             \right] = 
-            1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
-            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right] =
-            1 \xvec{e}_{1} +
-            1 \xvec{e}_{2}$$
-
-            $$\xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
-            \right] =
-            0 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
-            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right] =
-            0 \xvec{e}_{1} +
-            1 \xvec{e}_{2}$$
+            -\frac{1}{8} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] + 
+            \frac{3}{8} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right] =
+            -\frac{1}{8} \xvec{e}_{1} +
+            \frac{3}{8} \xvec{e}_{2}$$
           </div>
 
-          <div step="3,4">
+          <div step="3,6">
             $$
             \begin{array}{c}
-            T_{1^\prime}^{1} = 1 &&
-            T_{1^\prime}^{2} = 1 \\
-            T_{2^\prime}^{1} = 0 &&
-            T_{2^\prime}^{2} = 1
+            T_{1^\prime}^{1} =-\frac{1}{8} &&
+            T_{1^\prime}^{2} = \frac{3}{8} \\
+            \end{array}$$
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center">
+          <div step="4,6">
+            $$\xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
+            \right] =
+            \frac{3}{8} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] -
+            \frac{1}{8} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right] =
+            \frac{3}{8} \xvec{e}_{1} -
+            \frac{1}{8} \xvec{e}_{2}$$
+          </div>
+
+          <div step="5,6">
+            $$
+            \begin{array}{c}
+            T_{2^\prime}^{1} = \frac{3}{8} &&
+            T_{2^\prime}^{2} = -1\frac{1}{8}
             \end{array}$$
           </div>
         </div>
       </div>
 
 
-      <div class="slide build-focus-visible continued" group="theme1-bt">
+      <div class="slide build-focus-visible continued" group="exercise">
         <h1>Basis Transformation &mdash; Solution</h1>
-        <ul>
-          <li step="0">Coordinate Transformation:
+        <div step="0">Coordinate transformation written down:</div>
+        <div step="1,5">
+          $$v^{i^\prime} = T_{i}^{i^\prime} v^{i}$$
 
-            $$v^{i^\prime} = T_{i}^{i^\prime} v^{i}$$
+          $$T_{i}^{i^\prime} T_{i^\prime}^{j} = \delta_i^j$$
+        </div>
 
-            $$T_{i}^{i^\prime} T_{i^\prime}^{j} = \delta_i^j$$
+        <div style="display:flex;align-items:center">
+          <div step="2,5">
+            $$v^{1^\prime} = T_{1}^{1^\prime} v^{1} + T_{2}^{1^\prime} v^{2}$$
+            $$v^{2^\prime} = T_{1}^{2^\prime} v^{1} + T_{2}^{2^\prime} v^{2}$$
+          </div>
 
-            $$ T_{1}^{1^\prime} = ?, \;
-            T_{1}^{2^\prime} = ?, \;
-            T_{2}^{1^\prime} = ?, \;
-            T_{2}^{2^\prime} = ? \; $$ TODO
-        </ul>
+          <div step="3,5">
+            $$1 = T_{1}^{1^\prime} \frac{1}{4} + T_{2}^{1^\prime} \frac{1}{4}$$
+            $$1 = T_{1}^{2^\prime} \frac{1}{4} + T_{2}^{2^\prime} \frac{1}{4}$$
+          </div>
+        </div>
+          
+        <div step="4,5">
+          $$\begin{array}{c}
+          T_{1}^{1^\prime} = 1 &&
+          T_{2}^{1^\prime} = 3 \\
+          T_{1}^{2^\prime} = 3 && 
+          T_{2}^{2^\prime} = 1
+          \end{array}$$
+        </div>
       </div>
       
       <div class="slide build-focus-visible" group="theme1-sp">
@@ -917,30 +975,121 @@
         </ul>
       </div>
       
-      <div class="slide build-focus-visible banner" group="theme1-sp">
+      <div class="slide build-focus-visible banner" group="exercise" name="exercise5">
         <h1>Scalar Product and Metric Tensor &mdash; Exercise</h1>
-        <div>Write down the coordinates of the scalar product for tuples from
-          $R^2$ in the two bases from the previous exercise.</div>
+        <div step="1">Write down the coordinates of the scalar product for
+          tuples from $R^2$ in the two bases from the previous
+          exercise. (<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=JTywKOH-P6ey&line=4&uniqifier=1">colab</a>)</div>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-sp">
+      <div class="slide build-focus-visible" group="exercise">
         <h1>Scalar Product and Metric Tensor &mdash; Solution</h1>
-        <div>Write down the coordinates of the scalar product for tuples from
+        <div step="0,5">Write down the coordinates of the scalar product for tuples from
           $R^2$ in the two bases from the previous exercise.</div>
-        <ul>
-          <li>... TODO
-        </ul>
+        <div step="1,5">
+          $$g_{ij} := \xvec{e}_{i} \cdot \xvec{e}_{j}$$
+
+          $$g_{i^{\prime}j^{\prime}} := \xvec{e}_{i^{\prime}} \cdot \xvec{e}_{j^{\prime}}$$
+
+          $$\xvec{v} \cdot \xvec{w} = v^{i} w^{j} g_{ij} = v^{i^{\prime}} w^{j^{\prime}} g_{i^{\prime}j^{\prime}}$$
+        </div>
+
+        <div style="display:flex">
+          <div step="2,5">Vectors:
+
+            $$\begin{array}{c}
+
+            \xvec{v} = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] &&
+
+            \xvec{w} = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] 
+
+            \end{array}$$
+          </div>
+
+          <div step="3,5">Basis 1:
+            $$\begin{array}{c}
+
+            \xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] &&
+
+            \xvec{e}_2 = \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]
+
+            \end{array}$$
+          </div>
+            
+          <div step="4,5">Basis 2:
+            $$\begin{array}{c}
+            
+            \xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
+            \right] &&
+
+            \xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
+            \right]
+
+            \end{array}$$
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide build-focus-visible continued" group="exercise">
+        <h1>Scalar Product and Metric Tensor &mdash; Solution</h1>
+        <div step="0,5">Write down the coordinates of the scalar product for
+          tuples from $R^2$ in the two bases from the previous exercise.</div>
+        <div style="display:flex">
+          <div step="1,5">Basis 1:
+            $$\begin{array}{c}
+
+            \xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] &&
+
+            \xvec{e}_2 = \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]
+
+            \end{array}$$
+          </div>
+            
+          <div step="2,5">Basis 2:
+            $$\begin{array}{c}
+            
+            \xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
+            \right] &&
+
+            \xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
+            \right]
+
+            \end{array}$$
+          </div>
+        </div>
+
+        <div step="3,5">Coordinates in Basis 1:
+          $$\begin{array}{c}
+          
+          g_{11} = \xvec{e}_1 \cdot \xvec{e}_1 = 10 &&
+          g_{12} = \xvec{e}_1 \cdot \xvec{e}_2 = 6 \\
+          g_{21} = \xvec{e}_2 \cdot \xvec{e}_1 = 6 &&
+          g_{22} = \xvec{e}_2 \cdot \xvec{e}_2 = 10
+          
+          \end{array}$$
+        </div>
+        
+        <div step="4,5">Coordinates in Basis 2:
+          $$\begin{array}{c}
+          
+          g_{1^{\prime}1^{\prime}} = \xvec{e}_{1^{\prime}} \cdot \xvec{e}_{1^{\prime}} = 1 &&
+          g_{1^{\prime}2^{\prime}} = \xvec{e}_{1^{\prime}} \cdot \xvec{e}_{2^{\prime}} = 0 \\
+          g_{2^{\prime}1^{\prime}} = \xvec{e}_{2^{\prime}} \cdot \xvec{e}_{1^{\prime}} = 0 &&
+          g_{2^{\prime}2^{\prime}} = \xvec{e}_{2^{\prime}} \cdot \xvec{e}_{2^{\prime}} = 1
+          
+          \end{array}$$
+        </div>
       </div>
       
       <div class="slide" group="theme1-sp">
         <h1>Scalar Product and Metric Tensor</h1>
         <div>Two interesting questions arise, both of which lead to the definition of tensors:</div>
         <ul>
-          <li>(1) What are the coordinates of the scalar product in another
-          basis?
+          <li>(1) How do the coordinates of the scalar
+            product <em>transform</em> to another basis?
 
-          <li>(2) What are the "basis vectors" of whom the coordinates are the
-            coefficients?
+          <li>(2) What are the <em>basis vectors</em> whose coordinates the
+            coefficients are?
         </ul>
       </div>
 
@@ -974,11 +1123,12 @@
         <div step="0">We can now give a definition of a Tensor, and of the Tensor
           Product Space.</div>
         <ul>
-          <li step="1">A <b>Tensor</b> is any mathematical object in a vector space with
-            coordinates that transform under basis transformations like a
-            multilinear map.
+          <li step="1">A <b>Tensor</b> is any mathematical object in a vector
+            space with coordinates that transform under basis transformations
+            like a multilinear map.
 
-          <li step="2">The scalar product is just one such map. There are many others.
+          <li step="2">The scalar product is just one such map. There are many
+          others.
 
           <li step="3">These maps can be combined and multiplied with numbers:
             
