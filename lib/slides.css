@@ -99,12 +99,28 @@ H1, H2, H3, H4, H5, H6 {
     margin-top: 0px;
     margin-bottom: 0.5em;
 
-    padding: 8px;
-    padding-left: 12px;
+    padding: 0.5vw;
+    padding-left: 0.8vw;
     width: 100%;
 
     background-color: #f8f8f8;
     border-bottom:2px solid orange;
+}
+
+.slide.title {
+    background-color: black;
+}
+
+.slide.title H1 {
+    text-align: left;
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    background-color: inherit;
+    border-bottom: none;
+    border: 0;
 }
 
 .slide.continued H1 {
@@ -120,21 +136,6 @@ H1, H2, H3, H4, H5, H6 {
     padding-right: 0.3em;
 }
 
-.slide > DIV {
-    padding-left: 12px;
-    padding-right: 8px;
-    margin-top: 1.7em;
-    margin-bottom: 1.2em;
-}
-
-.slide UL, .slide OL {
-    //border: 1px solid black;
-}
-
-.slide LI {
-    //border: 1px solid blue;
-}
-
 .slide.fit {
     text-allign: center;
     vertical-align: center;
@@ -148,56 +149,22 @@ H1, H2, H3, H4, H5, H6 {
 .slide .notes {
     display: none;
     position: fixed;
-    right: 10px;
-    bottom: 10px;
-    padding: 1em;
+    width: 50%;
+    right: 0.8vw;
+    bottom: 0.8vw;
+    padding: 0.3vw;
     background-color: #ffffe0;
+    color: #505050;
     border: 1px solid silver;
     filter: 'opacity(20%)'
 }
 
-.slides.bolder .slide H1 { 
-  font-size: 70px;
-}
-
-.slides .comment { 
-  display: none;
-}
-
 .slide H2 { 
-  font-size: 30px;
-  font-weight: bold;
+    font-size: 110%;
+    font-weight: bold;
 }
 
-.slide.title H1 { 
-  text-align: center;
-}
-
-.slide.title H2 { 
-  text-align: center;
-}
-
-.slide.title H2.author { 
-  font-weight: bold;
-}
-
-.slide.title .venue {
-  font-size: 20px !important;
-}
-
-.slide.title DIV.notice { 
-  font-size: 20px;
-  text-align: center;
-}
-
-.slide > .bottom { 
-  /* NOTE(mesch): width 100% causes scrollbars around slides. */
-  width: 95%;
-  position: absolute;
-  bottom: 0px;
-}
-
-.slide LI { 
+.slide LI {
     margin-bottom: 0.5em;
     line-height: 1.3em;
     padding-right: 8px;
@@ -206,10 +173,8 @@ H1, H2, H3, H4, H5, H6 {
 .slide > DIV, .slide P { 
     margin-bottom: 0.8em;
     line-height: 1.3em;
-}
-
-.slides.bolder .slide LI { 
-  font-weight: bold;
+    padding-left: 0.8vw;
+    padding-right: 0.4vw;
 }
 
 .slide UL LI { 
