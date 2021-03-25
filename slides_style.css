@@ -1,17 +1,23 @@
 div.img {
     position: relative;
 }
+
 img.img {
     position: absolute;
 }
 
 #navigator div.intro { background-color: #ffffff; }
-#navigator div.theme1 { background-color: #e0ffff; }
-#navigator div.theme1-vs { background-color: #e0ffff; }
-#navigator div.theme1-li { background-color: #e0efef; }
-#navigator div.theme1-bt { background-color: #e0dfdf; }
-#navigator div.theme1-sp { background-color: #e0cfcf; }
-#navigator div.theme2 { background-color: #ffe0ff; }
-#navigator div.theme3 { background-color: #ffffe0; }
-#navigator div.exercise { background-color: #ffff40; }
+#navigator div.theme1 { border-color: orange; }
+#navigator div.theme1-vs { border-color: #00c0c0; }
+#navigator div.theme1-li { border-color: #00c000; }
+#navigator div.theme1-bt { border-color: #0000c0; }
+#navigator div.theme1-sp { border-color: #c00000; }
+#navigator div.exercise { background-color: #e0e0e0; }
 
+div.colab {
+    font-size: smaller;
+}
+
+table.eqn td {
+    vertical-align: middle;
+}

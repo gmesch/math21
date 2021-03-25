@@ -64,9 +64,9 @@
           <li step="3">In <b>Quantum Computing</b>, each qubit is one factor of
             a tensor product.
 
-          <li step="4">In <b>Machine Learning</b> ... well, those "tensors" in
-            Tensorflow are just superficially connected with what they are in
-            Mathematics -- we'll explain how exactly! -- but tensor products
+          <li step="4">In <b>Machine Learning</b> ... well, the "tensors" in
+            Tensorflow are only superficially connected with what they are in
+            Mathematics &mdash; we'll explain how exactly! But tensor products
             appear in interesting places when optimizing weight matrices in
             large models.
         </ul>
@@ -79,19 +79,18 @@
         <div>Throughout the next 3 sessions:</div>
 
         <ul>
-          <li step="1" link="theme1">We explain what tensors are, and how the
-            name became associated with multidimensional array data structures
-            in software engineering, especially in machine learning.
+          <li step="1">We explain what tensors are, and why the name became
+            associated with multidimensional array data structures in software
+            engineering, especially in machine learning.
             
-          <li step="2" link="theme2">We contemplate how tensor products of
-            vector spaces have a peculiar scaling behavior in their dimension:
-            Unlike the Cartesian Product, which adds the dimensions of its
-            factors, the Tensor Product multiplies. We also contemplate how
-            confusing it is that
+          <li step="2">We illustrate how tensor products of vector spaces have a
+            peculiar scaling behavior in their dimension: Unlike the Cartesian
+            product, which adds the dimensions of its factors, the tensor
+            product multiplies. We also contemplate how confusing the fact
 
             $$ 2 + 2 = 2 \times 2 = 2^2 $$
 
-            and what happens when we go beyond 2.
+            is for understanding what happens when we scale beyond 2.
 
           <li step="3" link="theme3">We finally look again how tensors and their
             products appear in machine learning models.
@@ -106,15 +105,15 @@
           building software:</div>
 
         <ul>
-          <li step="1">Understand better axiomatic construction.
+          <li step="1">Axiomatic construction.
 
-          <li step="2">Introduce more Notation.
+          <li step="2">Introduce more notation.
 
           <li step="3">Revisit previous lessons from new viewpoints. (Remember
             the Tensorflow code retreat.)
 
-          <li step="4">Introduce important mathematical concepts, such as
-            Isomorphism and Duality.
+          <li step="4">Encounter important mathematical concepts, such as
+            Isomorphism.
         </ul>
       </div>
 
@@ -168,8 +167,8 @@
       <div class="slide noprint banner" group="theme1" name="theme1">
         <h1>Vectors and Tensors</h1>
         <div>
-          <em>Why, in software, arrays with multiple integer indices came to be
-            called tensors.</em>
+          <em>Why, in software, arrays with multiple integer indices are called
+            tensors.</em>
         </div>
       </div>
       
@@ -188,10 +187,10 @@
           <li step="4">The Scalar Product <span step="5">$\leftarrow$ This is
               the first Tensor!</span>
 
-          <li step="5">Tensor Coordinates and Basis Transformations &mdash;
+          <li step="6">Tensor Coordinates and Basis Transformations &mdash;
             Definition of Tensors
 
-          <li step="6">Wrap up
+          <li step="7">Wrap up
         </ol>
       </div>
 
@@ -246,6 +245,12 @@
             $\forall \xvec{a} \; \exists -\!\xvec{a} \,:\, \xvec{a} +
             (-\xvec{a}) = \xvec{0}$
         </ol>
+
+        <div class="notes">
+          <ul>
+            <li>$\forall$ is implied where absent in the axioms.
+          </ul>
+        </div>
       </div>
       
       <div class="slide build-focus-visible continued" group="theme1-vs">
@@ -334,7 +339,7 @@
         <div>Are these two examples vector spaces?
           <div step="1">(a) Tuples of Rational Numbers over Real Numbers?</div>
           <div step="2">(b) Tuples of Real Numbers over Rational Numbers?</div>
-          <div>(<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=bbOvmXSUHBoB&line=3&uniqifier=1">colab</a>)</div>
+          <div class="colab">(<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=bbOvmXSUHBoB&line=3&uniqifier=1">colab</a>)</div>
         </div>
       </div>
       
@@ -343,11 +348,16 @@
         <div>Are these two examples vector spaces?</div>
 
         <ul>
-          <li step="1">(a) Tuples of Rational Numbers over Real Numbers? &mdash; No,
-            violates first axiom of scalar multiplication.
-          <li step="2">(b) Tuples of Real Numbers over Rational Numbers? &mdash;
-            Tricky! Yes, but it's infinite-dimensional. We'll see how once we
-            understand linear independence ...
+          <li step="1,3">(a) Tuples of Rational Numbers over Real Numbers?
+            <ul>
+              <li>No,
+                violates first axiom of scalar multiplication.
+            </ul>
+          <li step="2,3">(b) Tuples of Real Numbers over Rational Numbers?
+            <ul>
+              <li>Tricky! Yes, but it's infinite-dimensional. We'll see how once we
+                understand linear independence ...
+            </ul>
         </ul>
       </div>
       
@@ -392,7 +402,7 @@
         <div>Imagine sets of arrows that are
           <div step="1">(a) linearly independent,</div>
           <div step="2">(b) linearly dependent.</div>
-          <div>(<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=xuiUv3HRIcLu&line=5&uniqifier=1">colab</a>)</div>
+          <div class="colab">(<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=xuiUv3HRIcLu&line=5&uniqifier=1">colab</a>)</div>
         </div>
       </div>
 
@@ -457,7 +467,28 @@
             $$M_{ii}$$
             
             is the tuple of the diagonal elements of the matrix $M_{ij}$.
-          </li>
+
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued" group="theme1-li">
+        <h1>Einstein Notation</h1>
+        <div step="0,4">One more bit of terminology:</div>
+        <ul>
+          <li step="1,4">Lower indices
+            
+            $$\xvec{v}_i$$
+            
+            are called <b>covariant</b> indices.
+
+          <li step="2,4">Upper indices
+
+            $$w^i$$
+            
+            are called <b>contravariant</b> indices.
+          
+          <li step="3,4">We will see why when we introduce basis and coordinate
+            transformations.
         </ul>
       </div>
 
@@ -604,49 +635,50 @@
 
       <div class="slide build-focus-visible banner" group="exercise" name="exercise3">
         <h1>Coordinate Tuples vs $F^n$ Vectors &mdash; Exercise</h1>
-        <div step="1">Define two different bases in $R^2$, and compute the
-          coordinates of one vector $\xvec{v}$ in both bases.
-         <a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=VZ-yOI8ENddV&line=1&uniqifeier=1">colab</a>
+        <div>
+          <div step="1">Define two different bases in $R^2$, and compute the
+            coordinates of one vector $\xvec{v}$ in both bases.</div>
+          <div class="colab"><a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=VZ-yOI8ENddV&line=1&uniqifeier=1">colab</a></div>
         </div>
       </div>
       
       <div class="slide build-focus-visible" group="exercise">
         <h1>Coordinate Tuples vs $F^n$ Vectors &mdash; Solution</h1>
-        <div step="0">Define two different bases in $R^2$, and compute the
+        <div step="0,7">Define two different bases in $R^2$, and compute the
           coordinates of one vector $\xvec{v} = \left[ \begin{array}{c} 1 \\ 1
           \end{array} \right]$ in both bases.</div>
 
-        <ul>      
-          <li style="display:flex">
-            <div step="1,3">Basis 1:
-              
+        <table class="eqn">
+          <tr>
+            <td step="1,3,7">Basis 1:
+            <td step="4,6,7">Vector in Basis 1:
+          </tr>
+          <tr>
+            <td step="1,3,7">
               $\{ \left[ \begin{array}{c} 1 \\ 3 \end{array} \right],
               \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]
               \}$
-            </div>
-
-            <div step="2,3">Basis 2:
-
-              $\{ \left[ \begin{array}{c} 1 \\ 0 \end{array} \right],
-              \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
-              \}$
-            </div>
-            
-          <li style="display:flex">
-            <div step="4,6">Vector in Basis 1:
-
+              
+            <td step="4,6,7">
               $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
               \frac{1}{4} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] + 
               \frac{1}{4} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]$
-            </div>
-              
-            <div step="5,6">Vector in Basis 2:
-
+          </tr>
+          <tr>
+            <td step="2,3,7">Basis 2:
+            <td step="5,6,7">Vector in Basis 2:
+          </tr>
+          <tr>
+            <td step="2,3,7">
+              $\{ \left[ \begin{array}{c} 1 \\ 0 \end{array} \right],
+              \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]
+              \}$
+            <td step="5,6,7">
               $\left[ \begin{array}{c} 1 \\ 1 \end{array} \right] =
               1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
               1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
-            </div>
-        </ul>
+          </tr>
+        </table>
       </div>
       
       <div class="slide build-focus-visible" group="theme1-bt">
@@ -739,10 +771,18 @@
 
             \;\; \mathrm{and\;remember} \;\;\ \xvec{a}_{i} = T_{i}^{i^\prime} \xvec{b}_{i^\prime}$$
 
-          <li step="2">... basis vectors and coordinates transform inverse (and
-            transposed) to each other.
+          <li step="2">Basis vectors and coordinates transform inversely to each other.
           
-          <li step="3"><b>Notation:</b> again ordering of factors is not
+          <li step="3">Hence the <b>terminology</b>:
+            <ul>
+              <li>Coordinates
+                have <em>upper</em> indices, and they transform <b>contravriant</b>
+                to the basis vectors.
+              <li>Basis vectors have <em>lower</em> indices, and are
+                called <b>covariant</b>.
+            </ul>
+          
+          <li step="4"><b>Notation:</b> again ordering of factors is not
             important for meaning, unlike in matrix notation.
         </ul>
       </div>
@@ -758,9 +798,11 @@
       
       <div class="slide build-focus-visible banner" group="exercise" name="exercise4">
         <h1>Basis Transformation &mdash; Exercise</h1>
-        <div step="1">Write down the basis transformation and the coordinate
-          transformation for the transition from <em>Basis 1</em> to <em>Basis
-          2</em> in the previous exercise. (<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=3kk30hC3Wfok&line=2&uniqifier=1">colab</a>)
+        <div>
+          <div step="1">Write down the basis transformation and the coordinate
+            transformation for the transition from <em>Basis 1</em> to <em>Basis
+              2</em> in the previous exercise.</div>
+          <div class="colab">(<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=3kk30hC3Wfok&line=2&uniqifier=1">colab</a>)</div>
         </div>
       </div>
       
@@ -769,136 +811,140 @@
         <div>Write down the basis transformation and the coordinate
           transformation for the transition between <em>Basis 1</em>
           and <em>Basis 2</em> in the previous exercise.</div>
-        <div style="display:flex">
-          <div step="1,4">Vector:
+        <table class="eqn">
+          <tr>
+            <td step="1,4">Vector:
+            <td step="2,4">Basis 1:
+            <td step="3,4">Basis 2:
+          </tr>
+          <tr>
+            <td step="1,4">
+              $\xvec{v} = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]$
+            <td step="2,4">
+              $\begin{array}{c}
+              \xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] &&
+              \xvec{e}_2 = \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]
+              \end{array}$
 
-            $$\xvec{v} = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]$$
-
-
-          </div>
-
-          <div step="2,4">Basis 1:
-            $$\begin{array}{c}
-
-            \xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] &&
-
-            \xvec{e}_2 = \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]
-
-            \end{array}$$
-          </div>
-            
-          <div step="3,4">Basis 2:
-            $$\begin{array}{c}
-            
-            \xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
-            \right] &&
-
-            \xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
-            \right]
-
-            \end{array}$$
-          </div>
-        </div>
+            <td step="3,4">
+                $\begin{array}{c}
+                \xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
+                \right] &&
+                
+                \xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
+                \right]
+                
+                \end{array}$
+          </tr>
+        </table>
       </div>
 
       <div class="slide build-focus-visible continued" group="exercise">
         <h1>Basis Transformation &mdash; Solution</h1>
         <div>Vector expressed in both bases:</div>
-        <div style="display:flex">
-          <div step="0,2">Vector in Basis 1:
-
-            $$\xvec{v} = v^i\xvec{e}_i = 
-            \frac{1}{4} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] + 
-            \frac{1}{4} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]$$
-            $$v^1 = \frac{1}{4}, \; v^2 = \frac{1}{4}$$
-          </div>
-
-          <div step="1,2">Vector in Basis 2:
-
-            $$\xvec{v} = v^{i^\prime}\xvec{e}_{i^\prime} = 
-            1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
-            1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$$
-            $$v^1 = 1, \; v^2 = 1$$
-          </div>
-        </div>
+        <table class="eqn">
+          <tr>
+            <td step="0,2">Vector in Basis 1:
+            <td step="1,2">Vector in Basis 2:                
+          </tr>
+          <tr>
+            <td step="0,2">
+              $\xvec{v} = v^i\xvec{e}_i = 
+              \frac{1}{4} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] + 
+              \frac{1}{4} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]$
+            <td step="1,2">
+              $\xvec{v} = v^{i^\prime}\xvec{e}_{i^\prime} = 
+              1 \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] + 
+              1 \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]$
+          </tr>
+          <tr>
+            <td step="0,2">
+              $v^1 = \frac{1}{4}, \; v^2 = \frac{1}{4}$
+            <td step="1,2">
+              $v^1 = 1, \; v^2 = 1$
+          </tr>
+        </table>
       </div>
 
       <div class="slide build-focus-visible continued" group="exercise">
         <h1>Basis Transformation &mdash; Solution</h1>
-        <div step="0">Basis transformation written down:</div>
-        <div step="1,6">
-          $$\xvec{e}_{i^\prime} = T_{i^\prime}^{i} \xvec{e}_{i}$$
-        </div>
+        <div step="0,6">Basis transformation written down:</div>
+        <table class="eqn">
+          <tr>
+            <td step="1,6">
+              $\xvec{e}_{i^\prime} = T_{i^\prime}^{i} \xvec{e}_{i}$
+          </tr>
+          <tr>
+            <td step="2,6">
+              $\xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
+              \right] = 
+              -\frac{1}{8} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] + 
+              \frac{3}{8} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right] =
+              -\frac{1}{8} \xvec{e}_{1} +
+              \frac{3}{8} \xvec{e}_{2}$
+            <td step="3,6">
+              $
+              \begin{array}{c}
+              T_{1^\prime}^{1} =-\frac{1}{8} &&
+              T_{1^\prime}^{2} = \frac{3}{8} \\
+              \end{array}$
+          </tr>
+          <tr>
+            <td step="4,6">
+              $\xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
+              \right] =
+              \frac{3}{8} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] -
+              \frac{1}{8} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right] =
+              \frac{3}{8} \xvec{e}_{1} -
+              \frac{1}{8} \xvec{e}_{2}$
 
-        <div style="display:flex;align-items:center">
-          <div step="2,6">
-            $$\xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
-            \right] = 
-            -\frac{1}{8} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] + 
-            \frac{3}{8} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right] =
-            -\frac{1}{8} \xvec{e}_{1} +
-            \frac{3}{8} \xvec{e}_{2}$$
-          </div>
-
-          <div step="3,6">
-            $$
-            \begin{array}{c}
-            T_{1^\prime}^{1} =-\frac{1}{8} &&
-            T_{1^\prime}^{2} = \frac{3}{8} \\
-            \end{array}$$
-          </div>
-        </div>
-
-        <div style="display:flex;align-items:center">
-          <div step="4,6">
-            $$\xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
-            \right] =
-            \frac{3}{8} \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] -
-            \frac{1}{8} \left[ \begin{array}{c} 3 \\ 1 \end{array} \right] =
-            \frac{3}{8} \xvec{e}_{1} -
-            \frac{1}{8} \xvec{e}_{2}$$
-          </div>
-
-          <div step="5,6">
-            $$
-            \begin{array}{c}
-            T_{2^\prime}^{1} = \frac{3}{8} &&
-            T_{2^\prime}^{2} = -1\frac{1}{8}
-            \end{array}$$
-          </div>
-        </div>
+            <td step="5,6">
+              $\begin{array}{c}
+              T_{2^\prime}^{1} = \frac{3}{8} &&
+              T_{2^\prime}^{2} = -1\frac{1}{8}
+              \end{array}$
+          </tr>
+        </table>
       </div>
 
 
       <div class="slide build-focus-visible continued" group="exercise">
         <h1>Basis Transformation &mdash; Solution</h1>
-        <div step="0">Coordinate transformation written down:</div>
-        <div step="1,5">
-          $$v^{i^\prime} = T_{i}^{i^\prime} v^{i}$$
+        <div step="0,9">Coordinate transformation written down:</div>
+        <table class="eqn">
+          <tr>
+            <td step="1,9">
+              $v^{i^\prime} = T_{i}^{i^\prime} v^{i}$
+            <td step="2,5,8,9">
+              $T_{i}^{i^\prime} T_{i^\prime}^{j} = \delta_i^j$
+          </tr>
+          <tr>
+            <td step="3,9">
+              $v^{1^\prime} = T_{1}^{1^\prime} v^{1} + T_{2}^{1^\prime} v^{2}$
+              
+            <td step="4,9">
+              $1 = T_{1}^{1^\prime} \frac{1}{4} + T_{2}^{1^\prime} \frac{1}{4}$
+              
+            <td step="5,9">
+              $\begin{array}{c}
+              T_{1}^{1^\prime} = 1 &&
+              T_{2}^{1^\prime} = 3
+              \end{array}$
+          </tr>
+          <tr>
+            <td step="6,9">
+              $v^{2^\prime} = T_{1}^{2^\prime} v^{1} + T_{2}^{2^\prime} v^{2}$
 
-          $$T_{i}^{i^\prime} T_{i^\prime}^{j} = \delta_i^j$$
-        </div>
+            <td step="7,9">
+              $1 = T_{1}^{2^\prime} \frac{1}{4} + T_{2}^{2^\prime} \frac{1}{4}$
 
-        <div style="display:flex;align-items:center">
-          <div step="2,5">
-            $$v^{1^\prime} = T_{1}^{1^\prime} v^{1} + T_{2}^{1^\prime} v^{2}$$
-            $$v^{2^\prime} = T_{1}^{2^\prime} v^{1} + T_{2}^{2^\prime} v^{2}$$
-          </div>
-
-          <div step="3,5">
-            $$1 = T_{1}^{1^\prime} \frac{1}{4} + T_{2}^{1^\prime} \frac{1}{4}$$
-            $$1 = T_{1}^{2^\prime} \frac{1}{4} + T_{2}^{2^\prime} \frac{1}{4}$$
-          </div>
-        </div>
-          
-        <div step="4,5">
-          $$\begin{array}{c}
-          T_{1}^{1^\prime} = 1 &&
-          T_{2}^{1^\prime} = 3 \\
-          T_{1}^{2^\prime} = 3 && 
-          T_{2}^{2^\prime} = 1
-          \end{array}$$
-        </div>
+            <td step="8,9">
+              $\begin{array}{c}
+              T_{1}^{2^\prime} = 3 && 
+              T_{2}^{2^\prime} = 1
+              \end{array}$
+          </tr>
+        </table>
       </div>
       
       <div class="slide build-focus-visible" group="theme1-sp">
@@ -969,56 +1015,63 @@
 
 
           <li step="1">We call them coordinates because they work like coordinates of
-            vectors: The object they describe is not those numbers, it's a map
-            of vectors to scalar numbers, just like the vectors are not their
-            coordinates. But once vectors are described by coordinates relative
-            to a basis, the map is described by coordinates too
+            vectors.
+
+          <li step="2">The object they describe <em>is not</em> those numbers,
+            it's a map of vectors to scalar numbers, just like the vectors are
+            not their coordinates.
+
+          <li step="3">But once vectors are described by coordinates relative to
+            a basis, the map is described by coordinates too.
+
+          <li step="4">The coordinates of a bilinear map have <em>lower</em>
+            indices. What does this mean for their coordinate transformations?
         </ul>
       </div>
       
       <div class="slide build-focus-visible banner" group="exercise" name="exercise5">
         <h1>Scalar Product and Metric Tensor &mdash; Exercise</h1>
-        <div step="1">Write down the coordinates of the scalar product for
-          tuples from $R^2$ in the two bases from the previous
-          exercise. (<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=JTywKOH-P6ey&line=4&uniqifier=1">colab</a>)</div>
+        <div>
+          <div step="1">Write down the coordinates of the scalar product for
+            tuples from $R^2$ in the two bases from the previous
+            exercise.</div>
+          <div class="colab">(<a href="https://colab.research.google.com/drive/1YalUjOWOcaQPKvZwWV0D721b7mkQ_2bT#scrollTo=JTywKOH-P6ey&line=4&uniqifier=1">colab</a>)</div>
+        </div>
       </div>
 
       <div class="slide build-focus-visible" group="exercise">
         <h1>Scalar Product and Metric Tensor &mdash; Solution</h1>
-        <div step="0,5">Write down the coordinates of the scalar product for tuples from
-          $R^2$ in the two bases from the previous exercise.</div>
-        <div step="1,5">
-          $$g_{ij} := \xvec{e}_{i} \cdot \xvec{e}_{j}$$
+        <div step="0,10">Write down the coordinates of the scalar product for
+          tuples from $R^2$ in the two bases from the previous exercise.</div>
+        <table class="eqn">
+          <tr>
+            <td step="1,2,7,10">Vectors:
+            <td step="3,4,8,10">Basis 1:
+            <td step="5,6,9,10">Basis 2:
+          </tr>
 
-          $$g_{i^{\prime}j^{\prime}} := \xvec{e}_{i^{\prime}} \cdot \xvec{e}_{j^{\prime}}$$
+          <tr>
+            <td step="2,10">
 
-          $$\xvec{v} \cdot \xvec{w} = v^{i} w^{j} g_{ij} = v^{i^{\prime}} w^{j^{\prime}} g_{i^{\prime}j^{\prime}}$$
-        </div>
-
-        <div style="display:flex">
-          <div step="2,5">Vectors:
-
-            $$\begin{array}{c}
+            $\begin{array}{c}
 
             \xvec{v} = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right] &&
 
             \xvec{w} = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right] 
 
-            \end{array}$$
-          </div>
+            \end{array}$
 
-          <div step="3,5">Basis 1:
-            $$\begin{array}{c}
+            <td step="4,10">
+            $\begin{array}{c}
 
             \xvec{e}_1 = \left[ \begin{array}{c} 1 \\ 3 \end{array} \right] &&
 
             \xvec{e}_2 = \left[ \begin{array}{c} 3 \\ 1 \end{array} \right]
 
-            \end{array}$$
-          </div>
+            \end{array}$
             
-          <div step="4,5">Basis 2:
-            $$\begin{array}{c}
+          <td step="6,10">
+            $\begin{array}{c}
             
             \xvec{e}_{1^\prime} = \left[ \begin{array}{c} 1 \\ 0 \end{array}
             \right] &&
@@ -1026,9 +1079,21 @@
             \xvec{e}_{2^\prime} = \left[ \begin{array}{c} 0 \\ 1 \end{array}
             \right]
 
-            \end{array}$$
-          </div>
-        </div>
+            \end{array}$
+          </tr>
+
+          <tr>
+            <td step="7,10">
+              $\xvec{v} \cdot \xvec{w} = v^{i} w^{j} g_{ij} = v^{i^{\prime}} w^{j^{\prime}} g_{i^{\prime}j^{\prime}}$
+
+            <td step="8,10">
+              $g_{ij} := \xvec{e}_{i} \cdot \xvec{e}_{j}$
+
+            <td step="9,10">
+              $g_{i^{\prime}j^{\prime}} := \xvec{e}_{i^{\prime}} \cdot \xvec{e}_{j^{\prime}}$
+          </tr>
+
+        </table>
       </div>
       
       <div class="slide build-focus-visible continued" group="exercise">
@@ -1114,15 +1179,15 @@
           <li step="6">$\xvec{v} \cdot \xvec{w} = v^{i^\prime} w^{j^\prime} \;
             g_{i^{\prime}j^{\prime}}$
 
-          <li step="7">thus, $g_{i^{\prime}j^{\prime}} = T_{i^\prime}^{i} T_{j^\prime}^{j} \; g_{ij}$
+          <li step="7">thus, $$g_{i^{\prime}j^{\prime}} = T_{i^\prime}^{i} T_{j^\prime}^{j} \; g_{ij}$$
 
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Tensors</h1>
-        <div step="0">We can now give a definition of a Tensor, and of the Tensor
-          Product Space.</div>
+        <div step="0">We can now give a <b>definition</b> of
+          a <b>Tensor</b>.</div>
         <ul>
           <li step="1">A <b>Tensor</b> is any mathematical object in a vector
             space with coordinates that transform under basis transformations
@@ -1140,12 +1205,21 @@
 
           <li step="4">Looking closely, they form a vector space too!
 
-          <li step="5">The <b>Tensor Product Space</b> of $V$ is the vector space
+          <li step="5">What vector space is that?
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible" group="theme1-sp">
+        <h1>Tensor Product Spaces</h1>
+        <div step="0">We can now give a <b>definition</b> of the <b>Tensor
+            Product Space</b>.</div>
+        <ul>
+          <li step="1">The <b>Tensor Product Space</b> of $V$ is the vector space
             comprised of tensors in $V$:
 
             $$g,h \in V \otimes V$$
 
-          <li step="6">Linear maps with more than two arguments are from tensor
+          <li step="2">Linear maps with more than two arguments are from tensor
             product spaces with more than two factors:
 
             $$V \otimes V \otimes V \otimes ...$$
@@ -1198,8 +1272,8 @@
       <div class="slide build-focus-visible" group="theme1-sp">
         <h1>Higher Order Tensors</h1>
         <ul>
-          <li step="0"><b>Tensor Product Spaces</b> of $V$ arise from multilinear maps in
-            the same way, e.g.:
+          <li step="0"><b>Tensor Product Spaces</b> of $V$ arise from
+            multilinear maps in the same way, e.g.:
             
             $$V \otimes V \otimes V \otimes V$$
 
@@ -1242,11 +1316,11 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible" group="theme1-sp">
+      <div class="slide build-focus-visible continued" group="theme1-sp">
         <h1>Tensor Bases</h1>
         <ul>
           <li step="0">
-            $g(\xvec{x}, \xvec{y}) = g_{ij} (\xvec{e}^i \otimes \xvec{e}^j)(x^k
+            $g(\xvec{x}, \xvec{y}) = (g_{ij} \xvec{e}^i \otimes \xvec{e}^j)(x^k
             \xvec{e}_k, y^l \xvec{e}_l)$
 
           <li step="1">
@@ -1255,28 +1329,69 @@
           <li step="2">
             $g(\xvec{x}, \xvec{y}) = g_{ij} x^k y^l \delta^i_k \delta^j_l$
 
-          <li step="3">
+          <li step="3,4">
             $g(\xvec{x}, \xvec{y}) = g_{ij} x^i y^j$
 
           <li step="4">
             as we said earlier.
             
+          <li step="5">
+            Notice the basis vectors in a tensor product space
+            have <em>covariant</em> indices.
+      </div>
+
+      <div class="slide build-focus-visible continued" group="theme1-sp">
+        <h1>Tensor Bases</h1>
+        <div step="0">Last question, what are those $\xvec{e}^i$ in $\xvec{e}^i
+          \otimes \xvec{e}^j$?</div>
+        <ul>
+          <li step="1">There is a vector space of <em>linear
+              functionals</em>. Its basis is defined by
+            
+            $$\xvec{e}^i(\xvec{e}_j) = \delta^i_j$$
+
+          <li step="2">The linear functionals can be added and scalar multiplied
+            too (sounds familiar by now ...) so they form a vector space too.
+
+          <li step="3">It's called the <b>Co Vector Space</b> $\bar{V}$ of
+            $V$. It's <em>isomorphic</em> to $V$.
+
+          <li step="4">The vector space $V$ acts as the co vector space for its
+            own co covector space. That's an example of <b>duality</b>.
+            
+          <li step="5">We can define tensors that are multilinear maps from both
+            vectors and covectors to scalars. Those tensors have coordinates
+            with both <em>covariant</em> and <em>contravariant</em> indices,
+            e.g.:
+
+            $$R^i_{jkl}$$
+
+            (the curvature tensor in Riemann geometry).
+
+          <li step="6">The metric tensor establishes a mapping between vectors
+            and covectors: Every linear functional can be written as the scalar
+            product of a vector with the vector the linear functional applies
+            to.
+
         </ul>
       </div>
 
       <div class="slide build-focus-visible" group="theme1">
         <h1>Summary</h1>
         <ul>
-          <li step="0">Vectors can be added and multiplied.
-          <li step="1">From that <b>follows</b> they have coordinates wrt a basis.
-          <li step="2">Tensors are multilinear functions of vectors.
-          <li step="3">They are themselves vectors (can be added and
+          <li step="0"><b>Vectors</b> can be added and multiplied.
+          <li step="1">From that <b>follows</b> they have coordinates with
+            regard to a basis.
+          <li step="2"><b>Tensors</b> are multilinear functions of vectors.
+          <li step="3">Tensors are themselves vectors (can be added and
             multiplied), and thus have coordinates wrt a basis.
           <li step="4">The basis and coordinates of the tensors are related to
             the basis of and coordinates of the vectors they are functions of.
           <li step="5">The coordinates of tensors are indexed by tuples of
-            indexes, one from each tensor product factor. Hence the name tensor
-            in software engineering for muli-dimensional arrays.
+            indexes, one from each tensor product factor. Hence the
+            name <em>tensor</em> in software engineering for muli-dimensional
+            arrays. The multi-dimensional arrays are not themselves tensors, but
+            the structure needed to represent the coordinated of tensors.
         </ul>
       </div>
 
@@ -1289,15 +1404,16 @@
             are known as <b>vectors</b> and in the tensorflow library
             as <b>tensors</b>.
           <li step="2">However, if for such collections there is no addition
-            defined and no multiplication by scalars, then they are not vectors
-            in the linear algebra sense.
+            defined and no multiplication by scalars (and hence no basis, no
+            basis transformation, and no coordinate transformation), then they
+            are not vectors or tensors in the Linear Algebra sense.
           <li step="3">They took their name because of the important property of
-            vectors to be described by tuples of scalar numbers, called
-            coordinates.
+            vectors and tensors to be described by tuples of scalar numbers,
+            called coordinates.
         </ul>
       </div>
       
-      <div class="slide" group="theme1">
+      <div class="slide" group="intro">
         <h1>Next</h1>
         <ul>
           <li>We look at the dimension of tensor product spaces, and how tensor
@@ -1306,7 +1422,7 @@
         </ul>
       </div>
 
-      <div class="slide"></div>
+      <div class="slide" group="intro"></div>
     </div>
 
   </body>

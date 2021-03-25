@@ -187,15 +187,13 @@ H1, H2, H3, H4, H5, H6 {
 }
 
 .slide TH { 
-  font-size: 20px;
   font-family: sans-serif;
-  padding: 5px;
+  padding: 1vw;
 }
 
 .slide TD { 
-  font-size: 20px;
   font-family: sans-serif;
-  padding: 5px;
+  padding: 1vw;
 }
 
 .slide UL, .slide OL { 
