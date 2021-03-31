@@ -6,6 +6,7 @@ img.img {
     position: absolute;
 }
 
+#navigator div.title
 #navigator div.intro { background-color: #ffffff; }
 #navigator div.theme1 { border-color: orange; }
 #navigator div.theme1-vs { border-color: #00c0c0; }
