@@ -2,11 +2,17 @@
 <html>
   <head>
     <script src="canvas.js"></script>
+    <script src="lib/canvas.js"></script>
     <style>
       #canvas { border: 1px solid grey; }
     </style>
   </head>
   <body onload="canvasInit()">
     <canvas id="canvas" width="500" height="500"></canvas>
+    <br>
+    <span id="save" style="cursor:pointer">save</span>,
+    <span id="prev" style="cursor:pointer">prev</span>,
+    <span id="next" style="cursor:pointer">next</span>
+    (<span id="screen"></span>)
   </body>
 </html>
