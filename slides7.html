@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Math for ML</title>
+    
+    <script src="lib/jslib.js"></script>    
+    <script src="lib/state.js"></script>
+    <script src="lib/state_util.js"></script>
+    <script src="lib/slides.js"></script>
+
+    <link href="lib/slides.css" rel="stylesheet">    
+    <link href="slides_style.css" rel="stylesheet">
+
+    <script src="slides_mathjax.js"></script>
+    <script src="slides_loader.js"></script>
+    <script src="prettify/run_prettify.js?autorun=false&lang=scm" async></script>
+
+    <script src="lib/firebase.js"></script>
+    <script src="lib/canvas.js"></script>
+    <script src="slides_init.js"></script>
+  </head>
+
+  <body onload="init()">
+    
+    <div id="bgpage" class="background">
+      <canvas id="canvas"></canvas>
+    </div>
+    
+    <div class="header">
+      <div id="follow" style="display:none">follow</div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div id="navigator" class="large"></div>
+    </div>
+
+    <div id="slides" class="slides">
+      <div class="slide title"
+           group="title"
+           style="background-color:black; padding:5vw"
+           onshow="d0('navigator','footer');v0('bgpage')"
+           onhide="d1('navigator','footer');v1('bgpage')">
+        <div style="height: 15%"></div>
+        <h1 style="color:#ffa540">Welcome to Math for Machine Learning!</h1>
+        <h1 style="color:#ffffff">Linear Algebra, Session
+          7 &mdash; Loose Ends</h1>
+        <h1 style="color:#808080">Mesch</h1>
+        
+        <h2 style="position:absolute; bottom:5%; padding-left:0.1vw; color:red">X/Google, 2021</h2>
+      </div>
+
+      <div class="slide noprint banner" group="intro">
+        <h1>Tensors, Machine Learning, and Quantum Computing</h1>
+        <div>
+          <em>We have left some loose ends dangling.</em>
+        </div>
+      </div>
+      
+      <div class="slide build-focus-visible" group="intro">
+        <h1>Loose Ends &mdash; Overview</h1>
+        <div>Plan for today.</div>
+        <ol>
+          <li step="1">Coordinate system invarance of Scalars
+
+          <li step="2">Affine spaces, another look at Arrows
+            
+          <li step="3">Outlook: Manifolds, tangent bundles and differential geometry
+
+          <li step="4">Tensor like data structures in software
+            
+          <li step="5">Where the tensors flow in deep learning models
+        </ol>
+      </div>
+      
+      <div class="slide build-focus-visible">
+        <h1>Invariance of Scalars</h1>
+        <div class="notes"></div>
+
+        <div>Properties of vectors are defined independent of the coordinate system.</div>
+
+        <ul>
+          <li step="1">Coordinates follow from algebraic axioms of the vector
+            space.
+          <li step="2">Scalar product can be computed from coordinates, but has
+            the same value in every basis.
+          <li step="3">Metric properties norm and angle are defined by scalar
+            product.
+          <li step="4">Also operators: Trace is defined in coordinates of an
+            operator, but has the same value in any coordinate system.
+          <li step="5">A scalar, like a vector and a tensor, is not just a
+            certain set of numbers, but the numbers have a specific behavior
+            under coordinate transformation.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible">
+        <h1>Arrows revisited: Affine Spaces and Euclidean Spaces</h1>
+        <div class="notes"></div>
+
+        <div>Vectors and their coordiniates are related but not the
+          same. Points and the vectors that describe them aren't, either.</div>
+
+        <ul>
+          <li step="1">We use vectors to describe points in a plane.
+          <li step="2">But that's relative to a fixed origin point.
+          <li step="3">What if we want to change the origin?
+          <li step="4">E.g. working with a coordinate frame at the surface of
+            Earth, which rotates?
+          <li step="5">The underlying algebraic structure is an Affine Space.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued">
+        <h1>Affine Spaces and Euclidean Spaces</h1>
+        <div class="notes"></div>
+        <div>What is an Affine Space.</div>
+        <ul>
+          <li step="1">A set, elements are called points.
+          <li step="2">An associated vector space.
+          <li step="3">An operation <b>Point-Point=Vector</b> that maps any pair of points to a vector.
+          <li step="4">An operation <b>Point+Vector=Point</b> that moves a point by a vector.
+          <li step="5">A basis in such a space is a pair of an origin point and a basis
+            in the vector space.
+          <li step="6">A basis transformation is a pair of a transformation of the vector
+            basis, plus a translation of the origin point (a vector).
+          <li step="7">An affine space associated with a Euclidean Vector Space is
+            a Euclidean Space.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued">
+        <h1>Affine Spaces and Euclidean Spaces</h1>
+        <div class="notes"></div>
+        <div>Vectors are operators on the Affine Space:</div>
+        <ul>
+          <li step="1">Every vector defines an Operator on the affine space, a Translation.
+          <li step="2">We have seen before that Operators on a Vector Space form
+            another Vector space on their own.
+          <li step="3">Similar here, except it's operators on a space that's not
+            a vector space.
+          <li step="4">"are" above means "isomorphic".
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible">
+        <h1>Polar Coordinates Revisited: Manifolds</h1>
+        <div class="notes"></div>
+
+        <div>Polar coordinates are not really the coordinates we have defined
+          from linear independence. They can be understood as coordiniates of points.</div>
+
+        <ul>
+          <li step="1">Consider polar coordinates in Euclidean space.
+          <li step="2">There are directions in which only one of the coordinates changes.
+          <li step="3">The vectors in these directions form a basis of the associiated
+            vector space.
+          <li step="4">But this basis is different in every point!
+          <li step="5">Interesting question to ask: How are those bases defined in nearby
+            points related?
+          <li step="6">This is the topic of Differential Geometry, aka Riemann Geometry,
+            aka Vector and Tensor Calculus. Leads to the concept of Manifolds
+            and Tangent Bundles.
+        </ul>
+      </div>
+      <div class="slide build-focus-visible continued">
+        <h1>Manifolds and Tangent Bundles</h1>
+        <div class="notes"></div>
+        <div>Manifolds</div>
+        <ul>
+          <li step="1">Manifolds are "warped" subspaces that are embedded in Affine
+            Spaces. For example, the <em>surface</em> of a sphere is a manifold
+            embedded in 3D euclidean space. It's parametrized by two coordinates
+            longitude and latitude.
+          <li step="2">It turns out that the examples from which machine
+            learning models learn are drawn from a manifold in the feature
+            space, not the whole feature space.
+          <li step="3">Also, during training, the ML model traverses a manifold
+            in its parameter space.
+          <li step="4">An embedding in ML are the coordinates of such a manifold.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible">
+        <h1>Tensor like data structures in software</h1>
+        <div>Some situations in software design offer a choice of cartesian and
+          tensor product.</div>
+        <ul>
+          <li step="1">Sets of files belonging to a user can be modeled as vectors.
+          <li step="2">Permissions can be modeled as vectors too.
+          <li step="3">There even are operations addition and scalar multiplication by -1
+            (to deny a permission to a group).
+          <li step="4">Grant of permission: should this be the cartesian product of the
+            vector of files with the vector of permissions, or the tensor
+            product?
+          <li step="5">In Google Drive, sharing a file with users is such a tensor
+            product.
+          <li step="6">However, in Google Drive API, granting access to an app is the
+            cartesian product. (Arguably a poor choice.)
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible">
+        <h1>LA, Deep Learning, and Software Design</h1>
+        <div>So where does this leave Linear Algebra in Deep Learning?</div>
+        <ul>
+          <li step="1">Multidimensional arrays are an important mechanism for massive
+            parallel and distributed computing.
+          <li step="2">Matrix multiplication and scalar products appear in tensorflow
+            computations.
+          <li step="3">More germane concepts of Linear Algebra generalize to Manifolds,
+            and then are useful to understand and optimize DL models better.
+          <li step="4">E.g. understand training, optimization, embeddings in terms of
+            manifolds in feature space or parameter space.
+          <li step="5">Impose regularization in terms of tensor product decompositions of
+            weight matrices.
+          <li step="6">Understand embeddings in terms of matrix decompositions.
+          <li step="7">Other concepts from LA may inform or inspire software
+            design. E.g. tensor product like composition; reversible computing.
+        </ul>
+      </div>
+
+      <div class="slide" group="intro"></div>
+    </div>
+
+  </body>
+</html>
