@@ -99,22 +99,34 @@
         </ul>
       </div>
 
-      <div class="slide build-focus-visible">
+      <div class="slide build-focus">
         <h1>Arrows revisited: Affine Spaces and Euclidean Spaces</h1>
         <div class="notes"></div>
 
         <div>Vectors and their coordinates are related but not the same. Points
           and the vectors that describe them aren't, either.</div>
 
-        <ul>
-          <li step="1">We use vectors to describe points in a plane.
-          <li step="2">But that's relative to a fixed origin point.
-          <li step="3,4">What if we want to change the origin?
-          <li step="4">E.g. working with a coordinate frame at the surface of
-            Earth, which rotates?
-          <li step="5">The underlying algebraic structure is an <b>Affine
-          Space</b>.
-        </ul>
+        <table style="margin:0">
+          <tr>
+            <td style="width: 50vw">
+              <ul>
+                <li step="1">We use vectors to describe points in a plane.
+                <li step="2">But that's relative to a fixed origin point.
+                <li step="3,4">What if we want to change the origin?
+                <li step="4">E.g. working with a coordinate frame at the surface of
+                  Earth, which rotates?
+                <li step="5">The underlying algebraic structure is an <b>Affine
+                    Space</b>.
+              </ul>
+            <td>
+              <div class="img">
+                <img class="img" src="img/affine1.png" step="1">
+                <img class="img" src="img/affine2.png" step="2">
+                <img class="img" src="img/affine3.png" step="3">
+                <img class="img" src="img/affine4.png" step="4">
+              </div>
+          </tr>
+        </table>
       </div>
 
       <div class="slide build-focus-visible continued">
@@ -126,7 +138,7 @@
           <li step="2">An associated Vector Space $V$.
           <li step="3">An operation <b>Point-Point=Vector</b> that maps any pair
             of points to a vector.
-            $$\forall A,B \in A \, \exists \xvec{v} \in V :\, A - B = \xvec{v} $$
+            $$\forall A,B \in A \, \exists \xvec{v} \in V :\, B - A = \xvec{v} $$
           <li step="4">An operation <b>Point+Vector=Point</b> that moves a point
             by a vector to another point.
             $$\forall A \in A \, \forall \xvec{v} \in V \, \exists B \in A :\, A
@@ -259,7 +271,7 @@
             decompositions of weight matrices.
           <li step="6">Understand embeddings in terms of matrix decompositions.
           <li step="7">Other concepts from LA may inform or inspire software
-            design. E.g. <em>tensor product-like data structure composition</b>;
+            design. E.g. <b>tensor product-like data structure composition</b>;
             <b>reversible computing</b> inspired by QC.
         </ul>
       </div>
