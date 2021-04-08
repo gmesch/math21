@@ -83,16 +83,24 @@
         <ul>
           <li step="1">Coordinates follow from algebraic axioms of the vector
             space.
-          <li step="2">Scalar product can be computed from coordinates, but has
-            the same value in every basis.
-          <li step="3">Metric properties norm and angle are defined by scalar
-            product.
+          <li step="2">Scalar product <em>can</em> be computed from coordinates
+            of vectors and the metric tensor:
+
+            $$\xvec{x}\cdot\xvec{y} = x^i y^j g_{ij}$$
+
+            but has the same value in every basis.
+
+          <li step="3">Metric properties <em>norm</em> and <em>angle</em> are
+            defined by scalar product.
+
           <li step="4">Also for scalar properties of operators: E.g., trace is
-            defined in coordinates of an operator, but has the same value in any
-            coordinate system.
-            $$tr(A) = A_i^i = T_i^{j^\prime} T^i_{k^\prime}
+            defined in coordinates of an operator, but also retains its value
+            under a coordiniate transformation $T$:
+
+            $$\mathrm{tr}(A) = A_i^i = T_i^{j^\prime} T^i_{k^\prime}
             A_{j^\prime}^{k^\prime} = \delta^{j^\prime}_{k^\prime}
             A_{j^\prime}^{k^\prime} = A_{j^\prime}^{j^\prime}$$
+
           <li step="5">A scalar, like a vector and a tensor, is not just a
             certain set of numbers, but the numbers have a specific behavior
             under coordinate transformation.
@@ -167,13 +175,15 @@
         <div class="notes"></div>
         <div>Vectors <em>are</em> operators on the Affine Space:</div>
         <ul>
-          <li step="1">Every vector from $V$ defines an Operator on the affine
-            space $A$, a <b>Translation</b>.
+          <li step="1">Every vector from $V$ defines an Operator on the Affine
+            Space $A$, a <b>Translation</b>.
           <li step="2">We have seen before that Operators on a Vector Space form
             another Vector Space on their own.
           <li step="3">Similar here, except it's operators on a space that's not
             a vector space.
           <li step="4">"are" above means "isomorphic".
+          <li step="5">Recall the example
+            of <a href="slides5.html#slide=10&step=1">Arrows as vectors</a>.
         </ul>
       </div>
 
@@ -182,9 +192,9 @@
         <div class="notes"></div>
         <div>Euclidean Space</div>
         <ul>
-          <li step="1">Remember, a Euclidean Vector Space
+          <li step="1,3">Remember, a Euclidean Vector Space
             is one over $R$ with a Scalar Product.
-          <li step="2">An Affine Space associated with a Euclidean Vector Space
+          <li step="2,3">An Affine Space associated with a Euclidean Vector Space
             is a <b>Euclidean Space</b>.
         </ul>
       </div>
