@@ -23,4 +23,3 @@ if (document.location.protocol == 'file:' &&
 
 writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js');
 writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js');
-
