@@ -1,5 +1,6 @@
-function writeScript(url, async) {
-  document.write('<script src="' + url + '"' + (async ? ' async' : '') + '></script>');
+function writeScript(url, opts) {
+  opts = opts || {};
+  document.write('<script src="' + url + '"' + (opts.async ? ' async' : '') + '></script>');
 }
 
 function writeLink(url, rel) {
@@ -8,11 +9,11 @@ function writeLink(url, rel) {
 
 if (document.location.protocol == 'file:' &&
     document.location.search.indexOf('force-cdn') == -1) {
+  writeScript('mathjax/tex-mml-chtml.js', {async: true});
   writeLink('fonts/fonts.css', 'stylesheet');
-  writeScript('mathjax/tex-mml-chtml.js', true);
 
 } else {
-  writeScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js', true);
+  writeScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js', {async: true});
   writeLink('https://fonts.gstatic.com', 'preconnect');
   writeLink('https://fonts.googleapis.com/css2' +
             '?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900' +
