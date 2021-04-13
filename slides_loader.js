@@ -7,12 +7,30 @@ function writeLink(url, rel) {
   document.write('<link href="' + url + '" rel="' + rel + '">');
 }
 
+writeScript('lib/jslib.js');
+writeScript('lib/state.js');
+writeScript('lib/state_util.js');
+writeScript('lib/slides.js');
+
+writeLink('lib/slides.css', 'stylesheet');
+writeLink('slides_style.css', 'stylesheet');
+
+writeScript('slides_mathjax.js');
+writeScript('lib/firebase.js');
+writeScript('lib/canvas.js');
+
+writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js');
+writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js');
+
 if (document.location.protocol == 'file:' &&
     document.location.search.indexOf('force-cdn') == -1) {
+  writeScript('prettify/run_prettify.js?autorun=false&lang=scm', {async: true});
   writeScript('mathjax/tex-mml-chtml.js', {async: true});
   writeLink('fonts/fonts.css', 'stylesheet');
 
 } else {
+  writeScript('https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autorun=false&lang=scm',
+            {async: true});
   writeScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js', {async: true});
   writeLink('https://fonts.gstatic.com', 'preconnect');
   writeLink('https://fonts.googleapis.com/css2' +
@@ -22,5 +40,11 @@ if (document.location.protocol == 'file:' &&
             '&family=Oswald:wght@400;700&display=swap', 'stylesheet');
 }
 
-writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js');
-writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js');
+function init() {
+  initslides();
+
+  preAdjust();
+  PR.prettyPrint();
+  
+  console.log('slides init done');
+}
