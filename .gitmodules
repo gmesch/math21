@@ -1,3 +1,3 @@
 [submodule "vnd/mathjax"]
 	path = vnd/mathjax
-	url = ssh://git@github.com/mathjax/MathJax.git
+	url = https://github.com/mathjax/MathJax.git
