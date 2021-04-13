@@ -26,7 +26,7 @@ if (document.location.protocol == 'file:' &&
     document.location.search.indexOf('force-cdn') == -1) {
   writeScript('vnd/prettify/run_prettify.js?autorun=false&lang=scm', {async: true});
   writeScript('vnd/mathjax/es5/tex-mml-chtml.js', {async: true});
-  writeLink('fonts/fonts.css', 'stylesheet');
+  writeLink('vnd/fonts/fonts.css', 'stylesheet');
 
 } else {
   writeScript('https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autorun=false&lang=scm',
