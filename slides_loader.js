@@ -24,7 +24,7 @@ writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js');
 
 if (document.location.protocol == 'file:' &&
     document.location.search.indexOf('force-cdn') == -1) {
-  writeScript('prettify/run_prettify.js?autorun=false&lang=scm', {async: true});
+  writeScript('vnd/prettify/run_prettify.js?autorun=false&lang=scm', {async: true});
   writeScript('vnd/mathjax/es5/tex-mml-chtml.js', {async: true});
   writeLink('fonts/fonts.css', 'stylesheet');
 
