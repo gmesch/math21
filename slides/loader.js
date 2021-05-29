@@ -7,17 +7,17 @@ function writeLink(url, rel) {
   document.write('<link href="' + url + '" rel="' + rel + '">');
 }
 
-writeScript('lib/jslib.js');
-writeScript('lib/state.js');
-writeScript('lib/state_util.js');
-writeScript('lib/slides.js');
+writeScript('slides/jslib.js');
+writeScript('slides/state.js');
+writeScript('slides/state_util.js');
+writeScript('slides/slides.js');
 
-writeLink('lib/slides.css', 'stylesheet');
-writeLink('slides_style.css', 'stylesheet');
+writeLink('slides/slides.css', 'stylesheet');
+writeLink('slides/style.css', 'stylesheet');
 
-writeScript('slides_mathjax.js');
-writeScript('lib/firebase.js');
-writeScript('lib/canvas.js');
+writeScript('slides/mathjax.js');
+writeScript('slides/firebase.js');
+writeScript('slides/canvas.js');
 
 writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js');
 writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js');
