@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTML Slides Template</title>
+    <script src="slides/loader.js"></script>
+  </head>
+
+  <body onload="init()">
+    
+    <div id="bgpage" class="background">
+      <canvas id="canvas"></canvas>
+    </div>
+    
+    <div class="header">
+      <div id="follow" style="display:none">follow</div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div id="navigator" class="large"></div>
+    </div>
+
+    <div id="slides" class="slides">
+      <div class="slide title"
+           style="background-color:black; padding:5vw"
+           onshow="d0('navigator','footer');v0('bgpage')"
+           onhide="d1('navigator','footer');v1('bgpage')">
+        <div style="height: 15%"></div>
+        <h1 style="color:#ffa540">HTML Slides</h1>
+        <h1 style="color:#ffffff">Introduction and Template</h1>
+        <h1 style="color:#808080">Mesch</h1>
+
+        <h2 style="position:absolute; bottom:5%; padding-left:0.1vw; color:red">2021</h2>
+      </div>
+
+      <div class="slide build-focus-visible" group="intro">
+        <h1>Slides in HTML</h1>
+
+        <div>Write a slide set as an HTML document.</div>
+
+        <ul>
+          <li step="1">Each slide is one &lt;div> element.
+ 
+          <li step="2">State is encoded in URL.
+
+          <li step="3">Build steps.
+
+          <li step="4">IFrames are loaded only once a slide is shown.
+            
+          <li step="5">MathJax support for Math.
+
+          <li step="6">Interactive drawings on the slides.
+
+          <li step="7">Follow the presenter, including drawings, using #follow= URL parameter.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued" group="intro">
+        <h1>Slides in HTML</h1>
+
+        <div>How to use.</div>
+
+        <ul>
+          <li step="1">Copy this readme.html as template to your git repo.
+ 
+          <li step="2">Map the slides.git repo as a submodule at ./slides.
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued" group="intro">
+        <h1>Slides in HTML</h1>
+
+        <div>Special classes</div>
+
+        <ul>
+          <li step="1">slide
+ 
+          <li step="2">build-focus-visible
+ 
+          <li step="3">continued
+ 
+          <li step="4">slides
+ 
+          <li step="5">header
+ 
+          <li step="6">footer
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued" group="intro">
+        <h1>Slides in HTML</h1>
+
+        <div>Special elements</div>
+
+        <ul>
+          <li step="1">navigator
+ 
+          <li step="2">slides
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued" group="intro">
+        <h1>Slides in HTML</h1>
+
+        <div>Special attributes</div>
+
+        <ul>
+          <li step="1">step
+ 
+          <li step="2">group
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued" group="intro">
+        <h1>Slides in HTML</h1>
+
+        <div>Special elements</div>
+
+        <ul>
+          <li step="1">pre
+ 
+          <li step="2">iframe
+        </ul>
+      </div>
+
+      <div class="slide build-focus-visible continued" group="intro">
+        <h1>Slides in HTML</h1>
+
+        <div>Keys</div>
+
+        <ul>
+          <li step="1">N
+ 
+          <li step="2">1
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
