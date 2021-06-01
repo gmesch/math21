@@ -7,26 +7,30 @@ function writeLink(url, rel) {
   document.write('<link href="' + url + '" rel="' + rel + '">');
 }
 
-writeScript('slides/jslib.js');
-writeScript('slides/state.js');
-writeScript('slides/state_util.js');
-writeScript('slides/slides.js');
+const scripts = document.getElementsByTagName('script');
+const thisScript = scripts[scripts.length - 1];
+const base = thisScript.getAttribute('src').replace('loader.js', '');
 
-writeLink('slides/slides.css', 'stylesheet');
-writeLink('slides/style.css', 'stylesheet');
+writeScript(base + 'jslib.js');
+writeScript(base + 'state.js');
+writeScript(base + 'state_util.js');
+writeScript(base + 'slides.js');
 
-writeScript('slides/mathjax.js');
-writeScript('slides/firebase.js');
-writeScript('slides/canvas.js');
+writeLink(base + 'slides.css', 'stylesheet');
+writeLink(base + 'style.css', 'stylesheet');
+
+writeScript(base + 'mathjax.js');
+writeScript(base + 'firebase.js');
+writeScript(base + 'canvas.js');
 
 writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js');
 writeScript('https://www.gstatic.com/firebasejs/8.3.1/firebase-messaging.js');
 
 if (document.location.protocol == 'file:' &&
     document.location.search.indexOf('force-cdn') == -1) {
-  writeScript('slides/vnd/prettify/run_prettify.js?autorun=false&lang=scm', {async: true});
-  writeScript('slides/vnd/mathjax/es5/tex-mml-chtml.js', {async: true});
-  writeLink('slides/vnd/fonts/fonts.css', 'stylesheet');
+  writeScript(base + 'vnd/prettify/run_prettify.js?autorun=false&lang=scm', {async: true});
+  writeScript(base + 'vnd/mathjax/es5/tex-mml-chtml.js', {async: true});
+  writeLink(base + 'vnd/fonts/fonts.css', 'stylesheet');
 
 } else {
   writeScript('https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autorun=false&lang=scm',
