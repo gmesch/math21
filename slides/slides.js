@@ -3,6 +3,10 @@
  * up the Slides instance, and a few more helper functions used by Slides.  
  */
 
+function showEvent(event) {
+    $('log').innerHTML = event.type;
+}
+
 function initslides() {
   const navElement = $('navigator');
   const slidesElement = $('slides');
@@ -24,28 +28,49 @@ function initslides() {
 
   let touchStartX = -1;
   let touchStartY = -1;
-  window.document.body.addEventListener('touchstart', function(event) {
-    touchStartX = event.touches[0].screenX;
-    touchStartY = event.touches[0].screenY;
+  const touchTarget = $('slides');    
+  touchTarget.addEventListener('touchstart', function(event) {
+    if (event.changedTouches.length < 1) {
+      return;
+    }
+
+    if (event.touches.length > 1) {
+      touchStartX = -1;
+      touchStartY = -1;
+      return;
+    }
+    
+    touchStartX = event.changedTouches[0].screenX;
+    touchStartY = event.changedTouches[0].screenY;
   });
 
-  window.document.body.addEventListener('touchend', function(event) {
-    const deltaX = event.touches[0].screenX - touchStartX;
-    const deltaY = event.touches[0].screenY - touchStartY;
-
-    // NOTE(mesch): Doesn't work.
+  touchTarget.addEventListener('touchend', function(event) {
+    if (event.touches.length > 1) {
+      touchStartX = -1;
+      touchStartY = -1;
+      return;
+    }
     
-    if (deltaX > 100 && Math.abs(deltaY) < 100) {
+    if (event.changedTouches.length < 1 ||
+        touchStartX == -1 || touchStartY == -1) {
+      return;
+    }
+    
+    const deltaX = event.changedTouches[0].screenX - touchStartX;
+    const deltaY = event.changedTouches[0].screenY - touchStartY;
+
+    const delta = 200;    
+    if (deltaX > delta && Math.abs(deltaY) < delta) {
+      slides.backSlide();
+
+    } else if (deltaX < -delta && Math.abs(deltaY) < delta) {
+      slides.nextSlide();
+
+    } else if (deltaY > delta && Math.abs(deltaX) < delta) {
       slides.nextStep();
 
-    } else if (deltaX < -100 && Math.abs(deltaY) < 100) {
+    } else if (deltaY < -delta && Math.abs(deltaX) < delta) {
       slides.backStep();
-
-    } else if (deltaY > 100 && Math.abs(deltaX) < 100) {
-      slides.backStep();
-
-    } else if (deltaY < -100 && Math.abs(deltaX) < 100) {
-      slides.nextStep();
     }
 
     touchStartX = -1;
