@@ -1,18 +1,18 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-    color: black;
-    background-color: white;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    font-size: 2.4vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  color: black;
+  background-color: white;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.4vw;
 }
 
 H1, H2, H3, H4, H5, H6 {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .header { 
@@ -23,11 +23,11 @@ H1, H2, H3, H4, H5, H6 {
 }
 
 .header #follow {
-    position: absolute;
-    top: 0.1em;
-    right: 0.3em;
-    font-size: 1.2vw;
-    cursor: pointer;
+  position: absolute;
+  top: 0.1em;
+  right: 0.3em;
+  font-size: 1.2vw;
+  cursor: pointer;
 }
 
 #navigator div {
@@ -58,123 +58,124 @@ H1, H2, H3, H4, H5, H6 {
 }
 
 #bgpage {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    border: 1px solid red;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  border: 1px solid red;
 }
 
 #canvas {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .slides {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
 }
 
 .slides .slide { 
-    display: none;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .slide H1 {
-    font-size: 150%;
-    font-weight: normal;
-    
-    text-align: left;
-
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0.5em;
-
-    padding: 0.5vw;
-    padding-left: 0.8vw;
-    width: 100%;
-
-    background-color: #f8f8f8;
-    border-bottom:2px solid orange;
+  font-size: 150%;
+  font-weight: normal;
+  
+  text-align: left;
+  
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0.5em;
+  
+  padding: 0.5vw;
+  padding-left: 0.8vw;
+  width: 100%;
+  
+  background-color: #f8f8f8;
+  border-bottom:2px solid orange;
 }
 
 .slide.title {
-    background-color: black;
+  background-color: black;
 }
 
 .slide.title H1 {
-    text-align: left;
-
-    margin: 0;
-    padding: 0;
-    width: 100%;
-
-    background-color: inherit;
-    border-bottom: none;
-    border: 0;
+  text-align: left;
+  
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  
+  background-color: inherit;
+  border-bottom: none;
+  border: 0;
 }
 
 .slide.continued H1 {
-    font-weight: lighter;
+  font-weight: lighter;
 }
 
 .slide.continued H1::after {
-    font-size: 80%;
-    color: silver;
-    content: "(continued)";
-    position: absolute;
-    right: 0;
-    padding-right: 0.3em;
+  font-size: 80%;
+  color: silver;
+  content: "(continued)";
+  position: absolute;
+  right: 0;
+  padding-right: 0.3em;
 }
 
 .slide.fit {
-    text-allign: center;
-    vertical-align: center;
-    font-size: 25.5vw;
+  text-allign: center;
+  vertical-align: center;
+  font-size: 25.5vw;
 }
 
 .slides.display-notes .slide .notes {
-    display: block;
+  display: block;
 }
 
 .slide .notes {
-    display: none;
-    position: fixed;
-    width: 50%;
-    right: 0.8vw;
-    bottom: 0.8vw;
-    padding: 0.3vw;
-    background-color: #ffffe0;
-    color: #505050;
-    border: 1px solid silver;
-    filter: 'opacity(20%)'
+  display: none;
+  position: fixed;
+  width: 50%;
+  right: 0.8vw;
+  bottom: 0.8vw;
+  padding: 0.3vw;
+  background-color: #ffffe0;
+  color: #505050;
+  border: 1px solid silver;
+  filter: 'opacity(20%)'
 }
 
 .slide H2 { 
-    font-size: 110%;
-    font-weight: bold;
+  font-size: 110%;
+  font-weight: bold;
 }
 
 .slide LI {
-    margin-bottom: 0.5em;
-    line-height: 1.3em;
-    padding-right: 8px;
+  margin-bottom: 0.5em;
+  line-height: 1.3em;
+  padding-right: 0.3em;
 }
 
 .slide > DIV, .slide P { 
-    margin-bottom: 0.8em;
-    line-height: 1.3em;
-    padding-left: 0.8vw;
-    padding-right: 0.4vw;
+  margin-bottom: 0.8em;
+  line-height: 1.3em;
+  padding-left: 0.8vw;
+  padding-right: 0.4vw;
 }
 
 .slide UL LI { 
@@ -198,6 +199,7 @@ H1, H2, H3, H4, H5, H6 {
 
 .slide UL, .slide OL { 
   margin-top: 0.3em;
+  padding-inline-start: 2em;
 }
 
 .slide > DIV { 
@@ -252,6 +254,16 @@ H1, H2, H3, H4, H5, H6 {
   text-align: center;
 }
 
+#log {
+  position: absolute;
+  z-index: 200;
+  font-size: 30px;
+  top: 3px;
+  width: 300px;
+  color: gray;
+  background-color: white;
+}
+
 .footer {
   position: absolute;
   bottom: 3px;
@@ -274,18 +286,18 @@ H1, H2, H3, H4, H5, H6 {
 }
 
 .slide.banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide.banner > DIV, .slide.banner > H1, .slide.banner > UL { 
-    border: 1px solid silver;
-    width: 80%;
-    font-size: 130%;
-    text-align: center;
-    padding: 0.5em;
+  border: 1px solid silver;
+  width: 80%;
+  font-size: 130%;
+  text-align: center;
+  padding: 0.5em;
 }
 
 /* Code snippets. */
@@ -319,19 +331,19 @@ div.snippet > div.label {
 /* Tables on slides. */
 
 .slide table.data-table {
- width: 80%;
- border: 1px solid silver;
- padding: 1em;
- border-collapse: collapse;
- margin: 2em;
+  width: 80%;
+  border: 1px solid silver;
+  padding: 1em;
+  border-collapse: collapse;
+  margin: 2em;
 }
 
 .slide table.data-table td, .slide table.data-table th {
- border: 1px solid silver;
+  border: 1px solid silver;
 }
 
 .slide table td, .slide table th {
- vertical-align: top;
+  vertical-align: top;
 }
 
 /* Layering follows -- set z-index only in the section below. */
